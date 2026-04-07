@@ -19,14 +19,14 @@ export default function Navbar() {
           <li><a href="#contacto">Contacto</a></li>
         </ul>
  
-        <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+        {/* <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
           <div className="nav-search">
             <span>🔍</span> Buscar servicios…
           </div>
           <button className="btn-member">
             → Acceso Socios
           </button>
-        </div>
+        </div> */}
       </nav>
     )
 };

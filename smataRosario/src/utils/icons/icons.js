@@ -2,3 +2,7 @@ export { FaHospital } from "react-icons/fa";
 export { FaPills } from "react-icons/fa";
 export { FaSkiing } from "react-icons/fa";
 export { FaBalanceScale } from "react-icons/fa";
+export { FaFacebookF } from "react-icons/fa";
+export { FaTwitter } from "react-icons/fa";
+export { FaInstagram } from "react-icons/fa";
+export { FaArrowRight } from "react-icons/fa";

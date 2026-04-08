@@ -6,3 +6,7 @@ export { FaFacebookF } from "react-icons/fa";
 export { FaTwitter } from "react-icons/fa";
 export { FaInstagram } from "react-icons/fa";
 export { FaArrowRight } from "react-icons/fa";
+export { FaHotel } from "react-icons/fa";
+export { FaBook } from "react-icons/fa";
+export { FaWhatsapp } from "react-icons/fa";
+export { FaCheck } from "react-icons/fa";

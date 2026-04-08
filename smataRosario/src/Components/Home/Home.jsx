@@ -59,7 +59,7 @@
     
         {/* ── HERO ── */}
         <section className="hero" id="inicio">
-            <div className="hero-bg" />
+            <div className="home-bg" />
             <div className="hero-content">
             <div className="hero-badge">✦ Nuevos beneficios disponibles</div>
             <h1 className="hero-title">

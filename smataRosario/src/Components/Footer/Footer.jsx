@@ -1,5 +1,5 @@
 import './Footer.css'
-import { FaFacebookF, FaTwitter, FaInstagram } from '../../utils/icons/icons';
+import { FaFacebookF, FaTwitter, FaInstagram, FaWhatsapp } from '../../utils/icons/icons';
 
 export default function Footer() {
     return(
@@ -64,7 +64,7 @@ export default function Footer() {
             <p>© 2023 SMATA Seccional Rosario. Todos los derechos reservados.</p>
             <div className="social-links">
                 <a href="#"><FaFacebookF /></a>
-                <a href="#"><FaTwitter /></a>
+                <a href="#"><FaWhatsapp /></a>
                 <a href="#"><FaInstagram /></a>
             </div>
             </div>

@@ -10,3 +10,4 @@ export { FaHotel } from "react-icons/fa";
 export { FaBook } from "react-icons/fa";
 export { FaWhatsapp } from "react-icons/fa";
 export { FaCheck } from "react-icons/fa";
+export { FaCompass } from "react-icons/fa";

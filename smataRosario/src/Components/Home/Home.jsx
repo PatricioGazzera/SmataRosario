@@ -72,8 +72,8 @@
                 protección legal colectiva.
             </p>
             <div className="hero-btns">
-                <button className="btn-primary">Afiliarse a SMATA</button>
-                <button className="btn-outline">Ver Beneficios de Socio</button>
+                <a className="btn-primary" href='#afiliarse'>Afiliarse a SMATA</a>
+                <a className="btn-outline" href='#beneficios'>Ver Beneficios de Socio</a>
             </div>
             </div>
         </section>
@@ -136,7 +136,7 @@
         </section>
     
         {/* ── CTA ── */}
-        <section className="cta">
+        <section className="cta" id='afiliarse'>
             <div className="cta-box">
             <div className="cta-content">
                 <h2>

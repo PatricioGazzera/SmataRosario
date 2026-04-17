@@ -52,17 +52,15 @@
         <>
     
         {/* ── INICIO ── */}
-        <section className="hero" id="inicio">
-            <div className="home-bg" />
+        <section className="hero-beneficts" id="inicio">
+            <div className="beneficts-hero-bg" />
             <div className="hero-content">
             <h1 className="hero-title">
-                Fuerza y <span className="accent">Unidad</span>{' '}
+                <span className="accent">Beneficios</span>{' '}
                 para el Trabajador
             </h1>
             <p className="hero-sub">
-                Redefiniendo el apoyo sindical para el profesional automotriz moderno
-                en Rosario. Accedé a servicios de salud premium, turismo exclusivo y
-                protección legal colectiva.
+                Explora los beneficios exclusivos que tenemos para vos.
             </p>
             <div className="hero-btns">
                 <button className="btn-primary"> Ver Beneficios</button>
@@ -70,7 +68,7 @@
             </div>
         </section>
     
-        {/* ── SERVICES ── */}
+        {/* ── BENEFICTS ── */}
         <section className="services" id="beneficios">
             <div className="section-header">
             <div>
@@ -79,24 +77,24 @@
             </div>
             </div>
     
-            <div className="services-grid">
+            <div className="beneficts-grid">
                 {beneficts.map((benefict) => (
-                <div className="service-card" key={benefict.title}>
+                <div className="beneficts-card" key={benefict.title}>
                     
                     {/* Imagen de fondo */}
                     <div
-                        className="service-bg"
+                        className="beneficts-bg"
                         style={{ backgroundImage: `url(${benefict.image})` }}
                     ></div>
 
                     {/* Overlay para mejorar legibilidad */}
-                    <div className="service-overlay"></div>
+                    <div className="beneficts-overlay"></div>
 
                     {/* Contenido */}
-                    <div className="service-content">
+                    <div className="beneficts-content">
                         <h3>{benefict.title}</h3>
                         <p>{benefict.desc}</p>
-                        <a href="#" className="service-link">
+                        <a href="#" className="beneficts-link">
                         {benefict.link} →
                         </a>
                     </div>
@@ -106,28 +104,21 @@
         </section>
     
         {/* ── CTA ── */}
-        <section className="cta">
-            <div className="cta-box">
-            <div className="cta-content">
+        <section className="contact">
+            <div className="contact-box">
+            <div className="contact-content">
                 <h2>
-                Formá Parte de<br />
-                Nuestra Comunidad
+                ¿No encontrás lo que buscás?
                 </h2>
                 <p>
                 Sumáte a más de 10.000 trabajadores de Rosario que confían en
                 SMATA para su seguridad laboral y bienestar familiar.
                 </p>
-                <div className="cta-btns">
-                <button className="btn-white">
-                    ↓ Solicitar Afiliación
-                </button>
-                <button className="btn-white-outline">
-                    Preguntas Frecuentes
+                <div className="contact-btns">
+                <button className="contact-btn-white">
+                    Contactanos
                 </button>
                 </div>
-            </div>
-            <div className="cta-illustration">
-                <img src={asociateImg} alt="Asociate" className='asociate-img' />
             </div>
             </div>
         </section>

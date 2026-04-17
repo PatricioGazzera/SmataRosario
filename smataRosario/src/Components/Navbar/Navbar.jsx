@@ -16,7 +16,7 @@ export default function Navbar() {
           <li><Link to="/">Inicio</Link></li>
           <li><Link to="/mutual">Mutual</Link></li>
           <li><Link to="/beneficios">Beneficios</Link></li>
-          <li><a href="#salud">Prestadores</a></li>
+          <li><Link to="/prestadores">Prestadores</Link></li>
           <li><a href="#turismo">Turismo</a></li>
           <li><a href="#noticias">Noticias</a></li>
           <li><a href="#contacto">Contacto</a></li>

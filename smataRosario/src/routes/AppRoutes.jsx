@@ -8,6 +8,7 @@ import Mutual from '../Components/Mutual/Mutual';
 import Beneficts from '../Components/Beneficts/Beneficts';
 import Prestadores from '../Components/Prestadores/Prestadores';
 import Autoridades from '../Components/Autoridades/Autoridades';
+import Camping from '../Components/Camping/Camping';
 
 export default function AppRoutes() {
     return (
@@ -17,6 +18,7 @@ export default function AppRoutes() {
             <Route path='/beneficios' element={<Beneficts/>}/>
             <Route path='/prestadores' element={<Prestadores/>}/>
             <Route path='/autoridades' element={<Autoridades/>}/>
+            <Route path='/camping' element={<Camping />} />
         </Routes>
     )
 }

@@ -48,7 +48,7 @@
         rgba(10,20,10,0.7) 45%,
         rgba(10,20,10,0.3) 100%
     ),
-    url('../../utils/images/beneficios.png')
+    url('../../utils/images/beneficios.png') center/cover no-repeat
     }
     
     .hero-badge {
@@ -146,7 +146,11 @@
     font-family: 'Barlow', sans-serif;
     cursor: pointer;
     transition: all 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
     }
+
     .btn-outline:hover {
     border-color: var(--green);
     color: var(--green);
@@ -167,21 +171,33 @@
     }
     
     .informacion-card {
-    background: #F8FAFC;
-    border: 1px solid #e8e8e8;
-    border-radius: 14px;
-    overflow: hidden;
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 2rem 1.5rem;
+    transition: all 0.3s;
     cursor: pointer;
-    transition: box-shadow 0.25s, transform 0.25s;
     display: flex;
     flex-direction: column;
-    padding: 20px;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    }
+
+    .informacion-card:hover {
+    border-color: var(--green);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(34,197,94,0.12);
     }
     
-    .informacion-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.10);
-    border-color: #d0d0d0;
+    .informacion-icon {
+    width: 40px; height: 40px;
+    background: rgba(34,197,94,0.1);
+    color: var(--green);
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.2rem;
+    margin-bottom: 1.2rem;
     }
     
     .informacion-card:hover .service-bg {
@@ -316,6 +332,7 @@
     cursor: pointer;
     display: flex; align-items: center; gap: 0.4rem;
     transition: all 0.2s;
+    text-decoration: none;
     }
     
     .contact-btn-white:hover {

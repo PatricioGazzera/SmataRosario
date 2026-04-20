@@ -1,5 +1,6 @@
 import './Footer.css'
 import { FaFacebookF, FaTwitter, FaInstagram, FaWhatsapp } from '../../utils/icons/icons';
+import { Link } from "react-router-dom";
 
 export default function Footer() {
     return(
@@ -15,10 +16,10 @@ export default function Footer() {
                 </a>
                 <p>
                 Dedicados a la defensa de los derechos de los trabajadores automotrices y
-                la mejora continua de los beneficios sociales y de salud desde 1949.
+                la mejora continua de los beneficios sociales y de salud desde 1945.
                 </p>
                 <div className="footer-contact">
-                <a href="#">📍 Santa Fe 1234, Rosario, SF</a>
+                <a href="#">📍 Gorriti 1046, Rosario, SF</a>
                 <a href="#">📞 +54 341-456-7890</a>
                 </div>
             </div>
@@ -28,7 +29,7 @@ export default function Footer() {
                 <h4>Navegación</h4>
                 <ul>
                 <li><a href="#">Sobre SMATA</a></li>
-                <li><a href="#">Portal Institucional</a></li>
+                <li><Link to="/autoridades">Autoridades</Link></li>
                 <li><a href="#">Transparencia</a></li>
                 <li><a href="#">Trabajá con Nosotros</a></li>
                 </ul>
@@ -38,8 +39,8 @@ export default function Footer() {
             <div className="footer-col">
                 <h4>Servicios</h4>
                 <ul>
-                <li><a href="#">OSMATA Salud</a></li>
-                <li><a href="#">Beneficios Sociales</a></li>
+                <li><Link to="/prestadores">OSMATA Salud</Link></li>
+                <li><Link to="/beneficios">Beneficios Sociales</Link></li>
                 <li><a href="#">Turismo Sindical</a></li>
                 <li><a href="#">Asesoría Legal</a></li>
                 </ul>
@@ -61,10 +62,14 @@ export default function Footer() {
             </div>
     
             <div className="footer-bottom">
-            <p>© 2023 SMATA Seccional Rosario. Todos los derechos reservados.</p>
+            <p>© 2026 SMATA Seccional Rosario. Todos los derechos reservados.</p>
             <div className="social-links">
                 <a href="#"><FaFacebookF /></a>
-                <a href="#"><FaWhatsapp /></a>
+                <a href='https://wa.me/5493416186835?text=Hola%20quiero%20hacer%20una%20consulta'
+                target='_blank'
+                rel='noopener norefferer'>
+                    <FaWhatsapp />
+                </a>
                 <a href="#"><FaInstagram /></a>
             </div>
             </div>

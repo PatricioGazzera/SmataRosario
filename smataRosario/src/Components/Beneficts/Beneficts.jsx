@@ -63,7 +63,8 @@
                 Explora los beneficios exclusivos que tenemos para vos.
             </p>
             <div className="hero-btns">
-                <button className="btn-primary"> Ver Beneficios</button>
+                <a href='#beneficios' className="btn-primary"> Ver Beneficios</a>
+                <a href='#contact-section' className='btn-outline'>Contacto</a>
             </div>
             </div>
         </section>
@@ -104,7 +105,7 @@
         </section>
     
         {/* ── CTA ── */}
-        <section className="contact">
+        <section className="contact" id='contact-section'>
             <div className="contact-box">
             <div className="contact-content">
                 <h2>

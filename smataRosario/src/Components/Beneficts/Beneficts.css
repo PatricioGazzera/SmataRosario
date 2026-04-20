@@ -48,7 +48,7 @@
         rgba(10,20,10,0.7) 45%,
         rgba(10,20,10,0.3) 100%
     ),
-    url('../../utils/images/beneficios.png')
+    url('../../utils/images/beneficios.png') center/cover no-repeat;
     }
     
     .hero-badge {
@@ -275,7 +275,7 @@
     /* ── contact SECTION ── */
     .contact {
     padding: 4rem 2.5rem;
-    background: #f0faf0;
+    background: #fff;
     }
     
     .contact-box {
@@ -326,9 +326,10 @@
     }
     
     .contact-content p {
-    font-size: 0.95rem;
+    font-size: 18px;
+    font-weight: bold;
     color: rgba(255,255,255,0.85);
-    max-width: 400px;
+    margin: 0 auto 1.8rem auto;
     line-height: 1.7;
     margin-bottom: 1.8rem;
     }

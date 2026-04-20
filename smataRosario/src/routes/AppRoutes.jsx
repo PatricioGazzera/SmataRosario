@@ -7,6 +7,7 @@ import Home from '../Components/Home/Home';
 import Mutual from '../Components/Mutual/Mutual';
 import Beneficts from '../Components/Beneficts/Beneficts';
 import Prestadores from '../Components/Prestadores/Prestadores';
+import Autoridades from '../Components/Autoridades/Autoridades';
 
 export default function AppRoutes() {
     return (
@@ -15,6 +16,7 @@ export default function AppRoutes() {
             <Route path='/mutual' element={<Mutual />} />
             <Route path='/beneficios' element={<Beneficts/>}/>
             <Route path='/prestadores' element={<Prestadores/>}/>
+            <Route path='/autoridades' element={<Autoridades/>}/>
         </Routes>
     )
 }

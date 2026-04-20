@@ -11,3 +11,7 @@ export { FaBook } from "react-icons/fa";
 export { FaWhatsapp } from "react-icons/fa";
 export { FaCheck } from "react-icons/fa";
 export { FaCompass } from "react-icons/fa";
+export { FaLocationDot } from "react-icons/fa6";
+export { FaHeadset } from "react-icons/fa";
+export { FaArrowsRotate } from "react-icons/fa6";
+export { FaArrowUpRightFromSquare } from "react-icons/fa6";

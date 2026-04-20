@@ -1,6 +1,7 @@
 import './Footer.css'
 import { FaFacebookF, FaTwitter, FaInstagram, FaWhatsapp } from '../../utils/icons/icons';
 import { Link } from "react-router-dom";
+import logo from '../../utils/images/logo.png';
 
 export default function Footer() {
     return(
@@ -8,7 +9,9 @@ export default function Footer() {
             <div className="footer-grid">
             <div className="footer-brand">
                 <a href="#inicio" className="navbar-brand" style={{ marginBottom: '0.5rem', display: 'inline-flex' }}>
-                <div className="brand-icon">S</div>
+                <div className="brand-icon">
+                    <img src={logo} alt='SMATA Rosario'/>
+                </div>
                 <div className="brand-text">
                     SMATA ROSARIO
                     <span>SINDICATO DE MECÁNICOS</span>

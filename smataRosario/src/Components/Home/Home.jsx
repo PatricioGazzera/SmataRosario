@@ -61,7 +61,7 @@
         <section className="hero" id="inicio">
             <div className="home-bg" />
             <div className="hero-content">
-            <div className="hero-badge">✦ Nuevos beneficios disponibles</div>
+            <div className="hero-badge">Nuevos beneficios disponibles</div>
             <h1 className="hero-title">
                 Fuerza y <span className="accent">Unidad</span>{' '}
                 para el Trabajador

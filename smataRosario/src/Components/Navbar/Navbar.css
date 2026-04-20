@@ -27,29 +27,25 @@ main {
     text-decoration: none;
     }
     
-    .brand-icon {
-    width: 32px; height: 32px;
-    background: var(--green);
-    border-radius: 6px;
-    display: flex; align-items: center; justify-content: center;
-    font-family: 'Barlow Condensed', sans-serif;
-    font-weight: 800;
-    font-size: 0.85rem;
-    color: #fff;
-    letter-spacing: 0.5px;
+    .brand-icon img {
+    height: 40px;   /* probá 30px, 35px, 45px según cómo lo quieras */
+    width: auto;
+    object-fit: contain;
+    margin-top: 10px;
     }
     
     .brand-text {
     font-family: 'Barlow Condensed', sans-serif;
     font-weight: 700;
-    font-size: 1rem;
+    font-size: 1.3rem;
     color: #fff;
     letter-spacing: 1px;
     line-height: 1.1;
     }
+
     .brand-text span {
     display: block;
-    font-size: 0.65rem;
+    font-size: 0.9rem;
     font-weight: 400;
     color: var(--text-muted);
     letter-spacing: 1.5px;

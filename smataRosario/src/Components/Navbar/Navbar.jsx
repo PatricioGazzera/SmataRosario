@@ -1,11 +1,14 @@
 import './Navbar.css'
 import { Link } from 'react-router-dom'
+import logo from '../../utils/images/logo.png';
 
 export default function Navbar() {
     return(
         <nav className="navbar">
         <Link to="/" className="navbar-brand">
-          <div className="brand-icon">S</div>
+          <div className="brand-icon">
+            <img src={logo} alt='SMATA Rosario'/>
+          </div>
           <div className="brand-text">
             SMATA ROSARIO
             <span>SINDICATO DE MECÁNICOS</span>

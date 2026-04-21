@@ -21,6 +21,7 @@ export default function Navbar() {
           <li><Link to="/beneficios">Beneficios</Link></li>
           <li><Link to="/prestadores">Prestadores</Link></li>
           <li><a href="#turismo">Turismo</a></li>
+          <li><Link to="/camping">Complejos</Link></li>
           <li><a href="#noticias">Noticias</a></li>
           <li><a href="#contacto">Contacto</a></li>
         </ul>

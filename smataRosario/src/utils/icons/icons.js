@@ -27,3 +27,6 @@ export { FaClock } from "react-icons/fa";
 export { FaGamepad } from "react-icons/fa";
 export { FaSun } from "react-icons/fa";
 export { FaShapes } from "react-icons/fa";
+export { FaImages } from "react-icons/fa";
+export { FaEnvelope } from "react-icons/fa";
+export { FaPhone } from "react-icons/fa";

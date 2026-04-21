@@ -33,7 +33,9 @@ const informacion = [
                 <span className="accent">Osmata</span>{' '}
             </h1>
             <p className="hero-sub">
-                Explora los beneficios exclusivos que tenemos para vos.
+                Accedé de forma directa al listado completo, actualizado y detallado
+                de todos nuestros centros médicos, especialisas y farmacias de la red SMATA
+                a través de nuestra plataforma externa de gestión prestacional.
             </p>
             <div className="hero-btns">
                 <a className="btn-primary" href='#centro-medico'>Centro Médico</a>

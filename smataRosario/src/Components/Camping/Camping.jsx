@@ -1,4 +1,7 @@
 import './Camping.css'
+import campingImg from '../../utils/images/Camping/camping.png'
+import arroyoImg from '../../utils/images/Arroyo/arroyo5.webp'
+import { useNavigate } from 'react-router-dom'
 import {
   FaPersonSwimming,
   FaFutbol,
@@ -33,9 +36,9 @@ const MapIcon = () => (
 const campgrounds = [
   {
     id: 1,
-    name: 'Camping Recreativo SMATA Rosario',
-    location: 'Punta Lara, Rosario, Santa Fe',
-    image: 'https://images.unsplash.com/photo-1575550959106-5a7defe28b56?w=640&q=80',
+    name: 'Camping Ibarlucea SMATA',
+    location: 'Av. de los Incas, Ibarlucea, Santa Fe',
+    image: campingImg,
     amenities: [
         { icon: FaPersonSwimming, label: 'Pileta' },
         { icon: FaFutbol, label: 'Campo de Deporte' },
@@ -47,26 +50,32 @@ const campgrounds = [
         { icon: FaShapes, label: 'Juegos al Aire Libre' }
     ],
     activities: 'Football tournaments every weekend. Family Days on Sundays, and summer camp for children.',
-    hours: 'Tue-Sun: 08:00 - 20:00.',
+    hours: 'Martes-Domingo 10hs. a 22hs.',
+    ubication: 'https://maps.app.goo.gl/dMNAtUmSpkDEL29u6',
   },
   {
     id: 2,
-    name: "Centro Recreativo 'La Victoria'",
-    location: 'Ruta 11, Victoria, Entre Ríos',
-    image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=640&q=80',
+    name: "Camping Arroyo Seco 'Hugo Marcelo Barros'",
+    location: 'Jorge Newbery 362, S2128 Arroyo Seco, Santa Fe',
+    image: arroyoImg,
     amenities: [
-        { icon: FaSun, label: 'Solarium' },
-        { icon: FaUtensils, label: 'Canteen' },
+        { icon: FaPersonSwimming, label: 'Pileta' },
+        { icon: FaFutbol, label: 'Campo de Deporte' },
+        { icon: FaFire, label: 'Parrilleros' },
         { icon: FaShapes, label: 'Juegos al Aire Libre' },
-        { icon: FaSquareParking, label: 'Parking' },
+        { icon: FaToilet, label: 'Vestuarios' },
+        { icon: FaSquareParking, label: 'Estacionamiento' },
+        { icon: FaUtensils, label: 'Buffet' },
     ],
     activities: "Monthly events and family activities.",
-    hours: 'Weekends: 09:00 - 21:00.',
+    hours: 'Martes-Domingo 10hs. a 22hs.',
+    ubication: 'https://maps.app.goo.gl/UUHanhKEK66jX3iU7',
   },
 ]
 
 // ── Card ──
 function CampCard({ camp }) {
+    const navigate = useNavigate();
   return (
     <article className="camp-card">
 
@@ -134,12 +143,19 @@ function CampCard({ camp }) {
         </div>
 
         <div className="camp-actions">
-          <button className="info-btn">Más Detalles</button>
+            <button className="info-btn" onClick={()=> navigate(`/camping/${camp.id}`)}>
+            Más Detalles
+            </button>
 
-          <button className="ubication-button">
+          <a 
+            href={camp.ubication}
+            className="ubication-button"
+            target='_blank'
+            rel='noreferrer'
+          >
             <MapIcon />
             Cómo llegar
-          </button>
+          </a>
         </div>
 
       </div>

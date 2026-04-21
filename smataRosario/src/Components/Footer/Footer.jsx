@@ -67,13 +67,21 @@ export default function Footer() {
             <div className="footer-bottom">
             <p>© 2026 SMATA Seccional Rosario. Todos los derechos reservados.</p>
             <div className="social-links">
-                <a href="#"><FaFacebookF /></a>
+                <a href='https://www.facebook.com/SMATASeccRosario/'
+                target='_blank'
+                rel='noopener norefferer'>
+                    <FaFacebookF />
+                </a>
                 <a href='https://wa.me/5493416186835?text=Hola%20quiero%20hacer%20una%20consulta'
                 target='_blank'
                 rel='noopener norefferer'>
                     <FaWhatsapp />
                 </a>
-                <a href="#"><FaInstagram /></a>
+                <a href='https://www.facebook.com/SMATASeccRosario/'
+                target='_blank'
+                rel='noopener norefferer'>
+                    <FaInstagram />
+                </a>
             </div>
             </div>
         </footer>

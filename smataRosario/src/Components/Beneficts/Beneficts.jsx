@@ -1,4 +1,5 @@
     import './Beneficts.css';
+    import { Link } from 'react-router-dom';
     import { FaCompass } from '../../utils/icons/icons';
     import asociateImg from '../../utils/images/asociate.jpeg';
     import farmaciaImg from '../../utils/images/farmacia.jpg';
@@ -6,13 +7,14 @@
     import mochilasImg from '../../utils/images/mochilas.png';
     import juezImg from '../../utils/images/juez.png';
     import turismoImg from '../../utils/images/turismo.jpg';
-    import campingImg from '../../utils/images/camping.png';
+    import campingImg from '../../utils/images/Camping/camping.png';
 
     const beneficts = [
     {
         title: 'Salud y Medicina',
         desc: 'Accedé a servicios de salud de alta calidad, incluyendo consultas médicas, estudios clínicos y medicamentos gratuitos para nuestros afiliados.',
         link: 'Conocé Más',
+        route: '/prestadores',
         image: farmaciaImg,
     },
     {
@@ -43,6 +45,7 @@
         title: 'Complejos Recreativos',
         desc: 'Accedé a complejos recreativos exclusivos para afiliados, con actividades para toda la familia, desde piscinas hasta áreas de picnic y deportes al aire libre.',
         link: 'Conocé Más',
+        route: '/camping',
         image: campingImg,
     }
     ];
@@ -95,8 +98,16 @@
                     <div className="beneficts-content">
                         <h3>{benefict.title}</h3>
                         <p>{benefict.desc}</p>
-                        <a href="#" className="beneficts-link">
-                        {benefict.link} →
+                        <a href="#">
+                        {benefict.route ? (
+                            <Link to={benefict.route} className="beneficts-link" key={benefict.title}>
+                                {benefict.link} →
+                            </Link>
+                        ) : (
+                            <span className="beneficts-link" key={benefict.title}>
+                                {benefict.link} →
+                            </span>
+                        )}
                         </a>
                     </div>
                 </div>

@@ -1,5 +1,5 @@
 import './Footer.css'
-import { FaFacebookF, FaTwitter, FaInstagram, FaWhatsapp } from '../../utils/icons/icons';
+import { FaFacebookF, FaTwitter, FaInstagram, FaWhatsapp, FaLocationDot, FaPhone } from '../../utils/icons/icons';
 import { Link } from "react-router-dom";
 import logo from '../../utils/images/logo.png';
 
@@ -22,8 +22,14 @@ export default function Footer() {
                 la mejora continua de los beneficios sociales y de salud desde 1945.
                 </p>
                 <div className="footer-contact">
-                <a href="#">📍 Gorriti 1046, Rosario, SF</a>
-                <a href="#">📞 +54 341-456-7890</a>
+                <a
+                    href="https://maps.app.goo.gl/hYoDCuSGh9d3n3vi7"
+                    target='_blank'
+                    rel='noreferrer'
+                >
+                    <FaLocationDot /> Gorriti 1046, Rosario, SF
+                </a>
+                <a href="#"><FaPhone /> +54 341-456-7890</a>
                 </div>
             </div>
     
@@ -49,19 +55,39 @@ export default function Footer() {
                 </ul>
             </div>
     
-            {/* Newsletter
+            {/* Empresas */}
             <div className="footer-col">
-                <h4>Newsletter</h4>
-                <div className="newsletter-form">
-                <p>Suscribite para recibir actualizaciones y nuevos beneficios.</p>
-                <input
-                    type="email"
-                    className="newsletter-input"
-                    placeholder="Tu correo electrónico"
-                />
-                <button className="btn-subscribe">Suscribirse</button>
-                </div>
-            </div> */}
+                <h4>Empresas</h4>
+                <ul>
+                    <li>
+                        <a
+                            href="https://www.smata.com.ar/secretarias/Finanzas/Site_Finanzas/login.asp"
+                            target='_blank'
+                            rel="noreferrer"
+                        >
+                            Emisión de Boletas
+                        </a>
+                    </li>
+                    <li>
+                        <a 
+                            href='https://www.smata.com.ar/convenios-y-escalas/'
+                            target='_blank'
+                            rel="noreferrer"
+                        >
+                            Escalas Salariales
+                        </a>
+                    </li>
+                    <li>
+                        <a
+                            href="https://wa.me/5493416655032?text=Hola%20quiero%20hacer%20una%20consulta"
+                            target='_blank'
+                            rel="noreferrer"
+                        >
+                            Contacto Aportes
+                        </a>
+                    </li>
+                </ul>
+            </div>
             </div>
     
             <div className="footer-bottom">
@@ -72,7 +98,7 @@ export default function Footer() {
                 rel='noopener norefferer'>
                     <FaFacebookF />
                 </a>
-                <a href='https://wa.me/5493416186835?text=Hola%20quiero%20hacer%20una%20consulta'
+                <a href='https://wa.me/5493416655027?text=Hola%20quiero%20hacer%20una%20consulta'
                 target='_blank'
                 rel='noopener norefferer'>
                     <FaWhatsapp />

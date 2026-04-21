@@ -30,3 +30,4 @@ export { FaShapes } from "react-icons/fa";
 export { FaImages } from "react-icons/fa";
 export { FaEnvelope } from "react-icons/fa";
 export { FaPhone } from "react-icons/fa";
+export { FaFileArrowDown } from "react-icons/fa6";

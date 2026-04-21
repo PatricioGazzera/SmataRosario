@@ -502,7 +502,7 @@
   display: inline-flex;
   align-items: center;
   gap: 0.6rem;
-  background: #1a2e1a;
+  background: var(--green);
   color: #fff;
   border: none;
   border-radius: 8px;
@@ -515,16 +515,14 @@
   transition: background 0.2s, transform 0.15s;
 }
 .btn-download:hover {
-  background: #22c55e;
+  background: var(--bg-dark2);
   transform: translateY(-2px);
 }
  
 .btn-download svg {
   width: 16px;
   height: 16px;
-  stroke: currentColor;
-  fill: none;
-  stroke-width: 2;
+  color: #fff;
 }
  
 /* ── RIGHT COLUMN ── */
@@ -568,11 +566,9 @@
 }
  
 .atencion-icon svg {
-  width: 16px;
-  height: 16px;
-  stroke: #22c55e;
-  stroke-width: 2;
-  fill: none;
+  width: 18px;
+  height: 18px;
+  color: var(--green);
 }
  
 .atencion-text strong {
@@ -628,6 +624,101 @@
   fill: none;
   stroke-width: 1.5;
 }
+
+.dl-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dl-modal {
+  background: white;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 480px;
+  padding: 1.5rem;
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+.dl-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.25rem;
+}
+
+.dl-modal-header h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.dl-close {
+  background: none;
+  border: none;
+  font-size: 1.1rem;
+  cursor: pointer;
+  color: #666;
+  padding: 4px 8px;
+  border-radius: 6px;
+}
+
+.dl-close:hover { background: #f1f1f1; }
+
+.dl-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.dl-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.875rem 1rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  gap: 1rem;
+}
+
+.dl-item-name {
+  font-weight: 500;
+  font-size: 0.9rem;
+  margin: 0 0 2px;
+}
+
+.dl-item-desc {
+  font-size: 0.8rem;
+  color: #6b7280;
+  margin: 0;
+}
+
+.dl-item-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  background: #16a34a;
+  color: white;
+  border-radius: 6px;
+  font-size: 0.82rem;
+  font-weight: 500;
+  text-decoration: none;
+  white-space: nowrap;
+  flex-shrink: 0;
+  border: none;
+  cursor: pointer;
+}
+
+.dl-item-btn:hover { background: #15803d; }
  
 /* ── RESPONSIVE ── */
 @media (max-width: 700px) {

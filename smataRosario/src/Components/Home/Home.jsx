@@ -1,5 +1,5 @@
     import './Home.css';
-    import { FaHospital, FaPills, FaSkiing, FaBalanceScale } from '../../utils/icons/icons';
+    import { FaHospital, FaPills, FaSkiing, FaBalanceScale, FaWhatsapp } from '../../utils/icons/icons';
     import asociateImg from '../../utils/images/asociate.jpeg';
 
     const services = [
@@ -148,9 +148,14 @@
                 SMATA para su seguridad laboral y bienestar familiar.
                 </p>
                 <div className="cta-btns">
-                <button className="btn-white">
-                    ↓ Solicitar Afiliación
-                </button>
+                <a 
+                    href='https://wa.me/5493412555424?text=Hola%20quiero%20información%20para%20afiliarme.'
+                    target='_blank'
+                    rel='noopener norefferer'
+                    className="btn-white"
+                >
+                    <FaWhatsapp className='whatsapp-btn'/> Solicitar Afiliación
+                </a>
                 <button className="btn-white-outline">
                     Preguntas Frecuentes
                 </button>

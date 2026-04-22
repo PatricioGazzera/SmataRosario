@@ -39,7 +39,7 @@ export default function Footer() {
                 <ul>
                 <li><a href="#">Sobre SMATA</a></li>
                 <li><Link to="/autoridades">Autoridades</Link></li>
-                <li><a href="#">Transparencia</a></li>
+                <li><Link to="/contacto">Contacto</Link></li>
                 <li><a href="#">Trabajá con Nosotros</a></li>
                 </ul>
             </div>

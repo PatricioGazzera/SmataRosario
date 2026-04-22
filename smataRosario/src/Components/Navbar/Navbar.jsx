@@ -23,7 +23,7 @@ export default function Navbar() {
           <li><a href="#turismo">Turismo</a></li>
           <li><Link to="/camping">Complejos</Link></li>
           <li><a href="#noticias">Noticias</a></li>
-          <li><a href="#contacto">Contacto</a></li>
+          <li><Link to="/contacto">Contacto</Link></li>
         </ul>
  
         {/* <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>

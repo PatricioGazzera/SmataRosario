@@ -10,6 +10,7 @@ import Prestadores from '../Components/Prestadores/Prestadores';
 import Autoridades from '../Components/Autoridades/Autoridades';
 import Camping from '../Components/Camping/Camping';
 import CampingDetail from '../Components/CampingDetail/CampingDetail';
+import Contact from '../Components/Contact/Contact';
 
 export default function AppRoutes() {
     return (
@@ -21,6 +22,7 @@ export default function AppRoutes() {
             <Route path='/autoridades' element={<Autoridades/>}/>
             <Route path='/camping' element={<Camping />} />
             <Route path='/camping/:id' element={<CampingDetail/>}/>
+            <Route path='/contacto' element={<Contact />}/>
         </Routes>
     )
 }

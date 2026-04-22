@@ -22,7 +22,7 @@ export default function Navbar() {
           <li><Link to="/prestadores">Prestadores</Link></li>
           <li><a href="#turismo">Turismo</a></li>
           <li><Link to="/camping">Complejos</Link></li>
-          <li><a href="#noticias">Noticias</a></li>
+          <li><Link to="/noticias">Noticias</Link></li>
           <li><Link to="/contacto">Contacto</Link></li>
         </ul>
  

@@ -1,7 +1,6 @@
     import './Beneficts.css';
     import { Link } from 'react-router-dom';
     import { FaCompass } from '../../utils/icons/icons';
-    import asociateImg from '../../utils/images/asociate.jpeg';
     import farmaciaImg from '../../utils/images/farmacia.jpg';
     import gimnasioImg from '../../utils/images/gimnasio.jpg';
     import mochilasImg from '../../utils/images/mochilas.png';

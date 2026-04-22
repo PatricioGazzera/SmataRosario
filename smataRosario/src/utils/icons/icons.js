@@ -43,3 +43,8 @@ export { FaCheckToSlot } from "react-icons/fa6";
 export { FaSuitcaseMedical } from "react-icons/fa6";
 export { FaUniversalAccess } from "react-icons/fa6";
 export { FaPaperPlane } from "react-icons/fa";
+export { FaUser } from "react-icons/fa";
+export { FaShareNodes } from "react-icons/fa6";
+export { FaList } from "react-icons/fa";
+export { FaBorderAll } from "react-icons/fa";
+export { FaArrowTrendUp } from "react-icons/fa6";

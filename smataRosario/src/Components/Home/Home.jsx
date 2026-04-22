@@ -1,6 +1,6 @@
     import './Home.css';
     import { FaHospital, FaPills, FaSkiing, FaBalanceScale, FaWhatsapp } from '../../utils/icons/icons';
-    import asociateImg from '../../utils/images/asociate.jpeg';
+    import asociateImg from '../../utils/images/asociate.jpg';
 
     const services = [
     {

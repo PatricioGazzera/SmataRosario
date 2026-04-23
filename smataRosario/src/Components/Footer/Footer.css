@@ -137,3 +137,26 @@
     border-color: var(--green);
     color: #fff;
     }
+
+    .footer-admin-btn {
+  background: transparent;
+  border: 1px dashed rgba(255,255,255,0.15);
+  border-radius: 6px;
+  padding: .3rem .8rem;
+  font-family: 'Barlow', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: #4a6a4a;
+  cursor: pointer;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.footer-admin-btn:hover {
+  color: var(--green);
+  border-color: var(--green);
+}
+
+.footer-admin-btn--logout:hover {
+  color: #ef4444;
+  border-color: #ef4444;
+}

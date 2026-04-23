@@ -2,8 +2,18 @@ import './Footer.css'
 import { FaFacebookF, FaTwitter, FaInstagram, FaWhatsapp, FaLocationDot, FaPhone } from '../../utils/icons/icons';
 import { Link } from "react-router-dom";
 import logo from '../../utils/images/logo.png';
+import { useAuth } from '../../context/AuthContext';
+import { useNavigate } from 'react-router-dom';
+import { supabase } from '../../utils/supabase';
 
 export default function Footer() {
+    const { session } = useAuth();
+    const navigate = useNavigate();
+
+    const handleLogout = async () => {
+        await supabase.auth.signOut();
+    };
+
     return(
         <footer className="footer">
             <div className="footer-grid">
@@ -109,6 +119,15 @@ export default function Footer() {
                     <FaInstagram />
                 </a>
             </div>
+                {session ? (
+                    <button className="footer-admin-btn footer-admin-btn--logout" onClick={handleLogout}>
+                        Cerrar sesión admin
+                    </button>
+                ) : (
+                    <button className="footer-admin-btn" onClick={() => navigate('/admin/login')}>
+                        Acceso administrador
+                    </button>
+                )}
             </div>
         </footer>
     )

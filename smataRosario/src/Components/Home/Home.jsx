@@ -1,6 +1,7 @@
     import './Home.css';
     import { FaHospital, FaPills, FaSkiing, FaBalanceScale, FaWhatsapp } from '../../utils/icons/icons';
     import asociateImg from '../../utils/images/asociate.jpg';
+import { Link } from 'react-router-dom';
 
     const services = [
     {
@@ -131,7 +132,7 @@
             </div>
     
             <div className="news-all">
-            <button className="btn-ghost">Ver Archivo de Noticias</button>
+            <Link to="/noticias" className="btn-ghost">Ver Archivo de Noticias</Link>
             </div>
         </section>
     

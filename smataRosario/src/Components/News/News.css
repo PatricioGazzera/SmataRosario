@@ -68,33 +68,6 @@ body {
   max-width: 680px;
 }
 
-.np-hero-meta {
-  display: flex;
-  align-items: center;
-  gap: .75rem;
-  margin-bottom: 1rem;
-}
-
-.np-tag {
-  font-family: var(--font-display);
-  font-size: .7rem;
-  font-weight: 700;
-  letter-spacing: .1em;
-  text-transform: uppercase;
-  padding: .2rem .6rem;
-  border-radius: 4px;
-}
-
-.np-tag--green {
-  background: var(--green);
-  color: var(--dark);
-}
-
-.np-hero-date {
-  font-size: .8rem;
-  color: rgba(255,255,255,.65);
-}
-
 .np-hero-title {
   font-family: var(--font-display);
   font-size: clamp(3rem, 7vw, 5.5rem);
@@ -465,11 +438,6 @@ body {
   background: var(--dark-2);
 }
 
-.np-sidebar-title--light {
-  color: var(--green);
-  border-bottom-color: var(--mid);
-}
-
 .np-archive-pills {
   display: flex;
   flex-wrap: wrap;
@@ -531,65 +499,270 @@ body {
   width: 55%;
 }
 
-/* ── Agregar al final de NewsDetails.css ── */
+/* Layout con panel admin a la izquierda */
+.np-main--admin {
+  grid-template-columns: 220px 1fr 300px;
+}
 
-.nd-not-found {
-  min-height: 60vh;
+/* ── PANEL ADMIN IZQUIERDO ───────────────────────── */
+.np-admin-panel {
+  background: #0e0f0e;
+  border-radius: 12px;
+  padding: 1.1rem;
+  position: sticky;
+  top: 80px;
+  max-height: calc(100vh - 100px);
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #252825 transparent;
   display: flex;
   flex-direction: column;
+  gap: .6rem;
+}
+
+.np-admin-panel-header {
+  display: flex;
+  align-items: center;
+  gap: .4rem;
+  color: #22c55e;
+  font-size: .7rem;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  padding-bottom: .6rem;
+  border-bottom: 1px solid #252825;
+}
+
+.np-admin-panel-new {
+  display: flex;
   align-items: center;
   justify-content: center;
-  text-align: center;
-  padding: 4rem 2rem;
-  gap: 1rem;
-}
-
-.nd-not-found h2 {
-  font-size: 1.5rem;
-  font-weight: 700;
-}
-
-.nd-not-found p {
-  color: #6b7280;
-  font-size: 0.95rem;
-}
-
-.nd-back-btn {
-  margin-top: 1rem;
-  padding: 0.65rem 1.5rem;
+  gap: .4rem;
   background: #22c55e;
-  color: white;
+  color: #0e0f0e;
   border: none;
   border-radius: 8px;
-  font-size: 0.9rem;
-  font-weight: 600;
+  padding: .55rem .85rem;
+  font-family: "Barlow", sans-serif;
+  font-size: .78rem;
+  font-weight: 700;
   cursor: pointer;
-}
-
-.nd-skeleton-hero {
+  transition: background 0.2s, transform 0.2s;
   width: 100%;
-  height: 420px;
-  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
-  background-size: 200% 100%;
-  animation: np-shimmer 1.4s infinite;
 }
 
-.nd-skeleton-line {
-  height: 16px;
+.np-admin-panel-new:hover {
+  background: #15803d;
+  color: #fff;
+  transform: translateY(-1px);
+}
+
+.np-admin-panel-divider {
+  height: 1px;
+  background: #252825;
+  margin: .2rem 0;
+}
+
+.np-admin-panel-label {
+  font-size: .62rem;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: #3a3d3a;
+}
+
+.np-admin-panel-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: .35rem;
+}
+
+.np-admin-panel-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: .5rem;
+  padding: .45rem .5rem;
   border-radius: 6px;
-  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
-  background-size: 200% 100%;
-  animation: np-shimmer 1.4s infinite;
-  margin-bottom: 12px;
+  background: #1a1c1a;
+  transition: background 0.2s;
 }
 
-.nd-skeleton-line--lead {
-  height: 22px;
-  margin-bottom: 20px;
+.np-admin-panel-item:hover { background: #252825; }
+
+.np-admin-panel-item-title {
+  font-size: .72rem;
+  color: #8a8e8a;
+  line-height: 1.3;
+  flex: 1;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
 }
 
-.nd-skeleton-line--short {
-  width: 50%;
+.np-admin-panel-item-actions {
+  display: flex;
+  gap: .25rem;
+  flex-shrink: 0;
+}
+
+.np-admin-panel-edit,
+.np-admin-panel-delete {
+  width: 26px;
+  height: 26px;
+  border-radius: 5px;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.np-admin-panel-edit {
+  background: rgba(34,197,94,.12);
+  color: #22c55e;
+}
+
+.np-admin-panel-edit:hover {
+  background: #22c55e;
+  color: #0e0f0e;
+}
+
+.np-admin-panel-delete {
+  background: rgba(239,68,68,.12);
+  color: #ef4444;
+}
+
+.np-admin-panel-delete:hover {
+  background: #ef4444;
+  color: #fff;
+}
+
+.np-admin-panel-delete:disabled {
+  opacity: .5;
+  cursor: not-allowed;
+}
+
+.np-admin-panel-empty {
+  font-size: .75rem;
+  color: #3a3d3a;
+  text-align: center;
+  padding: 1rem 0;
+  font-style: italic;
+}
+
+/* ── CONFIRM DELETE MODAL ────────────────────────── */
+.np-confirm-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.65);
+  backdrop-filter: blur(4px);
+  z-index: 99999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+}
+
+.np-confirm-modal {
+  background: #fff;
+  border-radius: 16px;
+  padding: 2rem;
+  max-width: 380px;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 25px 60px rgba(0,0,0,.35);
+  z-index: 100000;
+  position: relative;
+}
+
+.np-confirm-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: #fee2e2;
+  color: #ef4444;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1rem;
+  font-size: 30px;
+}
+
+.np-confirm-title {
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 1.25rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: #0e0f0e;
+  margin-bottom: .5rem;
+}
+
+.np-confirm-text {
+  font-size: .85rem;
+  color: #8a8e8a;
+  line-height: 1.55;
+  margin-bottom: 1.5rem;
+}
+
+.np-confirm-actions {
+  display: flex;
+  gap: .75rem;
+  justify-content: center;
+}
+
+.np-confirm-cancel {
+  background: #f4f4f2;
+  border: 1.5px solid #e4e4e0;
+  border-radius: 8px;
+  padding: .6rem 1.25rem;
+  font-family: "Barlow", sans-serif;
+  font-size: .875rem;
+  font-weight: 600;
+  color: #3a3d3a;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.np-confirm-cancel:hover {
+  background: #0e0f0e;
+  color: #fff;
+  border-color: #0e0f0e;
+}
+
+.np-confirm-delete {
+  background: #ef4444;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: .6rem 1.25rem;
+  font-family: "Barlow", sans-serif;
+  font-size: .875rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.np-confirm-delete:hover:not(:disabled) { background: #b91c1c; }
+.np-confirm-delete:disabled { opacity: .7; cursor: not-allowed; }
+
+/* Responsive — ocultar panel admin en mobile */
+@media (max-width: 1100px) {
+  .np-main--admin {
+    grid-template-columns: 1fr 300px;
+  }
+  .np-admin-panel {
+    display: none;
+  }
+}
+
+@media (max-width: 900px) {
+  .np-main--admin {
+    grid-template-columns: 1fr;
+  }
 }
 
 @keyframes np-shimmer {
@@ -610,7 +783,6 @@ body {
 }
 
 @media (max-width: 640px) {
-  .np-nav-links { display: none; }
   .np-grid { grid-template-columns: 1fr; }
   .np-card--list { grid-template-columns: 1fr; }
   .np-card--list .np-card-img-wrap { aspect-ratio: 16/9; height: auto; }

@@ -1,5 +1,5 @@
 import { Routes, Route } from 'react-router-dom';
-
+import ProtectedRoute from './ProtectedRoutes';
 
 // Pages compontents
 
@@ -13,10 +13,12 @@ import CampingDetail from '../Components/CampingDetail/CampingDetail';
 import Contact from '../Components/Contact/Contact';
 import News from '../Components/News/News';
 import NewsDetail from '../Components/NewsDetails/NewsDetails';
+import AdminLogin from '../Components/AdminLogin/AdminLogin';
 
 export default function AppRoutes() {
     return (
         <Routes>
+            {/* RUTAS PUBLICAS */}
             <Route path='/' element={<Home />} />
             <Route path='/mutual' element={<Mutual />} />
             <Route path='/beneficios' element={<Beneficts/>}/>
@@ -27,6 +29,16 @@ export default function AppRoutes() {
             <Route path='/contacto' element={<Contact />}/>
             <Route path='/noticias' element={<News />}/>
             <Route path='/noticias/:id' element={<NewsDetail />}/>
+
+            {/* LOGIN ADMIN */}
+            <Route path='/admin/login' element={<AdminLogin />}/>
+
+            {/* RUTAS PRIVADAS */}
+            <Route path='/admin' element={
+                <ProtectedRoute>
+                </ProtectedRoute>
+            }
+            />
         </Routes>
     )
 }

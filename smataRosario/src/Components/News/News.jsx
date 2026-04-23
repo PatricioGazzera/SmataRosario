@@ -1,11 +1,17 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { supabase } from "../../utils/supabase";
-import {
-  FaList,
+import { FaList,
   FaBorderAll,
-  FaArrowTrendUp
-} from "../../utils/icons/icons"
+  FaArrowTrendUp,
+  FaShield,
+  FaPlus,
+  FaPenToSquare,
+  FaTrashCan,
+  FaCircleExclamation,
+} from "../../utils/icons/icons";
+import NewsForm from "../NewsForm/NewsForm";
+import { useAuth } from "../../context/AuthContext.jsx";
 import "./News.css";
 
 const CATEGORIES = ["Todas", "Gremial", "Beneficios", "Escala Salarial", "Novedades", "Acción Social"];
@@ -22,6 +28,7 @@ const ARCHIVE_MONTHS = ["Mayo 2024", "Abril 2024", "Marzo 2024", "Febrero 2024",
 const PAGE_SIZE = 6;
 
 export default function News() {
+  const { session } = useAuth();
   const navigate = useNavigate();
   const [viewMode, setViewMode] = useState("grid");
   const [activeFilter, setActiveFilter] = useState("Todas");
@@ -31,7 +38,15 @@ export default function News() {
   const [page, setPage] = useState(0);
   const [hasMore, setHasMore] = useState(true);
 
-  // Traer noticias desde Supabase
+  // NewsForm state
+  const [showForm, setShowForm] = useState(false);
+  const [editingNoticia, setEditingNoticia] = useState(null);
+
+  // Delete confirm
+  const [deletingId, setDeletingId] = useState(null);
+  const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
+  const [deleteTarget, setDeleteTarget] = useState(null);
+
   useEffect(() => {
     setNoticias([]);
     setPage(0);
@@ -42,7 +57,6 @@ export default function News() {
   const fetchNoticias = async (pageNum, reset = false) => {
     setLoading(true);
     setError(null);
-
     try {
       let query = supabase
         .from("noticias")
@@ -50,19 +64,13 @@ export default function News() {
         .order("fecha", { ascending: false })
         .range(pageNum * PAGE_SIZE, (pageNum + 1) * PAGE_SIZE - 1);
 
-      if (activeFilter !== "Todas") {
-        query = query.eq("categoria", activeFilter);
-      }
+      if (activeFilter !== "Todas") query = query.eq("categoria", activeFilter);
 
       const { data, error } = await query;
-
       if (error) throw error;
 
-      if (reset) {
-        setNoticias(data);
-      } else {
-        setNoticias((prev) => [...prev, ...data]);
-      }
+      if (reset) setNoticias(data);
+      else setNoticias((prev) => [...prev, ...data]);
 
       setHasMore(data.length === PAGE_SIZE);
     } catch (err) {
@@ -79,31 +87,105 @@ export default function News() {
     fetchNoticias(nextPage);
   };
 
+  const handleNewNoticia = () => {
+    setEditingNoticia(null);
+    setShowForm(true);
+  };
+
+  const handleEditNoticia = (noticia) => {
+    setEditingNoticia(noticia);
+    setShowForm(true);
+  };
+
+  const handleDeleteClick = (noticia) => {
+    setDeleteTarget(noticia);
+    setShowDeleteConfirm(true);
+  };
+
+  const handleDeleteConfirm = async () => {
+    if (!deleteTarget) return;
+    setDeletingId(deleteTarget.id);
+    const { error } = await supabase.from("noticias").delete().eq("id", deleteTarget.id);
+    if (error) {
+      alert("Error al eliminar. Intentá de nuevo.");
+    } else {
+      setNoticias((prev) => prev.filter((n) => n.id !== deleteTarget.id));
+    }
+    setDeletingId(null);
+    setShowDeleteConfirm(false);
+    setDeleteTarget(null);
+  };
+
   const formatFecha = (fechaStr) => {
     if (!fechaStr) return "";
-    const fecha = new Date(fechaStr);
-    return fecha.toLocaleDateString("es-AR", {
-      day: "numeric",
-      month: "long",
-      year: "numeric",
+    return new Date(fechaStr).toLocaleDateString("es-AR", {
+      day: "numeric", month: "long", year: "numeric",
     });
   };
 
   return (
     <div className="np-root">
+
       {/* HERO */}
       <section className="np-hero">
         <div className="np-hero-overlay" />
         <div className="np-hero-content">
-          <h1 className="np-hero-title">Portal de <span className="accent"> Noticias</span></h1>
+          <h1 className="np-hero-title">Portal de <span className="accent">Noticias</span></h1>
           <p className="np-hero-excerpt">Accedé al portal de noticias de la Seccional Rosario e informate de las últimas novedades.</p>
         </div>
       </section>
 
       {/* MAIN */}
-      <main className="np-main">
+      <main className={`np-main ${session ? "np-main--admin" : ""}`}>
+
+        {/* PANEL ADMIN IZQUIERDO — solo si hay sesión */}
+        {session && (
+          <aside className="np-admin-panel">
+            <div className="np-admin-panel-header">
+              <FaShield />
+              <span>Admin</span>
+            </div>
+
+            <button className="np-admin-panel-new" onClick={handleNewNoticia}>
+              <FaPlus />
+              Nueva noticia
+            </button>
+
+            <div className="np-admin-panel-divider" />
+
+            <p className="np-admin-panel-label">Acciones por noticia</p>
+            <ul className="np-admin-panel-list">
+              {noticias.map((item) => (
+                <li key={item.id} className="np-admin-panel-item">
+                  <span className="np-admin-panel-item-title">{item.titulo}</span>
+                  <div className="np-admin-panel-item-actions">
+                    <button
+                      className="np-admin-panel-edit"
+                      onClick={() => handleEditNoticia(item)}
+                      title="Editar"
+                    >
+                      <FaPenToSquare />
+                    </button>
+                    <button
+                      className="np-admin-panel-delete"
+                      onClick={() => handleDeleteClick(item)}
+                      title="Eliminar"
+                      disabled={deletingId === item.id}
+                    >
+                      <FaTrashCan />
+                    </button>
+                  </div>
+                </li>
+              ))}
+              {noticias.length === 0 && !loading && (
+                <li className="np-admin-panel-empty">No hay noticias cargadas.</li>
+              )}
+            </ul>
+          </aside>
+        )}
+
+        {/* CONTENIDO PRINCIPAL */}
         <div className="np-content-col">
-          {/* TOOLBAR */}
           <div className="np-toolbar">
             <h2 className="np-section-title">Últimas Noticias</h2>
             <div className="np-toolbar-right">
@@ -137,16 +219,12 @@ export default function News() {
             </div>
           </div>
 
-          {/* ESTADOS */}
-          {error && (
-            <div className="np-error">{error}</div>
-          )}
+          {error && <div className="np-error">{error}</div>}
 
           {!error && noticias.length === 0 && !loading && (
             <div className="np-empty">No hay noticias en esta categoría por el momento.</div>
           )}
 
-          {/* NEWS GRID / LIST */}
           {noticias.length > 0 && (
             <div className={`np-news-container ${viewMode === "list" ? "np-list" : "np-grid"}`}>
               {noticias.map((item) => (
@@ -177,7 +255,6 @@ export default function News() {
             </div>
           )}
 
-          {/* SKELETON mientras carga */}
           {loading && (
             <div className={`np-news-container ${viewMode === "list" ? "np-list" : "np-grid"}`}>
               {Array.from({ length: PAGE_SIZE }).map((_, i) => (
@@ -202,7 +279,7 @@ export default function News() {
           )}
         </div>
 
-        {/* SIDEBAR */}
+        {/* SIDEBAR DERECHO */}
         <aside className="np-sidebar">
           <div className="np-sidebar-block">
             <h3 className="np-sidebar-title">
@@ -229,6 +306,41 @@ export default function News() {
           </div>
         </aside>
       </main>
+
+      {/* MODAL CREAR / EDITAR */}
+      <NewsForm
+        open={showForm}
+        onClose={() => { setShowForm(false); setEditingNoticia(null); }}
+        onSuccess={() => {
+          setNoticias([]);
+          setPage(0);
+          fetchNoticias(0, true);
+        }}
+        noticia={editingNoticia}
+      />
+
+      {/* CONFIRM DELETE */}
+      {showDeleteConfirm && (
+        <div className="np-confirm-backdrop" onClick={() => setShowDeleteConfirm(false)}>
+          <div className="np-confirm-modal" onClick={(e) => e.stopPropagation()}>
+            <div className="np-confirm-icon">
+              <FaCircleExclamation />
+            </div>
+            <h3 className="np-confirm-title">¿Eliminar noticia?</h3>
+            <p className="np-confirm-text">
+              <strong>"{deleteTarget?.titulo}"</strong> será eliminada permanentemente.
+            </p>
+            <div className="np-confirm-actions">
+              <button className="np-confirm-cancel" onClick={() => setShowDeleteConfirm(false)}>
+                Cancelar
+              </button>
+              <button className="np-confirm-delete" onClick={handleDeleteConfirm} disabled={!!deletingId}>
+                {deletingId ? "Eliminando..." : "Sí, eliminar"}
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

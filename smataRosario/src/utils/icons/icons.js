@@ -48,3 +48,8 @@ export { FaShareNodes } from "react-icons/fa6";
 export { FaList } from "react-icons/fa";
 export { FaBorderAll } from "react-icons/fa";
 export { FaArrowTrendUp } from "react-icons/fa6";
+export { FaShield } from "react-icons/fa6";
+export { FaPlus } from "react-icons/fa";
+export { FaPenToSquare } from "react-icons/fa6";
+export { FaTrashCan } from "react-icons/fa6";
+export { FaCircleExclamation } from "react-icons/fa6";

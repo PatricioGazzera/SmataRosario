@@ -118,7 +118,6 @@ export default function Footer() {
                 rel='noopener norefferer'>
                     <FaInstagram />
                 </a>
-            </div>
                 {session ? (
                     <button className="footer-admin-btn footer-admin-btn--logout" onClick={handleLogout}>
                         Cerrar sesión admin
@@ -128,6 +127,7 @@ export default function Footer() {
                         Acceso administrador
                     </button>
                 )}
+            </div>
             </div>
         </footer>
     )

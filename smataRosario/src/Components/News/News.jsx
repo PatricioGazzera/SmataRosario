@@ -236,7 +236,7 @@ export default function News() {
                       className="np-card-img"
                     />
                   </div>
-                  <div className="np-card-body">
+                  <div className="np-card-body" onClick={() => navigate(`/noticias/${item.id}`)}>
                     <div className="np-card-meta">
                       <span className="np-card-cat">{item.categoria}</span>
                       <span className="np-card-date">{formatFecha(item.fecha)}</span>

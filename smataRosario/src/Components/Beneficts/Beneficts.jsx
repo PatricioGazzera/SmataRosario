@@ -7,6 +7,7 @@
     import juezImg from '../../utils/images/juez.png';
     import turismoImg from '../../utils/images/turismo.jpg';
     import campingImg from '../../utils/images/Camping/camping.png';
+    import cursoImg from "../../utils/images/cursito.jpg"
 
     const beneficts = [
     {
@@ -46,6 +47,13 @@
         link: 'Conocé Más',
         route: '/camping',
         image: campingImg,
+    },
+    {
+        title: 'Cursos exclusivos',
+        desc: 'Accedé a cursos y capacitaciones exclusivas para nuestros afiliados.',
+        link: 'Conocé Más',
+        route: '/capacitacion',
+        image: cursoImg,
     }
     ];
     

@@ -10,10 +10,11 @@ import {
   FaLocationDot,
   FaClock,
   FaEnvelope,
-  FaFileArrowDown
+  FaFileArrowDown,
+  FaChevronLeft,
+  FaChevronRight
 } from '../../utils/icons/icons';
-
-
+import mutualJpg from "../../utils/images/mutual3.jpg";
 
 const benefits = [
   {
@@ -42,6 +43,11 @@ const benefits = [
   },
 ]
 
+    const subject = encodeURIComponent("Consulta sobre Afiliación.");
+    const body = encodeURIComponent(
+        `Hola! Quiero información para afiliarme a la mutual.`
+    );
+
 const requisitos = [
   'Último recibo de sueldo (original y copia).',
   'DNI del titular y de todo el grupo familiar.',
@@ -60,11 +66,13 @@ const contactItems = [
     label: 'Whatsapp',
     value: '(0341) 313-0317',
     icon: <FaWhatsapp />,
+    link: 'https://wa.me/5493413130317?text=Hola%20quiero%20información%20para%20afiliarme%20a%20la%20mutual.'
   },
   {
     label: 'Email',
     value: 'mutualmetalmecanica@smatarosario.com.ar',
     icon: <FaEnvelope />,
+    link: `https://mail.google.com/mail/?view=cm&to=mutualmetalmecanica@smatarosario.com.ar&su=${subject}&body=${body}`
   },
   {
     label: 'Horario de Atención',
@@ -75,9 +83,9 @@ const contactItems = [
 
 const slides = [
   {
-    img: 'https://images.unsplash.com/photo-1486325212027-8081e485255e?w=1200&q=80',
+    img: mutualJpg,
     title: 'Sede Central Rosario',
-    desc: 'Nuestra casa central, equipada con tecnología de punta para la mejor atención administrativa.',
+    desc: 'Nuestra casa central, equipada con los mejores productos para nuestros afiliados.',
   },
   {
     img: 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=1200&q=80',
@@ -203,8 +211,8 @@ export default function Mutual() {
               y apoyo a nuestros afiliados en cada etapa de su vida.
             </p>
             <div className="hero-btns">
-              <button className="btn-primary">Asociarse ahora</button>
-              <button className="btn-outline">Ver Beneficios de Socio</button>
+              <a className="btn-primary" href='#afiliarse'>Asociarse ahora</a>
+              <a className="btn-outline" href='#beneficios'>Ver Beneficios de Socio</a>
             </div>
           </div>
         </section>
@@ -251,15 +259,11 @@ export default function Mutual() {
             </div>
 
             <button className="carrusel-btn prev" onClick={anterior} aria-label="Anterior">
-              <svg viewBox="0 0 24 24" strokeLinecap="round" strokeLinejoin="round">
-                <polyline points="15 18 9 12 15 6" />
-              </svg>
+              <FaChevronLeft className='icon'/>
             </button>
 
             <button className="carrusel-btn next" onClick={siguiente} aria-label="Siguiente">
-              <svg viewBox="0 0 24 24" strokeLinecap="round" strokeLinejoin="round">
-                <polyline points="9 18 15 12 9 6" />
-              </svg>
+              <FaChevronRight className='icon'/>
             </button>
 
             <div className="carrusel-dots">
@@ -277,7 +281,7 @@ export default function Mutual() {
         </div>
 
         {/* ── AFILIACIÓN ── */}
-        <section className="afiliacion-section">
+        <section className="afiliacion-section" id='afiliarse'>
           <div className="afiliacion-inner">
 
             {/* ── IZQUIERDA ── */}
@@ -309,18 +313,36 @@ export default function Mutual() {
               <h3>Atención Administrativa</h3>
 
               <div className="atencion-items">
-                {contactItems.map((item, i) => (
-                  <div className="atencion-item" key={i}>
-                    <div className="atencion-icon">
-                      {item.icon}
-                    </div>
-                    <div className="atencion-text">
-                      <strong>{item.label}</strong>
-                      <span>{item.value}</span>
-                    </div>
-                  </div>
-                ))}
-              </div>
+  {contactItems.map((item, i) => {
+    const content = (
+      <>
+        <div className="atencion-icon">
+          {item.icon}
+        </div>
+        <div className="atencion-text">
+          <strong>{item.label}</strong>
+          <span>{item.value}</span>
+        </div>
+      </>
+    );
+
+    return item.link ? (
+      <a
+        key={i}
+        href={item.link}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="atencion-item"
+      >
+        {content}
+      </a>
+    ) : (
+      <div className="atencion-item" key={i}>
+        {content}
+      </div>
+    );
+  })}
+</div>
 
               <div className="map-placeholder">
                 <iframe

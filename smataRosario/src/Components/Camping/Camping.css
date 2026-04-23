@@ -5,7 +5,7 @@
 :root {
   --green:        #22c55e;
   --green-dark:   #15803d;
-  --green-light:  #dcfce7;
+  --green-claro:  #dcfce7;
   --green-mid:    #16a34a;
   --yellow-light: #fef9c3;
   --yellow-mid:   #ca8a04;
@@ -271,7 +271,7 @@ body {
 .amenity-icon {
   width: 28px;
   height: 28px;
-  background: var(--green-light);
+  background: var(--green-claro);
   border-radius: 7px;
   display: flex;
   align-items: center;
@@ -293,7 +293,7 @@ body {
 }
 
 .info-box {
-  background: var(--green-light);
+  background: var(--green-claro);
   border: 1px solid var(--gray-100);
   border-radius: var(--radius-md);
   padding: 11px 13px;
@@ -318,13 +318,14 @@ body {
   justify-content: center;
   flex-shrink: 0;
   color: var(--green);
+  background-color: var(--green-claro);
 }
 
 .info-icon svg { width: 12px; height: 12px; }
 
 .info-icon--green {
-  background: var(--green-light);
-  color: var(--green-mid);
+  background: var(--green-claro);
+  color: var(--green-claro);
 }
 
 .info-icon--yellow {

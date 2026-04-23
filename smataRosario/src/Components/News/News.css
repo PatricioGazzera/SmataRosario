@@ -438,6 +438,10 @@ body {
   background: var(--dark-2);
 }
 
+.np-sidebar-title--light {
+  color: var(--green);
+}
+
 .np-archive-pills {
   display: flex;
   flex-wrap: wrap;

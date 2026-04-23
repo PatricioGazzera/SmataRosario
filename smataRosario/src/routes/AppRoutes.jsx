@@ -14,6 +14,8 @@ import Contact from '../Components/Contact/Contact';
 import News from '../Components/News/News';
 import NewsDetail from '../Components/NewsDetails/NewsDetails';
 import AdminLogin from '../Components/AdminLogin/AdminLogin';
+import NotFound from '../Components/NotFound/NotFound';
+import Capacitacion from '../Components/Capacitacion/Capacitacion';
 
 export default function AppRoutes() {
     return (
@@ -29,6 +31,7 @@ export default function AppRoutes() {
             <Route path='/contacto' element={<Contact />}/>
             <Route path='/noticias' element={<News />}/>
             <Route path='/noticias/:id' element={<NewsDetail />}/>
+            <Route path='/capacitacion' element={<Capacitacion />}/>
 
             {/* LOGIN ADMIN */}
             <Route path='/admin/login' element={<AdminLogin />}/>
@@ -39,6 +42,9 @@ export default function AppRoutes() {
                 </ProtectedRoute>
             }
             />
+
+            {/* NOT FOUND */}
+            <Route path='*' element={<NotFound />}/>
         </Routes>
     )
 }

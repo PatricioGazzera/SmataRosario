@@ -1,36 +1,31 @@
-import './Home.css';
-import { FaHospital, FaPills, FaSkiing, FaBalanceScale, FaWhatsapp } from '../../utils/icons/icons';
-import asociateImg from '../../utils/images/asociate.jpg';
+import './Capacitacion.css';
+import { FaHospital, FaPills, FaSkiing, FaBalanceScale, FaWhatsapp, FaArrowRight } from '../../utils/icons/icons';
+import inyeccionImg from "../../utils/images/Cursos/inyeccion.jpg";
+import motorImg from "../../utils/images/Cursos/motor.png";
+import electricidadImg from "../../utils/images/Cursos/electricidad.png";
 import { Link, useNavigate } from 'react-router-dom';
 
-const services = [
+const cursos = [
     {
-        icon: FaHospital,
-        title: 'Centro de Salud',
-        desc: 'Accedé a los servicios médicos de OSMATA...',
+        image: inyeccionImg,
+        title: 'Inyección Electrónica',
+        desc: 'Manejo de scanners, osciloscopios y reparación de unidades de control electrónico (ECU).',
         link: 'Conocé Más',
         path: '/prestadores'
     },
     {
-        icon: FaPills,
-        title: 'Farmacia',
-        desc: 'Encontrá tu farmacia sindical más cercana...',
+        image: motorImg,
+        title: 'Mecánica de motores diesel',
+        desc: 'Especialización en sistemas de inyección common rail y diagnóstico computarizado avanzado.',
         link: 'Ver Descuentos',
         path: 'farmacia'
     },
     {
-        icon: FaSkiing,
-        title: 'Recreación',
-        desc: 'Explorá paquetes turísticos...',
+        image: electricidadImg,
+        title: 'Electricidad del automotor',
+        desc: 'Fundamentos de circuitos eléctricos, multiplexado y sistemas de iluminación moderna.',
         link: 'Ver Destinos',
         path: 'turismo'
-    },
-    {
-        icon: FaBalanceScale,
-        title: 'Asesoría Legal',
-        desc: 'Asesoramiento jurídico profesional...',
-        link: 'Consultar',
-        path: 'asesoria-legal'
     },
 ];
 
@@ -58,63 +53,59 @@ const news = [
     },
 ];
 
-export default function SmataRosario() {
+export default function Capacitacion() {
     const navigate = useNavigate();
     return (
         <>
 
             {/* ── HERO ── */}
-            <section className="hero" id="inicio">
-                <div className="home-bg" />
-                <div className="hero-content">
-                    <div className="hero-badge">Nuevos beneficios disponibles</div>
-                    <h1 className="hero-title">
-                        Fuerza y <span className="accent">Unidad</span>{' '}
-                        para el Trabajador
+            <section className="cap-hero" id="inicio">
+                <div className="cap-bg" />
+                <div className="cap-hero-content">
+                    <div className="cap-hero-badge">Nuevos cursos disponibles</div>
+                    <h1 className="cap-hero-title">
+                        Tu Futuro empieza {' '}
+                        <span className="accent">Acá</span>{' '}
                     </h1>
-                    <p className="hero-sub">
-                        Redefiniendo el apoyo sindical para el profesional automotriz moderno
-                        en Rosario. Accedé a servicios de salud premium, turismo exclusivo y
-                        protección legal colectiva.
+                    <p className="cap-hero-sub">
+                        Cursos y capacitación para los trabajadores de la Industria Mecánica
+                        y automotriz. Programas dictados por los mejores profesionales.
                     </p>
-                    <div className="hero-btns">
-                        <a className="btn-primary" href='#afiliarse'>Afiliarse a SMATA</a>
+                    <div className="cap-hero-btns">
+                        <a className="btn-primary" href='#afiliarse'>Ver Cursos</a>
                         <a className="btn-outline" href='#beneficios'>Ver Beneficios de Socio</a>
                     </div>
                 </div>
             </section>
 
             {/* ── SERVICES ── */}
-            <section className="services" id="beneficios">
-                <div className="section-header">
+            <section className="cursos" id="cursos">
+                <div className="cursos-header">
                     <div>
-                        <div className="section-tag">Nuestra Red</div>
-                        <h2 className="section-title">Servicios de Acceso Rápido</h2>
+                        <h2 className="cursos-title">Cursos de Formación Profesional</h2>
                     </div>
-                    <p className="section-desc">
-                        Todo lo que necesitás como socio, accesible con un clic.
-                        Desde turnos médicos hasta planificación de vacaciones.
-                    </p>
                 </div>
-
-                <div className="services-grid">
-                    {services.map(({ icon: Icon, title, desc, link, path }) => (
-                        <div className="service-card" key={title}>
-                            <div className="service-icon">
-                                <Icon size={30} />
-                            </div>
-                            <h3>{title}</h3>
-                            <p>{desc}</p>
-                            <a
-                                href="#"
-                                className="service-link"
-                                onClick={(e) => {
-                                    e.preventDefault();
-                                    navigate(path);
-                                }}>{link} →</a>
+            <div className='cursos-grid'>
+                {cursos.map(({ image, title, desc, link, path }) => (
+                    <div className="curso-card" key={title}>
+                        <div className="curso-image-wrap">
+                            <img src={image} alt={title} />
                         </div>
-                    ))}
-                </div>
+                        <h3>{title}</h3>
+                        <p>{desc}</p>
+                        <a
+                            href="#"
+                            className="curso-link"
+                            onClick={(e) => {
+                                e.preventDefault();
+                                navigate(path);
+                            }}
+                        >
+                            {link} →
+                        </a>
+                    </div>
+                ))}
+            </div>
             </section>
 
             {/* ── NEWS ── */}
@@ -174,7 +165,7 @@ export default function SmataRosario() {
                         </div>
                     </div>
                     <div className="cta-illustration">
-                        <img src={asociateImg} alt="Asociate" className='asociate-img' />
+                        {/* <img src={asociateImg} alt="Asociate" className='asociate-img' /> */}
                     </div>
                 </div>
             </section>

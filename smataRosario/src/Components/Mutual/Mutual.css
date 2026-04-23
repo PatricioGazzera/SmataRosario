@@ -407,7 +407,7 @@
   border-color: #22c55e;
 }
  
-.carrusel-btn svg {
+.carrusel-btn icon {
   width: 16px;
   height: 16px;
   stroke: #fff;
@@ -552,6 +552,13 @@
   display: flex;
   align-items: flex-start;
   gap: 0.85rem;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+.atencion-text span:hover {
+  color: green;
 }
  
 .atencion-icon {
@@ -564,13 +571,14 @@
   align-items: center;
   justify-content: center;
 }
+
  
 .atencion-icon svg {
   width: 18px;
   height: 18px;
   color: var(--green);
 }
- 
+
 .atencion-text strong {
   display: block;
   font-size: 0.875rem;

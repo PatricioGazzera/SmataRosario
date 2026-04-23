@@ -53,3 +53,5 @@ export { FaPlus } from "react-icons/fa";
 export { FaPenToSquare } from "react-icons/fa6";
 export { FaTrashCan } from "react-icons/fa6";
 export { FaCircleExclamation } from "react-icons/fa6";
+export { FaChevronLeft } from "react-icons/fa";
+export { FaChevronRight } from "react-icons/fa";

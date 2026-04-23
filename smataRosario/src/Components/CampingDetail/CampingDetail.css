@@ -5,7 +5,7 @@
   --green:         #22c55e;
   --green-dark:    #15803d;
   --green-mid:     #16a34a;
-  --green-light:   #dcfce7;
+  --green-claro:  #dcfce7;
   --green-xlight:  #f0fdf4;
   --bg:            #f5f7f5;
   --white:         #ffffff;
@@ -157,7 +157,7 @@ body {
 .cd-section-icon {
   width: 26px;
   height: 26px;
-  background: var(--green-light);
+  background: var(--green-claro);
   border-radius: 7px;
   display: flex;
   align-items: center;
@@ -226,7 +226,7 @@ body {
 .cd-service-icon {
   width: 30px;
   height: 30px;
-  background: var(--green-light);
+  background: var(--green-claro);
   border-radius: 8px;
   display: flex;
   align-items: center;
@@ -372,7 +372,7 @@ body {
 .map-pin-icon {
   width: 30px;
   height: 30px;
-  background: var(--green-light);
+  background: var(--green-claro);
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -469,7 +469,7 @@ body {
 .cd-list-check {
   width: 24px;
   height: 24px;
-  background: var(--green-light);
+  background: var(--green-claro);
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -539,7 +539,7 @@ body {
 
 .cd-contact-icon svg { width: 15px; height: 15px; }
 
-.cd-contact-icon--phone    { background: var(--green-light);  color: var(--green-mid); }
+.cd-contact-icon--phone    { background: var(--green-claro);  color: var(--green-mid); }
 .cd-contact-icon--whatsapp { background: #dcfce7;              color: #15803d; }
 .cd-contact-icon--mail     { background: #ffe4e6;              color: #be123c; }
 

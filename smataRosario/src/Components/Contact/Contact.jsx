@@ -179,7 +179,7 @@ function AreaCard({ area }) {
                     <span className="dir-action-num">
                         {area.telefono}
                     </span>
-                    <span className="dir-action-badge">{'Llamé Ya'}</span>
+                    <span className="dir-action-badge">{'Llamar'}</span>
                 </a>
 
                 <a

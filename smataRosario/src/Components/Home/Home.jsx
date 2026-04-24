@@ -2,6 +2,8 @@ import './Home.css';
 import { FaHospital, FaPills, FaSkiing, FaBalanceScale, FaWhatsapp } from '../../utils/icons/icons';
 import asociateImg from '../../utils/images/asociate.jpg';
 import { Link, useNavigate } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { supabase } from '../../utils/supabase';
 
 const services = [
     {
@@ -34,35 +36,32 @@ const services = [
     },
 ];
 
-const news = [
-    {
-        category: 'PARITARIAS',
-        date: '24 de octubre, 2023',
-        title: 'Nuevo Acuerdo Salarial Alcanzado para el Ciclo 2024',
-        desc: 'Avances significativos en paritarias garantizan ajustes salariales alineados con índices de inflación para todos los trabajadores automotrices.',
-        img: 'https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=600&q=80',
-    },
-    {
-        category: 'TURISMO',
-        date: '20 de octubre, 2023',
-        title: 'Temporada de Verano en Mar del Plata: Reservas Abiertas',
-        desc: 'Tarifas exclusivas para afiliados en nuestros hoteles sindicales. Reservá el lugar de tu familia para las próximas vacaciones.',
-        img: 'https://images.unsplash.com/photo-1582719508461-905c673771fd?w=600&q=80',
-    },
-    {
-        category: 'SALUD',
-        date: '15 de octubre, 2023',
-        title: 'Nuevo Ala de Cardiología Inaugurada en Rosario',
-        desc: 'OSMATA continúa expandiendo su infraestructura de salud local con equipamiento cardiovascular de última generación.',
-        img: 'https://images.unsplash.com/photo-1584982751601-97dcc096659c?w=600&q=80',
-    },
-];
+const formatFecha = (fechaStr) => {
+    if (!fechaStr) return '';
+    return new Date(fechaStr).toLocaleDateString('es-AR', {
+        day: 'numeric', month: 'long', year: 'numeric',
+    });
+};
 
 export default function SmataRosario() {
     const navigate = useNavigate();
+    const [noticias, setNoticias] = useState([]);
+
+    useEffect(() => {
+        const fetchNoticias = async () => {
+            const { data, error } = await supabase
+                .from('noticias')
+                .select('id, titulo, excerpt, categoria, imagen_url, fecha')
+                .order('fecha', { ascending: false })
+                .limit(3);
+
+            if (!error && data) setNoticias(data);
+        };
+        fetchNoticias();
+    }, []);
+
     return (
         <>
-
             {/* ── HERO ── */}
             <section className="hero" id="inicio">
                 <div className="home-bg" />
@@ -126,20 +125,42 @@ export default function SmataRosario() {
                 </div>
 
                 <div className="news-grid">
-                    {news.map((n) => (
-                        <div className="news-card" key={n.title}>
-                            <div className="news-img">
-                                <img src={n.img} alt={n.title} />
-                                <span className="news-category">{n.category}</span>
+                    {noticias.length > 0 ? (
+                        noticias.map((n) => (
+                            <div
+                                className="news-card"
+                                key={n.id}
+                                onClick={() => navigate(`/noticias/${n.id}`)}
+                            >
+                                <div className="news-img">
+                                    <img
+                                        src={n.imagen_url || 'https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=600&q=80'}
+                                        alt={n.titulo}
+                                        onError={e => { e.target.src = 'https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=600&q=80'; }}
+                                    />
+                                    <span className="news-category">{n.categoria}</span>
+                                </div>
+                                <div className="news-body">
+                                    <div className="news-date">{formatFecha(n.fecha)}</div>
+                                    <h3>{n.titulo}</h3>
+                                    <p>{n.excerpt}</p>
+                                    <span className="news-read">Leer Artículo ↗</span>
+                                </div>
                             </div>
-                            <div className="news-body">
-                                <div className="news-date">{n.date}</div>
-                                <h3>{n.title}</h3>
-                                <p>{n.desc}</p>
-                                <a href="#" className="news-read">Leer Artículo ↗</a>
+                        ))
+                    ) : (
+                        // Skeleton mientras carga
+                        Array.from({ length: 3 }).map((_, i) => (
+                            <div className="news-card news-card--skeleton" key={i}>
+                                <div className="news-skeleton-img" />
+                                <div className="news-body">
+                                    <div className="news-skeleton-line news-skeleton-line--short" />
+                                    <div className="news-skeleton-line" />
+                                    <div className="news-skeleton-line" />
+                                </div>
                             </div>
-                        </div>
-                    ))}
+                        ))
+                    )}
                 </div>
 
                 <div className="news-all">
@@ -163,7 +184,7 @@ export default function SmataRosario() {
                             <a
                                 href='https://wa.me/5493412555424?text=Hola%20quiero%20información%20para%20afiliarme.'
                                 target='_blank'
-                                rel='noopener norefferer'
+                                rel='noopener noreferrer'
                                 className="btn-white"
                             >
                                 <FaWhatsapp className='whatsapp-btn' /> Solicitar Afiliación

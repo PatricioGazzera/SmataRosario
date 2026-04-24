@@ -25,7 +25,7 @@ export default function AppRoutes() {
             <Route path='/' element={<Home />} />
             <Route path='/mutual' element={<Mutual />} />
             <Route path='/beneficios' element={<Beneficts/>}/>
-            <Route path='/prestadores' element={<Prestadores/>}/>
+            <Route path='/obra-social' element={<Prestadores/>}/>
             <Route path='/autoridades' element={<Autoridades/>}/>
             <Route path='/camping' element={<Camping />} />
             <Route path='/camping/:id' element={<CampingDetail/>}/>

@@ -72,7 +72,7 @@ const contactItems = [
     label: 'Email',
     value: 'mutualmetalmecanica@smatarosario.com.ar',
     icon: <FaEnvelope />,
-    link: `https://mail.google.com/mail/?view=cm&to=mutualmetalmecanica@smatarosario.com.ar&su=${subject}&body=${body}`
+    link: `mailto:mutualmetalmecanica@smatarosario.com.ar?subject=${subject}&body=${body}`
   },
   {
     label: 'Horario de Atención',

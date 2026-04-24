@@ -19,7 +19,7 @@ export default function Navbar() {
           <li><Link to="/">Inicio</Link></li>
           <li><Link to="/mutual">Mutual</Link></li>
           <li><Link to="/beneficios">Beneficios</Link></li>
-          <li><Link to="/prestadores">Prestadores</Link></li>
+          <li><Link to="/obra-social">Obra Social</Link></li>
           <li><a href="#turismo">Turismo</a></li>
           <li><Link to="/camping">Complejos</Link></li>
           <li><Link to="/noticias">Noticias</Link></li>

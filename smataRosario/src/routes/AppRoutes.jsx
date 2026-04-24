@@ -17,6 +17,7 @@ import AdminLogin from '../Components/AdminLogin/AdminLogin';
 import NotFound from '../Components/NotFound/NotFound';
 import Capacitacion from '../Components/Capacitacion/Capacitacion';
 import CapacitacionDetails from '../Components/CapacitacionDetails/CapacitacionDetails';
+import Subsidios from '../Components/Subsidios/Subsidios';
 
 export default function AppRoutes() {
     return (
@@ -25,6 +26,7 @@ export default function AppRoutes() {
             <Route path='/' element={<Home />} />
             <Route path='/mutual' element={<Mutual />} />
             <Route path='/beneficios' element={<Beneficts/>}/>
+            <Route path='/subsidios' element={<Subsidios />}/>
             <Route path='/obra-social' element={<Prestadores/>}/>
             <Route path='/autoridades' element={<Autoridades/>}/>
             <Route path='/camping' element={<Camping />} />

@@ -24,9 +24,10 @@
         image: gimnasioImg,
     },
     {
-        title: 'Kits escolares',
-        desc: 'Cada año, brindamos kits escolares gratuitos a los hijos de nuestros afiliados, asegurando que tengan todo lo necesario para un año escolar exitoso.',
+        title: 'Subsidios y Descuentos',
+        desc: 'Accedé a subsidios y descuentos exclusivos para nuestros afiliados.',
         link: 'Conocé Más',
+        route: '/subsidios',
         image: mochilasImg,
     },
     {

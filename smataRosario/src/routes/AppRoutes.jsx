@@ -16,6 +16,7 @@ import NewsDetail from '../Components/NewsDetails/NewsDetails';
 import AdminLogin from '../Components/AdminLogin/AdminLogin';
 import NotFound from '../Components/NotFound/NotFound';
 import Capacitacion from '../Components/Capacitacion/Capacitacion';
+import CapacitacionDetails from '../Components/CapacitacionDetails/CapacitacionDetails';
 
 export default function AppRoutes() {
     return (
@@ -32,6 +33,7 @@ export default function AppRoutes() {
             <Route path='/noticias' element={<News />}/>
             <Route path='/noticias/:id' element={<NewsDetail />}/>
             <Route path='/capacitacion' element={<Capacitacion />}/>
+            <Route path='/capacitacion/:id' element={<CapacitacionDetails />}/>
 
             {/* LOGIN ADMIN */}
             <Route path='/admin/login' element={<AdminLogin />}/>

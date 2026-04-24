@@ -1,0 +1,507 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Barlow:wght@300;400;500;600&display=swap');
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --green: #22c55e;
+  --green-dark: #15803d;
+  --bg-dark: #0f1a0f;
+  --text-white: #f0f7f0;
+  --text-muted: #9eb89e;
+  --border: #e8e8e8;
+}
+
+body {
+  font-family: 'Barlow', sans-serif;
+  color: #1a2e1a;
+  background: #fff;
+  line-height: 1.6;
+}
+
+/* ── LOADING ── */
+.cd-loading {
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cd-spinner {
+  width: 40px; height: 40px;
+  border: 3px solid #e0e0e0;
+  border-top-color: var(--green);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.cd-notfound {
+  min-height: 60vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  text-align: center;
+  padding: 2rem;
+}
+
+.cd-notfound h2 {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 2rem;
+  color: #1a2e1a;
+}
+
+.btn-primary {
+  background: var(--green);
+  color: #fff;
+  border: none;
+  border-radius: 7px;
+  padding: 0.8rem 1.6rem;
+  font-size: 0.9rem;
+  font-weight: 700;
+  font-family: 'Barlow', sans-serif;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  transition: background 0.2s;
+}
+.btn-primary:hover { background: var(--green-dark); }
+
+/* ── HERO ── */
+.cd-hero {
+  position: relative;
+  height: 420px;
+  border-radius: 16px;
+  overflow: hidden;
+  margin: 1.5rem 2rem 0;
+  background: var(--bg-dark);
+}
+
+.cd-hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.cd-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    rgba(5, 15, 5, 0.88) 0%,
+    rgba(5, 15, 5, 0.5) 55%,
+    rgba(5, 15, 5, 0.15) 100%
+  );
+}
+
+.cd-hero-content {
+  position: absolute;
+  bottom: 2.5rem;
+  left: 2.5rem;
+  max-width: 560px;
+  z-index: 2;
+}
+
+.cd-hero-tag {
+  display: inline-block;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--green);
+  margin-bottom: 0.8rem;
+}
+
+.cd-hero-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 800;
+  color: #fff;
+  line-height: 1.0;
+  margin-bottom: 0.9rem;
+  text-transform: uppercase;
+}
+
+.cd-hero-desc {
+  font-size: 0.95rem;
+  color: rgba(255,255,255,0.78);
+  line-height: 1.65;
+  max-width: 460px;
+}
+
+/* ── STATS ── */
+.cd-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: var(--border);
+  margin: 0 2rem;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.cd-stat {
+  background: #fff;
+  padding: 1.4rem 1.6rem;
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+}
+
+.cd-stat-icon {
+  font-size: 1.3rem;
+  flex-shrink: 0;
+}
+
+.cd-stat-label {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #9ab89a;
+  margin-bottom: 0.2rem;
+}
+
+.cd-stat-value {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #1a2e1a;
+}
+
+/* ── BODY ── */
+.cd-body {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 2rem;
+  padding: 2.5rem 2rem 4rem;
+  align-items: start;
+}
+
+/* ── SECTION ── */
+.cd-section {
+  margin-bottom: 2.5rem;
+}
+
+.cd-section-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #1a2e1a;
+  margin-bottom: 1.3rem;
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+
+.cd-section-bar {
+  display: inline-block;
+  width: 4px;
+  height: 1.3em;
+  background: var(--green);
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+/* ── MÓDULOS ── */
+.cd-modulos {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.cd-modulo {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+  transition: border-color 0.2s;
+}
+
+.cd-modulo.open {
+  border-color: var(--green);
+}
+
+.cd-modulo-header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.1rem 1.3rem;
+  background: #fff;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  transition: background 0.2s;
+}
+
+.cd-modulo-header:hover {
+  background: #f9fafb;
+}
+
+.cd-modulo-num {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--green);
+  min-width: 28px;
+}
+
+.cd-modulo-name {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #1a2e1a;
+  flex: 1;
+}
+
+.cd-modulo-arrow {
+  font-size: 0.85rem;
+  color: #9ab89a;
+}
+
+.cd-modulo-body {
+  padding: 0 1.3rem 1.2rem 1.3rem;
+  border-top: 1px solid #f0f0f0;
+}
+
+.cd-modulo-body p {
+  font-size: 0.88rem;
+  color: #5a7a5a;
+  line-height: 1.7;
+  padding-top: 0.9rem;
+}
+
+/* ── HORARIOS ── */
+.cd-horarios-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  align-items: start;
+}
+
+.cd-horarios-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1.3rem;
+}
+
+.cd-horario-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.8rem;
+}
+
+.cd-horario-icon {
+  font-size: 1.1rem;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.cd-horario-item strong {
+  display: block;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #1a2e1a;
+  margin-bottom: 0.15rem;
+}
+
+.cd-horario-item p {
+  font-size: 0.85rem;
+  color: #5a7a5a;
+}
+
+.cd-mapa {
+  border-radius: 12px;
+  overflow: hidden;
+  height: 220px;
+}
+
+.cd-mapa iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* ── COLUMNA DERECHA ── */
+.cd-right {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  position: sticky;
+  top: 80px;
+}
+
+/* ── CARD INSCRIPCIÓN ── */
+.cd-inscripcion-card {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 1.8rem;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.07);
+}
+
+.cd-inscripcion-card h3 {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #1a2e1a;
+  margin-bottom: 0.5rem;
+}
+
+.cd-inscripcion-card > p {
+  font-size: 0.83rem;
+  color: #6b8f6b;
+  line-height: 1.6;
+  margin-bottom: 1.3rem;
+}
+
+.cd-precios {
+  border-top: 1px solid #f0f0f0;
+  border-bottom: 1px solid #f0f0f0;
+  padding: 0.9rem 0;
+  margin-bottom: 1.3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+.cd-precio-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.85rem;
+  color: #4a6a4a;
+}
+
+.cd-precio-badge {
+  background: var(--green);
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.2rem 0.6rem;
+  border-radius: 5px;
+}
+
+.cd-precio-particular {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #1a2e1a;
+}
+
+.btn-preinscribirse {
+  display: block;
+  width: 100%;
+  text-align: center;
+  background: var(--green);
+  color: #fff;
+  border: none;
+  border-radius: 9px;
+  padding: 0.9rem;
+  font-size: 1rem;
+  font-weight: 700;
+  font-family: 'Barlow', sans-serif;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.2s, transform 0.15s;
+  margin-bottom: 1.3rem;
+}
+.btn-preinscribirse:hover {
+  background: var(--green-dark);
+  transform: translateY(-1px);
+}
+
+.cd-contacto-educacion {
+  text-align: center;
+}
+
+.cd-contacto-label {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #9ab89a;
+  margin-bottom: 0.6rem;
+}
+
+.cd-contacto-icons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.cd-contacto-icons a {
+  width: 36px; height: 36px;
+  border-radius: 8px;
+  background: #f4faf4;
+  border: 1px solid #e0ece0;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1rem;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+.cd-contacto-icons a:hover { background: rgba(34,197,94,0.12); }
+
+/* ── CARD AYUDA ── */
+.cd-ayuda-card {
+  background: #1a2e1a;
+  border-radius: 14px;
+  padding: 1.5rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.cd-ayuda-content h4 {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 0.4rem;
+}
+
+.cd-ayuda-content p {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin-bottom: 0.8rem;
+}
+
+.cd-ayuda-link {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--green);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.cd-ayuda-link:hover { color: var(--green-light); }
+
+.cd-ayuda-icon {
+  font-size: 2rem;
+  flex-shrink: 0;
+  opacity: 0.4;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  .cd-hero { margin: 1rem 1rem 0; height: 320px; }
+  .cd-stats { margin: 0 1rem; grid-template-columns: repeat(2, 1fr); }
+  .cd-body { grid-template-columns: 1fr; padding: 2rem 1rem 3rem; }
+  .cd-right { position: static; }
+  .cd-horarios-grid { grid-template-columns: 1fr; }
+  .cd-mapa { height: 200px; }
+}
+
+@media (max-width: 560px) {
+  .cd-hero { height: 260px; border-radius: 10px; }
+  .cd-hero-content { left: 1.2rem; bottom: 1.5rem; }
+  .cd-stats { grid-template-columns: repeat(2, 1fr); margin: 0 0.5rem; }
+  .cd-body { padding: 1.5rem 0.8rem 2.5rem; }
+}

@@ -1,6 +1,8 @@
 import './Capacitacion.css';
-import { FaClock, FaCheck, FaLaptop, FaScaleBalanced, FaBullseye, FaArrowRight,
-        FaPlus, FaPenToSquare, FaTrashCan, FaCircleExclamation, FaImage, FaX } from '../../utils/icons/icons';
+import {
+    FaClock, FaCheck, FaLaptop, FaScaleBalanced, FaBullseye, FaArrowRight,
+    FaPlus, FaPenToSquare, FaTrashCan, FaCircleExclamation, FaImage, FaX
+} from '../../utils/icons/icons';
 import { useNavigate } from 'react-router-dom';
 import { useState, useEffect, useRef } from 'react';
 import { supabase } from '../../utils/supabase';
@@ -230,6 +232,8 @@ export default function Capacitacion() {
             .from('cursos')
             .select('id, titulo, descripcion, imagen_url, categoria, duracion, dificultad')
             .order('created_at', { ascending: false });
+
+        console.log('cursos:', data, 'error:', error);
         if (!error) setCursos(data || []);
         setLoading(false);
     };
@@ -271,7 +275,7 @@ export default function Capacitacion() {
                 <div className="cursos-header">
                     <div>
                         <div className="cursos-tag">Programas Técnicos</div>
-                        <h2 className="cursos-title">Cursos de Formación Profesional</h2>
+                        <h2 className="cursos-title">Cursos de Capacitación Profesional</h2>
                         <div className="cursos-underline" />
                     </div>
                     {session && (

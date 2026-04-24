@@ -13,7 +13,7 @@ export default function ProtectedRoute({ children }) {
   if (session === undefined) return null;
 
   // Si no hay sesión, redirige al login
-  if (!session) return <Navigate to="/admin/login" replace />;
+  if (!session) return <Navigate to="/admin/" replace />;
 
   // Si hay sesión, renderiza la ruta
   return children;

@@ -60,3 +60,4 @@ export { FaScaleBalanced } from "react-icons/fa6";
 export { FaBullseye } from "react-icons/fa6";
 export { FaImage } from "react-icons/fa6";
 export { FaX } from "react-icons/fa6";
+export { FaChartColumn } from "react-icons/fa6";

@@ -1,6 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Barlow:wght@300;400;500;600&display=swap');
 
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -31,7 +33,8 @@ body {
 }
 
 .cd-spinner {
-  width: 40px; height: 40px;
+  width: 40px;
+  height: 40px;
   border: 3px solid #e0e0e0;
   border-top-color: var(--green);
   border-radius: 50%;
@@ -39,7 +42,9 @@ body {
 }
 
 @keyframes spin {
-  to { transform: rotate(360deg); }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .cd-notfound {
@@ -73,7 +78,10 @@ body {
   display: inline-block;
   transition: background 0.2s;
 }
-.btn-primary:hover { background: var(--green-dark); }
+
+.btn-primary:hover {
+  background: var(--green-dark);
+}
 
 /* ── HERO ── */
 .cd-hero {
@@ -95,12 +103,10 @@ body {
 .cd-hero-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    to right,
-    rgba(5, 15, 5, 0.88) 0%,
-    rgba(5, 15, 5, 0.5) 55%,
-    rgba(5, 15, 5, 0.15) 100%
-  );
+  background: linear-gradient(to right,
+      rgba(5, 15, 5, 0.88) 0%,
+      rgba(5, 15, 5, 0.5) 55%,
+      rgba(5, 15, 5, 0.15) 100%);
 }
 
 .cd-hero-content {
@@ -133,7 +139,7 @@ body {
 
 .cd-hero-desc {
   font-size: 0.95rem;
-  color: rgba(255,255,255,0.78);
+  color: rgba(255, 255, 255, 0.78);
   line-height: 1.65;
   max-width: 460px;
 }
@@ -161,6 +167,7 @@ body {
 .cd-stat-icon {
   font-size: 1.3rem;
   flex-shrink: 0;
+  color: var(--green);
 }
 
 .cd-stat-label {
@@ -303,6 +310,7 @@ body {
   font-size: 1.1rem;
   flex-shrink: 0;
   margin-top: 2px;
+  color: var(--green);
 }
 
 .cd-horario-item strong {
@@ -345,7 +353,7 @@ body {
   border: 1px solid var(--border);
   border-radius: 14px;
   padding: 1.8rem;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.07);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.07);
 }
 
 .cd-inscripcion-card h3 {
@@ -356,7 +364,7 @@ body {
   margin-bottom: 0.5rem;
 }
 
-.cd-inscripcion-card > p {
+.cd-inscripcion-card>p {
   font-size: 0.83rem;
   color: #6b8f6b;
   line-height: 1.6;
@@ -397,7 +405,10 @@ body {
 }
 
 .btn-preinscribirse {
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
   width: 100%;
   text-align: center;
   background: var(--green);
@@ -413,9 +424,19 @@ body {
   transition: background 0.2s, transform 0.15s;
   margin-bottom: 1.3rem;
 }
+
 .btn-preinscribirse:hover {
-  background: var(--green-dark);
+  background: #fff;
   transform: translateY(-1px);
+  color: var(--green);
+  border: solid 1px var(--green);
+  transition: 0.5s all ease-out;
+}
+
+.pre-wsp {
+  display: flex;
+  align-items: center;
+  font-size: 18px
 }
 
 .cd-contacto-educacion {
@@ -438,70 +459,73 @@ body {
 }
 
 .cd-contacto-icons a {
-  width: 36px; height: 36px;
+  width: 36px;
+  height: 36px;
   border-radius: 8px;
   background: #f4faf4;
   border: 1px solid #e0ece0;
-  display: flex; align-items: center; justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-size: 1rem;
   text-decoration: none;
   transition: background 0.2s;
-}
-.cd-contacto-icons a:hover { background: rgba(34,197,94,0.12); }
-
-/* ── CARD AYUDA ── */
-.cd-ayuda-card {
-  background: #1a2e1a;
-  border-radius: 14px;
-  padding: 1.5rem;
-  display: flex;
-  align-items: flex-start;
-  gap: 1rem;
-}
-
-.cd-ayuda-content h4 {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 1.1rem;
-  font-weight: 700;
-  color: #fff;
-  margin-bottom: 0.4rem;
-}
-
-.cd-ayuda-content p {
-  font-size: 0.82rem;
-  color: var(--text-muted);
-  line-height: 1.6;
-  margin-bottom: 0.8rem;
-}
-
-.cd-ayuda-link {
-  font-size: 0.82rem;
-  font-weight: 600;
   color: var(--green);
-  text-decoration: none;
-  transition: color 0.2s;
 }
-.cd-ayuda-link:hover { color: var(--green-light); }
 
-.cd-ayuda-icon {
-  font-size: 2rem;
-  flex-shrink: 0;
-  opacity: 0.4;
+.cd-contacto-icons a:hover {
+  background: var(--green);
+  color: #f4faf4;
+  transition: 0.3s all;
 }
 
 /* ── RESPONSIVE ── */
 @media (max-width: 900px) {
-  .cd-hero { margin: 1rem 1rem 0; height: 320px; }
-  .cd-stats { margin: 0 1rem; grid-template-columns: repeat(2, 1fr); }
-  .cd-body { grid-template-columns: 1fr; padding: 2rem 1rem 3rem; }
-  .cd-right { position: static; }
-  .cd-horarios-grid { grid-template-columns: 1fr; }
-  .cd-mapa { height: 200px; }
+  .cd-hero {
+    margin: 1rem 1rem 0;
+    height: 320px;
+  }
+
+  .cd-stats {
+    margin: 0 1rem;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .cd-body {
+    grid-template-columns: 1fr;
+    padding: 2rem 1rem 3rem;
+  }
+
+  .cd-right {
+    position: static;
+  }
+
+  .cd-horarios-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cd-mapa {
+    height: 200px;
+  }
 }
 
 @media (max-width: 560px) {
-  .cd-hero { height: 260px; border-radius: 10px; }
-  .cd-hero-content { left: 1.2rem; bottom: 1.5rem; }
-  .cd-stats { grid-template-columns: repeat(2, 1fr); margin: 0 0.5rem; }
-  .cd-body { padding: 1.5rem 0.8rem 2.5rem; }
+  .cd-hero {
+    height: 260px;
+    border-radius: 10px;
+  }
+
+  .cd-hero-content {
+    left: 1.2rem;
+    bottom: 1.5rem;
+  }
+
+  .cd-stats {
+    grid-template-columns: repeat(2, 1fr);
+    margin: 0 0.5rem;
+  }
+
+  .cd-body {
+    padding: 1.5rem 0.8rem 2.5rem;
+  }
 }

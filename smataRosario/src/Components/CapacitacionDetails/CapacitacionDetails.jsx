@@ -1,6 +1,17 @@
 import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { FaWhatsapp } from '../../utils/icons/icons';
+import {
+    FaWhatsapp,
+    FaUser,
+    FaClock,
+    FaChartColumn,
+    FaCheck,
+    FaCalendar,
+    FaLocationDot,
+    FaPhone,
+    FaEnvelope,
+
+} from '../../utils/icons/icons';
 import { supabase } from '../../utils/supabase';
 import './CapacitacionDetails.css';
 
@@ -56,6 +67,11 @@ export default function CapacitacionDetails() {
     // modulos es un array JSON guardado en Supabase
     const modulos = curso.modulos || [];
 
+    const subject = encodeURIComponent("Consulta sobre Curso.");
+    const body = encodeURIComponent(
+        `Hola! Quiero información sobre el ${curso.titulo}.`
+    );
+
     return (
         <div className="cd-page">
 
@@ -75,28 +91,28 @@ export default function CapacitacionDetails() {
             {/* ── STATS ── */}
             <div className="cd-stats">
                 <div className="cd-stat">
-                    <span className="cd-stat-icon">👤</span>
+                    <span className="cd-stat-icon"><FaUser /></span>
                     <div>
                         <div className="cd-stat-label">Modalidad</div>
                         <div className="cd-stat-value">{curso.modalidad || 'Presencial'}</div>
                     </div>
                 </div>
                 <div className="cd-stat">
-                    <span className="cd-stat-icon">🕐</span>
+                    <span className="cd-stat-icon"><FaClock /></span>
                     <div>
                         <div className="cd-stat-label">Duración</div>
                         <div className="cd-stat-value">{curso.duracion || '—'}</div>
                     </div>
                 </div>
                 <div className="cd-stat">
-                    <span className="cd-stat-icon">📊</span>
+                    <span className="cd-stat-icon"><FaChartColumn /></span>
                     <div>
                         <div className="cd-stat-label">Dificultad</div>
                         <div className="cd-stat-value">{curso.dificultad || '—'}</div>
                     </div>
                 </div>
                 <div className="cd-stat">
-                    <span className="cd-stat-icon">✅</span>
+                    <span className="cd-stat-icon"><FaCheck /></span>
                     <div>
                         <div className="cd-stat-label">Certificación</div>
                         <div className="cd-stat-value">{curso.certificacion || 'Oficial'}</div>
@@ -152,21 +168,21 @@ export default function CapacitacionDetails() {
                         <div className="cd-horarios-grid">
                             <div className="cd-horarios-info">
                                 <div className="cd-horario-item">
-                                    <span className="cd-horario-icon">📅</span>
+                                    <span className="cd-horario-icon"><FaCalendar /></span>
                                     <div>
                                         <strong>Período</strong>
                                         <p>{curso.periodo || '—'}</p>
                                     </div>
                                 </div>
                                 <div className="cd-horario-item">
-                                    <span className="cd-horario-icon">📅</span>
+                                    <span className="cd-horario-icon"><FaCalendar /></span>
                                     <div>
                                         <strong>Días y Horarios</strong>
                                         <p>{curso.dias_horarios || '—'}</p>
                                     </div>
                                 </div>
                                 <div className="cd-horario-item">
-                                    <span className="cd-horario-icon">📍</span>
+                                    <span className="cd-horario-icon"><FaLocationDot /></span>
                                     <div>
                                         <strong>Lugar</strong>
                                         <p>{curso.lugar || 'Sede Rosario'}</p>
@@ -199,7 +215,7 @@ export default function CapacitacionDetails() {
                             <div className="cd-precio-row">
                                 <span>Afiliados SMATA</span>
                                 <span className="cd-precio-badge">
-                                    {curso.precio_afiliados || 'Beca 50%'}
+                                    {curso.precio_afiliados || 'Gratis'}
                                 </span>
                             </div>
                             <div className="cd-precio-row">
@@ -211,32 +227,28 @@ export default function CapacitacionDetails() {
                         </div>
 
                         <a
-                            href={`https://wa.me/5493412555424?text=Hola%20quiero%20inscribirme%20al%20curso%20${encodeURIComponent(curso.titulo)}`}
+                            href={`https://wa.me/5493413130317?text=Hola%20quiero%20informacion%20sobre%20el%20curso%20${encodeURIComponent(curso.titulo)}`}
                             target="_blank"
                             rel="noopener noreferrer"
                             className="btn-preinscribirse"
                         >
-                            Pre-inscribirme
+                            <FaWhatsapp className='pre-wsp' /> Solicitar Información
                         </a>
 
                         <div className="cd-contacto-educacion">
                             <div className="cd-contacto-label">Consultas Educación</div>
                             <div className="cd-contacto-icons">
-                                <a href="tel:+5493412555424" title="Teléfono">📞</a>
-                                <a href="mailto:capacitacion@smatarosario.com.ar" title="Email">✉️</a>
-                                <a href="https://wa.me/5493412555424" target="_blank" rel="noopener noreferrer" title="WhatsApp">💬</a>
+                                <a href="tel:+5493412555424" title="Teléfono"><FaPhone /></a>
+                                <a
+                                    href={`https://mail.google.com/mail/?view=cm&fs=1&to=mutualmecanica2@smatarosario.com.ar&su=${subject}&body=${body}`}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    title='email'
+                                >
+                                    <FaEnvelope />
+                                </a>
                             </div>
                         </div>
-                    </div>
-
-                    {/* Card de ayuda */}
-                    <div className="cd-ayuda-card">
-                        <div className="cd-ayuda-content">
-                            <h4>¿Necesitas ayuda?</h4>
-                            <p>Nuestro equipo de formación profesional está disponible para asesorarte sobre este curso.</p>
-                            <a href="/capacitacion" className="cd-ayuda-link">Ver otras sedes →</a>
-                        </div>
-                        <div className="cd-ayuda-icon">📚</div>
                     </div>
 
                 </div>

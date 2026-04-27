@@ -3,6 +3,13 @@
     import { FaCompass } from '../../utils/icons/icons';
     import farmaciaImg from '../../utils/images/farmacia.jpg';
     import mochilasImg from '../../utils/images/mochilas.png';
+    import bebeImg from "../../utils/images/subsidios/bebe.png";
+    import bodaImg from "../../utils/images/subsidios/boda.png";
+    import dentistaImg from "../../utils/images/subsidios/dentista.png";
+    import girasolImg from "../../utils/images/subsidios/girasol.png";
+    import lentesImg from "../../utils/images/subsidios/lentes.png";
+    import medicamentoImg from "../../utils/images/subsidios/medicamento.png";
+    import familiaImg from "../../utils/images/subsidios/familia.png";
 
     const subsidios = [
     {
@@ -21,54 +28,54 @@
         title: 'Presente por nacimiento - adopción',
         desc: 'Accedé a un presente exclusivo por nacimiento/adopción.',
         link: 'Conocé Más',
-        image: mochilasImg,
+        image: bebeImg,
     },
     {
         title: 'Subsidio por Casamiento',
         desc: 'Accedé a un subsidio exclusivo por Casamiento',
         link: 'Conocé Más',
-        image: juezImg,
+        image: bodaImg,
     },
     {
         title: 'Reintegro sobre medicamentos',
         desc: 'Accedé a Reintegros en medicamentos en nuestra farmacia y las farmacias adheridas.',
         link: 'Conocé Más',
-        image: turismoImg,
+        image: medicamentoImg,
     },
     {
         title: 'Anteojos Recetados',
         desc: 'Accedé a un descuento exclusivo en anteojos recetados.',
         link: 'Conocé Más',
         route: '/camping',
-        image: campingImg,
+        image: lentesImg,
     },
     {
         title: 'Descuento Odontología',
         desc: 'Accedé a descuentos en Odontología.',
         link: 'Conocé Más',
         route: '/capacitacion',
-        image: cursoImg,
+        image: dentistaImg,
     },
     {
         title: 'Subsidio por Fallecimiento',
         desc: 'Accedé a un subsidio exclusivo por fallecimiento.',
         link: 'Conocé Más',
         route: '/capacitacion',
-        image: cursoImg,
+        image: girasolImg,
     },
     {
         title: 'Cobertura de Sepelio',
         desc: 'Cobertura exclusiva en sepelio.',
         link: 'Conocé Más',
         route: '/capacitacion',
-        image: cursoImg,
+        image: girasolImg,
     },
     {
         title: 'Seguro de Vida',
         desc: 'Accedé a nuestro Seguro de Vida',
         link: 'Conocé Más',
         route: '/capacitacion',
-        image: cursoImg,
+        image: familiaImg,
     },
     ];
     

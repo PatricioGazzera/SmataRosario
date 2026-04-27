@@ -251,6 +251,66 @@
     text-align: center;
     }
     
+.discapacidad {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  min-height: 280px;
+  max-width: 1100px;
+  margin: 0 auto 3rem;
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  margin-top: 40px;
+}
+
+.requisito-discapacidad {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 0.6rem 0;
+  color: #fff;
+}
+ 
+/* Reemplazá el bloque .discapacidad-btns y .dir-disc-btn en Prestadores.css */
+
+.discapacidad-btns {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-top: auto;
+  padding-top: 2px;
+}
+
+.dir-disc-btn {
+  margin-top: 0;
+  padding: 0.6rem 1.4rem;
+  border: 1.5px solid rgba(255,255,255,0.3);
+  background: var(--green);
+  color: #fff;
+  border-radius: 8px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.18s, border-color 0.18s;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+}
+
+.dir-disc-btn:hover {
+  background: #fff;
+  color: var(--green);
+  border-color: var(--green);
+  transition: 0.3s all ease;
+}
+
+.discapacidad-btns .dir-centro-btn {
+  margin-top: 0;
+  align-self: center;
+  padding: 0.7rem 1.4rem;
+  line-height: 1;
+  white-space: nowrap;
+}
     /* ── centro
  ── */
 .dir-centro-section {
@@ -353,6 +413,47 @@
   border: none;
   display: block;
   filter: grayscale(20%);
+}
+
+/* ── Agregar al final de Prestadores.css ── */
+
+/* Subtítulo del modal */
+.dl-modal-sub {
+  font-size: 0.85rem;
+  color: #6b7280;
+  margin: -0.5rem 0 1.25rem;
+  line-height: 1.5;
+}
+
+/* Variante WhatsApp */
+.dl-item-btn.contact-btn-wsp {
+  background: #25d366;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  text-decoration: none;
+  border: 1.5px;
+}
+.dl-item-btn.contact-btn-wsp:hover {
+  background: white;
+  color: #1ebe5d;
+  border: 1.5px solid #1ebe5d;
+  transition: 0.3s all ease;
+}
+
+/* Variante Email */
+.dl-item-btn.contact-btn-email {
+  background: #2563eb;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  text-decoration: none;
+}
+.dl-item-btn.contact-btn-email:hover {
+  background: white;
+  color: #2563eb;
+  border: 1.5px solid #2563eb;
+  transition: 0.3s all ease;
 }
 
     @media (max-width: 900px) {

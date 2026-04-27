@@ -14,7 +14,7 @@ import {
   FaChevronLeft,
   FaChevronRight
 } from '../../utils/icons/icons';
-import mutualJpg from "../../utils/images/mutual3.jpg";
+import mutualJpg from "../../utils/images/mutual3.jpeg";
 
 const benefits = [
   {
@@ -72,7 +72,7 @@ const contactItems = [
     label: 'Email',
     value: 'mutualmetalmecanica@smatarosario.com.ar',
     icon: <FaEnvelope />,
-    link: `mailto:mutualmetalmecanica@smatarosario.com.ar?subject=${subject}&body=${body}`
+    link: `https://mail.google.com/mail/?view=cm&to=mutualmetalmecanica@smatarosario.com.ar&su=${subject}&body=${body}`
   },
   {
     label: 'Horario de Atención',

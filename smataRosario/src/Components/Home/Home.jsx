@@ -1,5 +1,5 @@
 import './Home.css';
-import { FaHospital, FaPills, FaSkiing, FaBalanceScale, FaWhatsapp } from '../../utils/icons/icons';
+import { FaHospital, FaPills, FaSkiing, FaBalanceScale, FaWhatsapp, FaCampground } from '../../utils/icons/icons';
 import asociateImg from '../../utils/images/asociate.jpg';
 import { Link, useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
@@ -11,7 +11,7 @@ const services = [
         title: 'Centro de Salud',
         desc: 'Accedé a los servicios médicos de OSMATA...',
         link: 'Conocé Más',
-        path: '/prestadores'
+        path: '/obra-social'
     },
     {
         icon: FaPills,
@@ -28,11 +28,11 @@ const services = [
         path: 'turismo'
     },
     {
-        icon: FaBalanceScale,
-        title: 'Asesoría Legal',
-        desc: 'Asesoramiento jurídico profesional...',
-        link: 'Consultar',
-        path: 'asesoria-legal'
+        icon: FaCampground,
+        title: 'Complejos',
+        desc: 'Descubrí nuestros complejos...',
+        link: 'Ver Complejos',
+        path: '/camping'
     },
 ];
 

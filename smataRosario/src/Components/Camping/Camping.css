@@ -382,11 +382,13 @@ body {
   color: var(--gray-600);
   cursor: pointer;
   transition: all var(--transition);
+  text-decoration: none;
 }
 
 .ubication-button:hover {
   border-color: var(--green);
   color: var(--green);
+  transition: 0.3s all ease;
 }
 
 /* ─────────────────────────────────────────

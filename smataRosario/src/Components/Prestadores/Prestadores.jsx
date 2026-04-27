@@ -1,5 +1,6 @@
 import './Prestadores.css'
-import { FaLocationDot, FaHeadset, FaArrowsRotate, FaArrowUpRightFromSquare, FaPhone, FaWhatsapp } from '../../utils/icons/icons';
+import { FaLocationDot, FaHeadset, FaArrowsRotate, FaArrowUpRightFromSquare, FaPhone, FaWhatsapp, FaCheck, FaEnvelope } from '../../utils/icons/icons';
+import { useEffect, useState } from 'react';
 
 const informacion = [
     {
@@ -19,9 +20,81 @@ const informacion = [
     },
 ];
 
+const requisitos = [
+    'CUD vigente',
+    'Alta en Obra Social',
+    'Alta Discapacidad en Obra Social'
+]
+
+const subject = encodeURIComponent("Consulta sobre trámite de discapacidad.");
+const body = encodeURIComponent("Hola, quiero información sobre el trámite de discapacidad.");
+
+const contactDiscapacidad = [
+    {
+        label: 'WhatsApp',
+        desc: 'Contactanos por WhatsApp',
+        icon: FaWhatsapp,
+        link: 'https://wa.me/5493416124513?text=Hola%20quiero%20información%20sobre%20el%20trámite%20de%20discapacidad.',
+        colorClass: 'contact-btn-wsp',
+    },
+    {
+        label: 'Correo Electrónico',
+        desc: 'Envianos un email',
+        icon: FaEnvelope,
+        link: `https://mail.google.com/mail/?view=cm&to=auditoriametal1@smatarosario.com.ar&su=${subject}&body=${body}`,
+        colorClass: 'contact-btn-email',
+    },
+];
+
 export default function Prestadores() {
+
+    const [showContact, setShowContact] = useState(false);
+
+    useEffect(() => {
+        if (!showContact) return;
+        const onKey = (e) => {
+            if (e.key === 'Escape') setShowContact(false);
+        };
+        window.addEventListener('keydown', onKey);
+        return () => window.removeEventListener('keydown', onKey);
+    }, [showContact]);
+
     return (
         <>
+            {/* ── MODAL CONTACTO DISCAPACIDAD ── */}
+            {showContact && (
+                <div className="dl-overlay" onClick={() => setShowContact(false)}>
+                    <div className="dl-modal" onClick={e => e.stopPropagation()}>
+                        <div className="dl-modal-header">
+                            <h3>Contacto Discapacidad</h3>
+                            <button className="dl-close" onClick={() => setShowContact(false)}>✕</button>
+                        </div>
+                        <p className="dl-modal-sub">Elegí cómo querés comunicarte con el área de Auditoría Médica.</p>
+                        <ul className="dl-list">
+                            {contactDiscapacidad.map((item, i) => {
+                                const Icon = item.icon;
+                                return (
+                                    <li key={i} className="dl-item">
+                                        <div className="dl-item-info">
+                                            <p className="dl-item-name">{item.label}</p>
+                                            <p className="dl-item-desc">{item.desc}</p>
+                                        </div>
+                                        <a
+                                            href={item.link}
+                                            target="_blank"
+                                            rel="noreferrer"
+                                            className={`dl-item-btn ${item.colorClass}`}
+                                        >
+                                            <Icon />
+                                            {item.label}
+                                        </a>
+                                    </li>
+                                );
+                            })}
+                        </ul>
+                    </div>
+                </div>
+            )}
 
             {/* ── INICIO ── */}
             <section className="hero-prestadores" id="inicio">
@@ -51,9 +124,7 @@ export default function Prestadores() {
 
             {/* ── INFORMACION ── */}
             <section className="informacion">
-                <div className="section-header">
-                </div>
-
+                <div className="section-header" />
                 <div className="informacion-grid">
                     {informacion.map(({ icon: Icon, title, info, desc }) => (
                         <div className="informacion-card" key={title}>
@@ -67,10 +138,7 @@ export default function Prestadores() {
                 </div>
             </section>
 
-            <section className='discapacidad' id='discapacidad'>
-                <h1>hola</h1>
-            </section>
-
+            {/* ── CENTRO MÉDICO ── */}
             <section className="dir-centro-section" id='centro-medico'>
                 <div className="dir-centro-info">
                     <span className="dir-centro-badge">UBICACIÓN CENTRAL</span>
@@ -81,11 +149,11 @@ export default function Prestadores() {
                     </div>
                     <div className="dir-centro-row">
                         <FaWhatsapp className="dir-centro-icon" />
-                        <a 
-                        href='https://wa.me/5493412555416?text=Hola%20quiero%20pedir%20un%20turno.' 
-                        target='_blank'
-                        rel='noreferrer'
-                        className='dir-centro-wsp'
+                        <a
+                            href='https://wa.me/5493412555416?text=Hola%20quiero%20pedir%20un%20turno.'
+                            target='_blank'
+                            rel='noreferrer'
+                            className='dir-centro-wsp'
                         >
                             Contacto: 341 255-5416
                         </a>
@@ -97,11 +165,57 @@ export default function Prestadores() {
                         className="dir-centro-btn"
                     >Cómo llegar</a>
                 </div>
-
                 <div className="dir-centro-mapa">
                     <iframe
                         title="centro SMATA Rosario"
                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3187.6995424950646!2d-60.682379924397075!3d-32.9233603707127!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95b653575b11a40d%3A0xdf6f2e27b39ce3eb!2sS.M.A.T.A.%20Seccional%20Rosario!5e1!3m2!1ses-419!2sar!4v1776866351987!5m2!1ses-419!2sar"
+                        allowFullScreen=""
+                        loading="lazy"
+                        referrerPolicy="no-referrer-when-downgrade"
+                    />
+                </div>
+            </section>
+
+            {/* ── DISCAPACIDAD ── */}
+            <section className='discapacidad' id='discapacidad'>
+                <div className="dir-centro-info">
+                    <span className="dir-centro-badge">UBICACIÓN DISCAPACIDAD</span>
+                    <h2 className="dir-centro-title">Auditoría Médica</h2>
+                    <div className="dir-centro-row">
+                        <FaLocationDot className="dir-centro-icon" />
+                        <span>Gorriti 1101,<br />S2000 Rosario, Santa Fe</span>
+                    </div>
+
+                    <div>
+                        {requisitos.map((item, i) => (
+                            <div className="requisito-discapacidad" key={i}>
+                                <FaCheck size={20} color="#4CAF50" style={{ marginRight: '0.5rem' }} />
+                                <span className='requisito-text'>{item}</span>
+                            </div>
+                        ))}
+                    </div>
+
+                    <div className='discapacidad-btns'>
+                        {/* Ahora abre el modal en lugar de ir directo a WhatsApp */}
+                        <button
+                            className='dir-disc-btn'
+                            onClick={() => setShowContact(true)}
+                        >
+                            Contacto
+                        </button>
+                        <a
+                            href='https://maps.app.goo.gl/SGtishKLUsPw2rhe9'
+                            target="_blank"
+                            rel="noreferrer"
+                            className="dir-centro-btn"
+                        >Cómo llegar</a>
+                    </div>
+                </div>
+
+                <div className="dir-centro-mapa">
+                    <iframe
+                        title="centro SMATA Rosario"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3349.041998523815!2d-60.680641200000004!3d-32.9234886!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95b6535753100e95%3A0x80700f4d976e8183!2sAsociacion%20Mutual%20Rosario%20Metalmecanica%20Y%20Afines!5e0!3m2!1ses-419!2sar!4v1777299576283!5m2!1ses-419!2sar"
                         allowFullScreen=""
                         loading="lazy"
                         referrerPolicy="no-referrer-when-downgrade"

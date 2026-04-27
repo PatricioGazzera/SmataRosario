@@ -18,6 +18,8 @@ import NotFound from '../Components/NotFound/NotFound';
 import Capacitacion from '../Components/Capacitacion/Capacitacion';
 import CapacitacionDetails from '../Components/CapacitacionDetails/CapacitacionDetails';
 import Subsidios from '../Components/Subsidios/Subsidios';
+import Hotels from '../Components/Hotels/Hotels';
+import HotelDetails from '../Components/HotelDetails/HotelDetails';
 
 export default function AppRoutes() {
     return (
@@ -36,6 +38,8 @@ export default function AppRoutes() {
             <Route path='/noticias/:id' element={<NewsDetail />}/>
             <Route path='/capacitacion' element={<Capacitacion />}/>
             <Route path='/capacitacion/:id' element={<CapacitacionDetails />}/>
+            <Route path='/turismo' element={<Hotels/>}/>
+            <Route path='/turismo/:id' element={<HotelDetails/>}/>
 
             {/* LOGIN ADMIN */}
             <Route path='/admin/login' element={<AdminLogin />}/>

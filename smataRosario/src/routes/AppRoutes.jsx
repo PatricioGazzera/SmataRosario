@@ -18,6 +18,7 @@ import NotFound from '../Components/NotFound/NotFound';
 import Capacitacion from '../Components/Capacitacion/Capacitacion';
 import CapacitacionDetails from '../Components/CapacitacionDetails/CapacitacionDetails';
 import Subsidios from '../Components/Subsidios/Subsidios';
+import SubsidioDetails from '../Components/SubsidiosDetails/SubsidiosDetails';
 import Hotels from '../Components/Hotels/Hotels';
 import HotelDetails from '../Components/HotelDetails/HotelDetails';
 
@@ -29,6 +30,7 @@ export default function AppRoutes() {
             <Route path='/mutual' element={<Mutual />} />
             <Route path='/beneficios' element={<Beneficts/>}/>
             <Route path='/subsidios' element={<Subsidios />}/>
+            <Route path='/subsidios/:id' element={<SubsidioDetails />}/>
             <Route path='/obra-social' element={<Prestadores/>}/>
             <Route path='/autoridades' element={<Autoridades/>}/>
             <Route path='/camping' element={<Camping />} />

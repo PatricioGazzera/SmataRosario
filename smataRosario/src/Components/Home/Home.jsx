@@ -1,5 +1,14 @@
 import './Home.css';
-import { FaHospital, FaPills, FaSkiing, FaBalanceScale, FaWhatsapp, FaCampground } from '../../utils/icons/icons';
+import {
+    FaHospital,
+    FaPills,
+    FaSkiing,
+    FaBalanceScale,
+    FaWhatsapp,
+    FaCampground,
+    FaChevronDown,
+    FaX
+} from '../../utils/icons/icons';
 import asociateImg from '../../utils/images/asociate.jpg';
 import { Link, useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
@@ -36,6 +45,22 @@ const services = [
     },
 ];
 
+// ── PREGUNTAS FRECUENTES — cambiá el texto cuando quieras ──
+const FAQS = [
+    {
+        pregunta: '¿La afiliación es automática?',
+        respuesta: 'No, para afiliarse deben firmarse las planillas de afiliación y presentar la documentación requerida, sin las planillas firmadas o la documentación incompleta la afiliación no se considera concluida.',
+    },
+    {
+        pregunta: '¿Cuándo debe entregarse la documentación de estudiantes?',
+        respuesta: 'La documentación de estudiantes se presenta semestralmente en los meses de Abril  y Octubre del 1 al 20 para poder tener la continuidad en padrón. Se presenta Certificado de Alumno Regular y Certificación Negativa. Siempre se debe consultar un mes antes de que se cumple la mayoría de edad para ver la situacion puntual de cada afiliado.',
+    },
+    {
+        pregunta: '¿Cuánto cuesta la cuota sindical?',
+        respuesta: 'La cuota sindical se descuenta automáticamente de su salario según el convenio colectivo vigente. Para conocer el monto exacto podés comunicarte con nuestra sede o por WhatsApp.',
+    },
+];
+
 const formatFecha = (fechaStr) => {
     if (!fechaStr) return '';
     return new Date(fechaStr).toLocaleDateString('es-AR', {
@@ -43,9 +68,77 @@ const formatFecha = (fechaStr) => {
     });
 };
 
+// ── MODAL FAQ ──
+function FaqModal({ onClose }) {
+    const [abierta, setAbierta] = useState(null);
+
+    const toggle = (i) => setAbierta(prev => prev === i ? null : i);
+
+    // Cerrar con Escape
+    useEffect(() => {
+        const onKey = (e) => { if (e.key === 'Escape') onClose(); };
+        window.addEventListener('keydown', onKey);
+        return () => window.removeEventListener('keydown', onKey);
+    }, [onClose]);
+
+    return (
+        <div className="faq-backdrop" onClick={onClose}>
+            <div className="faq-modal" onClick={e => e.stopPropagation()}>
+
+                {/* Header */}
+                <div className="faq-header">
+                    <div>
+                        <h2 className="faq-title">Preguntas Frecuentes</h2>
+                        <p className="faq-subtitle">Todo lo que necesitás saber sobre SMATA Rosario</p>
+                    </div>
+                    <button className="faq-close" onClick={onClose}><FaX /></button>
+                </div>
+
+                {/* Acordeón */}
+                <div className="faq-list">
+                    {FAQS.map((faq, i) => (
+                        <div
+                            key={i}
+                            className={`faq-item ${abierta === i ? 'open' : ''}`}
+                        >
+                            <button
+                                className="faq-question"
+                                onClick={() => toggle(i)}
+                            >
+                                <span>{faq.pregunta}</span>
+                                <span className="faq-chevron">
+                                    <FaChevronDown />
+                                </span>
+                            </button>
+                            <div className="faq-answer-wrap">
+                                <p className="faq-answer">{faq.respuesta}</p>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+
+                {/* Footer */}
+                <div className="faq-footer">
+                    <p>¿No encontrás lo que buscás?</p>
+                    <a
+                        href="https://wa.me/5493412555424?text=Hola%20tengo%20una%20consulta."
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="faq-wa-btn"
+                    >
+                        <FaWhatsapp /> Consultanos por WhatsApp
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    );
+}
+
 export default function SmataRosario() {
     const navigate = useNavigate();
     const [noticias, setNoticias] = useState([]);
+    const [showFaq, setShowFaq] = useState(false);
 
     useEffect(() => {
         const fetchNoticias = async () => {
@@ -60,8 +153,17 @@ export default function SmataRosario() {
         fetchNoticias();
     }, []);
 
+    // Bloquear scroll cuando el modal está abierto
+    useEffect(() => {
+        document.body.style.overflow = showFaq ? 'hidden' : '';
+        return () => { document.body.style.overflow = ''; };
+    }, [showFaq]);
+
     return (
         <>
+            {/* ── MODAL FAQ ── */}
+            {showFaq && <FaqModal onClose={() => setShowFaq(false)} />}
+
             {/* ── HERO ── */}
             <section className="hero" id="inicio">
                 <div className="home-bg" />
@@ -149,7 +251,6 @@ export default function SmataRosario() {
                             </div>
                         ))
                     ) : (
-                        // Skeleton mientras carga
                         Array.from({ length: 3 }).map((_, i) => (
                             <div className="news-card news-card--skeleton" key={i}>
                                 <div className="news-skeleton-img" />
@@ -189,7 +290,11 @@ export default function SmataRosario() {
                             >
                                 <FaWhatsapp className='whatsapp-btn' /> Solicitar Afiliación
                             </a>
-                            <button className="btn-white-outline">
+                            {/* ── BOTÓN QUE ABRE EL MODAL ── */}
+                            <button
+                                className="btn-white-outline"
+                                onClick={() => setShowFaq(true)}
+                            >
                                 Preguntas Frecuentes
                             </button>
                         </div>

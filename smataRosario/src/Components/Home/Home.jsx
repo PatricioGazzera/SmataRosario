@@ -22,8 +22,8 @@ const services = [
     },
     {
         icon: FaSkiing,
-        title: 'Recreación',
-        desc: 'Explorá paquetes turísticos...',
+        title: 'Turismo',
+        desc: 'Explorá nuestros destinos turísticos...',
         link: 'Ver Destinos',
         path: 'turismo'
     },

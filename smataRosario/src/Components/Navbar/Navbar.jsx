@@ -59,7 +59,7 @@ export default function Navbar() {
           <li><Link to="/mutual" onClick={closeMenu}>Mutual</Link></li>
           <li><Link to="/beneficios" onClick={closeMenu}>Beneficios</Link></li>
           <li><Link to="/obra-social" onClick={closeMenu}>Obra Social</Link></li>
-          <li><a href="#turismo" onClick={closeMenu}>Turismo</a></li>
+          <li><Link to="/turismo" onClick={closeMenu}>Turismo</Link></li>
           <li><Link to="/camping" onClick={closeMenu}>Complejos</Link></li>
           <li><Link to="/noticias" onClick={closeMenu}>Noticias</Link></li>
           <li><Link to="/contacto" onClick={closeMenu}>Contacto</Link></li>

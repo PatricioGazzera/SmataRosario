@@ -1,29 +1,123 @@
-import { useState } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { TODOS_LOS_HOTELES, SERVICIOS_MAP } from '../Hotels/Hotels';
+import { 
+  FaWhatsapp, 
+  FaPhone, 
+  FaFacebookF, 
+  FaInstagram, 
+  FaStar, 
+  FaEnvelope, 
+  FaLocationDot, 
+  FaChevronLeft, 
+  FaChevronRight, 
+  FaX 
+} from '../../utils/icons/icons'
 import './HotelDetails.css';
 
-const IconPin   = () => <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z"/></svg>;
-const IconPhone = () => <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" width="16" height="16"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8 19.79 19.79 0 01.22 2.18 2 2 0 012.18 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.18 6.18l1.28-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>;
-const IconWA    = () => <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>;
-const IconMail  = () => <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" width="16" height="16"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 7 10-7"/></svg>;
-const IconFB    = () => <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>;
-const IconIG    = () => <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" width="18" height="18"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>;
 const IconBack  = () => <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" width="16" height="16"><polyline points="15 18 9 12 15 6"/></svg>;
-const IconStar  = () => <svg viewBox="0 0 24 24" fill="#22c55e" width="14" height="14"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>;
 
-// Formatea el precio: si es número lo formatea, si es string lo muestra tal cual
 const formatPrecio = (val) => {
   if (typeof val === 'number') return `$${val.toLocaleString('es-AR')}`;
-  return val; // 'Sin cargo', 'COMPLETAR', etc.
+  return val;
 };
+
+// ── LIGHTBOX ──
+function Lightbox({ fotos, indice, onClose, onPrev, onNext }) {
+  return (
+    <div className="lb-backdrop" onClick={onClose}>
+      {/* Botón cerrar */}
+      <button className="lb-close" onClick={onClose}><FaX /></button>
+
+      {/* Contador */}
+      <div className="lb-counter">{indice + 1} / {fotos.length}</div>
+
+      {/* Flecha anterior */}
+      <button
+        className="lb-arrow lb-arrow--prev"
+        onClick={e => { e.stopPropagation(); onPrev(); }}
+      >
+        <FaChevronLeft />
+      </button>
+
+      {/* Imagen */}
+      <div className="lb-img-wrap" onClick={e => e.stopPropagation()}>
+        <img src={fotos[indice]} alt={`foto ${indice + 1}`} className="lb-img" />
+      </div>
+
+      {/* Flecha siguiente */}
+      <button
+        className="lb-arrow lb-arrow--next"
+        onClick={e => { e.stopPropagation(); onNext(); }}
+      >
+        <FaChevronRight />
+      </button>
+
+      {/* Thumbnails */}
+      <div className="lb-thumbs" onClick={e => e.stopPropagation()}>
+        {fotos.map((f, i) => (
+          <div
+            key={i}
+            className={`lb-thumb ${i === indice ? 'active' : ''}`}
+            onClick={() => onNext(i)}
+          >
+            <img src={f} alt={`thumb ${i + 1}`} />
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
 
 export default function HotelDetails() {
   const { id } = useParams();
   const navigate = useNavigate();
   const [fotoActiva, setFotoActiva] = useState(0);
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [lightboxIdx, setLightboxIdx] = useState(0);
 
   const hotel = TODOS_LOS_HOTELES.find(h => String(h.id) === String(id));
+
+  const todasLasFotos = hotel ? [hotel.imagen_portada, ...(hotel.imagenes || [])] : [];
+  const tieneVariostipos = hotel?.habitaciones?.length > 1;
+
+  // Abrir lightbox
+  const abrirLightbox = (idx) => {
+    setLightboxIdx(idx);
+    setLightboxOpen(true);
+    document.body.style.overflow = 'hidden';
+  };
+
+  // Cerrar lightbox
+  const cerrarLightbox = useCallback(() => {
+    setLightboxOpen(false);
+    document.body.style.overflow = '';
+  }, []);
+
+  // Navegar en lightbox
+  const lbPrev = useCallback(() => {
+    setLightboxIdx(i => (i === 0 ? todasLasFotos.length - 1 : i - 1));
+  }, [todasLasFotos.length]);
+
+  const lbNext = useCallback((idx) => {
+    if (typeof idx === 'number') {
+      setLightboxIdx(idx);
+    } else {
+      setLightboxIdx(i => (i === todasLasFotos.length - 1 ? 0 : i + 1));
+    }
+  }, [todasLasFotos.length]);
+
+  // Teclado
+  useEffect(() => {
+    if (!lightboxOpen) return;
+    const onKey = (e) => {
+      if (e.key === 'Escape')     cerrarLightbox();
+      if (e.key === 'ArrowLeft')  lbPrev();
+      if (e.key === 'ArrowRight') lbNext();
+    };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [lightboxOpen, cerrarLightbox, lbPrev, lbNext]);
 
   if (!hotel) return (
     <div className="hd-notfound">
@@ -32,11 +126,19 @@ export default function HotelDetails() {
     </div>
   );
 
-  const todasLasFotos = [hotel.imagen_portada, ...(hotel.imagenes || [])];
-  const tieneVariostipos = hotel.habitaciones?.length > 1;
-
   return (
     <div className="hd-root">
+
+      {/* LIGHTBOX */}
+      {lightboxOpen && (
+        <Lightbox
+          fotos={todasLasFotos}
+          indice={lightboxIdx}
+          onClose={cerrarLightbox}
+          onPrev={lbPrev}
+          onNext={lbNext}
+        />
+      )}
 
       {/* BACK */}
       <div className="hd-topbar">
@@ -47,14 +149,23 @@ export default function HotelDetails() {
 
       {/* HERO */}
       <div className="hd-hero">
-        <img src={hotel.imagen_portada} alt={hotel.nombre} className="hd-hero-img" />
+        <img
+          src={hotel.imagen_portada}
+          alt={hotel.nombre}
+          className="hd-hero-img hd-hero-img--clickable"
+          onClick={() => abrirLightbox(0)}
+        />
         <div className="hd-hero-overlay" />
         <div className="hd-hero-content">
           <span className="hd-hero-sede">SEDE {hotel.destino.toUpperCase()}</span>
           <h1 className="hd-hero-title">{hotel.nombre}</h1>
-          <div className="hd-hero-dir"><IconPin /> {hotel.direccion}</div>
+          <div className="hd-hero-dir"><FaLocationDot /> {hotel.direccion}</div>
         </div>
-        <div className="hd-hero-rating"><IconStar /> {hotel.rating}</div>
+        <div className="hd-hero-rating"><FaStar /> {hotel.rating}</div>
+        {/* Indicador de galería sobre el hero */}
+        <button className="hd-hero-gallery-btn" onClick={() => abrirLightbox(0)}>
+          🖼 Ver todas las fotos ({todasLasFotos.length})
+        </button>
       </div>
 
       {/* GALERÍA */}
@@ -64,7 +175,7 @@ export default function HotelDetails() {
             <div
               key={i}
               className={`hd-gal-item ${i === fotoActiva ? 'active' : ''}`}
-              onClick={() => setFotoActiva(i)}
+              onClick={() => { setFotoActiva(i); abrirLightbox(i); }}
             >
               <img src={img} alt={`foto ${i + 1}`} />
               {i === 4 && todasLasFotos.length > 5 && (
@@ -81,13 +192,11 @@ export default function HotelDetails() {
         {/* IZQUIERDA */}
         <div className="hd-left">
 
-          {/* Descripción */}
           <section className="hd-section">
             <h2 className="hd-section-title">Sobre el Hotel</h2>
             <p className="hd-descripcion">{hotel.descripcion}</p>
           </section>
 
-          {/* Servicios */}
           {hotel.servicios?.length > 0 && (
             <section className="hd-section">
               <h2 className="hd-section-title">Servicios y Comodidades</h2>
@@ -102,21 +211,18 @@ export default function HotelDetails() {
             </section>
           )}
 
-          {/* Tarifas */}
           {hotel.habitaciones?.length > 0 && (
             <section className="hd-section">
               <h2 className="hd-section-title">Tarifas por Habitación</h2>
               <p className="hd-tarifas-sub">Precios por persona / por día</p>
 
               {tieneVariostipos ? (
-                /* ── VARIOS TIPOS: una card por tipo con tabla de tarifas adentro ── */
                 <div className="hd-habitaciones-grid">
                   {hotel.habitaciones.map((hab, i) => (
                     <div key={i} className={`hd-hab-card ${hab.destacada ? 'destacada' : ''}`}>
                       {hab.destacada && <span className="hd-hab-badge">MÁS ELEGIDO</span>}
                       <h3 className="hd-hab-tipo">{hab.tipo}</h3>
                       {hab.desc && <p className="hd-hab-desc">{hab.desc}</p>}
-
                       <table className="hd-tarifas-table">
                         <thead>
                           <tr>
@@ -137,7 +243,6 @@ export default function HotelDetails() {
                           ))}
                         </tbody>
                       </table>
-
                       {hab.amenities?.length > 0 && (
                         <ul className="hd-hab-amenities">
                           {hab.amenities.map((a, j) => <li key={j}>✓ {a}</li>)}
@@ -147,7 +252,6 @@ export default function HotelDetails() {
                   ))}
                 </div>
               ) : (
-                /* ── UN SOLO TIPO: tabla limpia sin card de tipo ── */
                 <div className="hd-tarifas-single">
                   <table className="hd-tarifas-table hd-tarifas-table--full">
                     <thead>
@@ -179,7 +283,6 @@ export default function HotelDetails() {
             </section>
           )}
 
-          {/* Mapa */}
           <section className="hd-section">
             <h2 className="hd-section-title">Ubicación</h2>
             <div className="hd-mapa">
@@ -200,38 +303,48 @@ export default function HotelDetails() {
 
         {/* DERECHA */}
         <div className="hd-right">
-
-          {/* Contacto */}
           <div className="hd-contact-card">
             <div className="hd-contact-header">
               <h3>Contacto del Hotel</h3>
               <span>Atención Directa</span>
             </div>
+
             <div className="hd-contact-items">
               {hotel.telefono && hotel.telefono !== 'COMPLETAR' && (
                 <div className="hd-contact-item">
-                  <span className="hd-contact-icon"><IconPhone /></span>
+                  <span className="hd-contact-icon"><FaPhone /></span>
                   <div>
                     <div className="hd-contact-label">TELÉFONO PRINCIPAL</div>
-                    <div className="hd-contact-val">{hotel.telefono}</div>
+                    <a href={`tel:${hotel.telefono.replace(/\D/g, '')}`} className="hd-contact-val hd-contact-link">
+                      {hotel.telefono}
+                    </a>
                   </div>
                 </div>
               )}
               {hotel.whatsapp && hotel.whatsapp !== 'COMPLETAR' && (
                 <div className="hd-contact-item">
-                  <span className="hd-contact-icon green"><IconWA /></span>
+                  <span className="hd-contact-icon green"><FaWhatsapp /></span>
                   <div>
                     <div className="hd-contact-label">WHATSAPP CONSULTAS</div>
-                    <div className="hd-contact-val">{hotel.whatsapp}</div>
+                    <a
+                      href={`https://wa.me/${hotel.whatsapp.replace(/\D/g, '')}`}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="hd-contact-val hd-contact-link hd-contact-link--wa"
+                    >
+                      {hotel.whatsapp}
+                    </a>
                   </div>
                 </div>
               )}
               {hotel.email && hotel.email !== 'COMPLETAR' && (
                 <div className="hd-contact-item">
-                  <span className="hd-contact-icon"><IconMail /></span>
+                  <span className="hd-contact-icon"><FaEnvelope /></span>
                   <div>
                     <div className="hd-contact-label">CORREO ELECTRÓNICO</div>
-                    <div className="hd-contact-val">{hotel.email}</div>
+                    <a href={`mailto:${hotel.email}`} className="hd-contact-val hd-contact-link">
+                      {hotel.email}
+                    </a>
                   </div>
                 </div>
               )}
@@ -242,20 +355,23 @@ export default function HotelDetails() {
               <div className="hd-contact-socials">
                 <div className="hd-contact-label">SEGUINOS EN REDES</div>
                 <div className="hd-social-row">
-                  {hotel.facebook  && hotel.facebook !== 'COMPLETAR'  && <a href={`https://facebook.com/${hotel.facebook}`}  target="_blank" rel="noreferrer" className="hd-social-btn"><IconFB /></a>}
-                  {hotel.instagram && hotel.instagram !== 'COMPLETAR' && <a href={`https://instagram.com/${hotel.instagram}`} target="_blank" rel="noreferrer" className="hd-social-btn"><IconIG /></a>}
+                  {hotel.facebook && hotel.facebook !== 'COMPLETAR' && (
+                    <a href={`https://facebook.com/${hotel.facebook}`} target="_blank" rel="noreferrer" className="hd-social-btn"><FaFacebookF /></a>
+                  )}
+                  {hotel.instagram && hotel.instagram !== 'COMPLETAR' && (
+                    <a href={`https://instagram.com/${hotel.instagram}`} target="_blank" rel="noreferrer" className="hd-social-btn"><FaInstagram /></a>
+                  )}
                 </div>
               </div>
             )}
 
             {hotel.telefono && hotel.telefono !== 'COMPLETAR' && (
-              <a href={`tel:${hotel.telefono}`} className="hd-btn-llamar">
-                <IconPhone /> Llamar Ahora
+              <a href={`tel:${hotel.telefono.replace(/\D/g, '')}`} className="hd-btn-llamar">
+                <FaPhone /> Llamar Ahora
               </a>
             )}
           </div>
 
-          {/* Requisito */}
           <div className="hd-req-card">
             <div className="hd-req-icon">i</div>
             <div>
@@ -263,7 +379,6 @@ export default function HotelDetails() {
               <div className="hd-req-sub">Carnet y DNI al ingresar</div>
             </div>
           </div>
-
         </div>
       </div>
     </div>

@@ -8,6 +8,62 @@ import {
 } from '../../utils/icons/icons';
 import './Hotels.css';
 
+// 17 de Noviembre
+import portadaImg17 from "../../utils/images/17 de noviembre/portada.jpg"
+import habitacionImg1 from "../../utils/images/17 de noviembre/habitacion1.jpeg"
+import habitacionImg2 from "../../utils/images/17 de noviembre/habitacion2.jpeg"
+import vistaImg17 from "../../utils/images/17 de noviembre/vista.jpg"
+import desayunoImg17 from "../../utils/images/17 de noviembre/desayuno.jpg"
+
+// Sierras Hotel
+import portadaImgSH from "../../utils/images/Las Sierras/portada1.jpg"
+import habitacionImgSH from "../../utils/images/Las Sierras/habitacion1.jpg"
+import comedorImgSH from "../../utils/images/Las Sierras/comedor1.jpg"
+import livingImgSH from "../../utils/images/Las Sierras/living1.jpg"
+import piletaImgSH from "../../utils/images/Las Sierras/pileta1.jpg"
+
+// 17 de Octubre
+import portada17 from "../../utils/images/17 de octubre/portada17.jpg"
+import hotel17 from "../../utils/images/17 de octubre/hotel17.jpg"
+import habitacion17 from "../../utils/images/17 de octubre/habitacion17.jpg"
+import baño17 from "../../utils/images/17 de octubre/baño17.jpg"
+import pileta17 from "../../utils/images/17 de octubre/pileta2-17.jpg"
+
+//Avenida del Mar
+import portadaAV from "../../utils/images/Avenida del mar/portadaAV.jpeg"
+import habitacionAV from "../../utils/images/Avenida del mar/habitacionAV.jpg"
+import comedorAV from "../../utils/images/Avenida del mar/comedorAV.jpg"
+import desayunoAV from "../../utils/images/Avenida del mar/desayunoAV.jpg"
+import vistaAV from "../../utils/images/Avenida del mar/vistaAV.jpg"
+
+// Hotel Biondis
+import portadaHB from "../../utils/images/Hotel biondis/portadaHB.jpg"
+import habitacion1HB from "../../utils/images/Hotel biondis/habitacion1HB.jpg"
+import habitacion2HB from "../../utils/images/Hotel biondis/habitacion2HB.jpg"
+import bañoHB from "../../utils/images/Hotel biondis/bañoHB.jpg"
+import piletaHB from "../../utils/images/Hotel biondis/piletaHB.jpg"
+
+// Conte Hotel
+import portadaCH from "../../utils/images/Conte Hotel/portadaCH.jpeg"
+import exteriorCH from "../../utils/images/Conte Hotel/exteriorCH.jpg"
+import comedorCH from "../../utils/images/Conte Hotel/comedorCH.jpg"
+import desayunoCH from "../../utils/images/Conte Hotel/desayunoCH.jpg"
+import habitacionCH from "../../utils/images/Conte Hotel/habitacionCH.jpg"
+
+// El Nihuil
+import portadaEN from "../../utils/images/El Nihuil/portadaEN.jpg"
+import habitacionEN from "../../utils/images/El Nihuil/habitacionEN.jpeg"
+import bañoEN from "../../utils/images/El Nihuil/bañoEN.jpeg"
+import comedorEN from "../../utils/images/El Nihuil/comedorEN.jpeg"
+import piletaEN from "../../utils/images/El Nihuil/piletaEN.png"
+
+// Convenios
+import portadaTDS from "../../utils/images/Convenios/tierraDelSol.png"
+import portadaCBM from "../../utils/images/Convenios/cbym.jpg"
+import portadaCVC from "../../utils/images/Convenios/cvc.jpg"
+import portadaHL from "../../utils/images/Convenios/hotelLujan.jpg"
+
+
 export const SERVICIOS_MAP = {
     wifi: { label: 'Wi-Fi Libre', icon: <FaWifi /> },
     piscina: { label: 'Piscina', icon: <FaPersonSwimming /> },
@@ -22,20 +78,6 @@ export const SERVICIOS_MAP = {
     desayuno: { label: 'Desayuno', icon: <FaEgg /> }
 };
 
-// ─────────────────────────────────────────────────────────────
-// ESTRUCTURA DE HABITACIONES
-//
-// Cada habitación puede tener múltiples "categorías de pasajero":
-// { categoria: 'Mayor',        precio_afiliado: X, precio_invitado: Y }
-// { categoria: 'Menor de 12',  precio_afiliado: X, precio_invitado: Y }
-// { categoria: 'Menor de 6',   precio_afiliado: X, precio_invitado: Y }
-// { categoria: 'Menor de 4',   precio_afiliado: 'Sin cargo', precio_invitado: 'Sin cargo' }
-//
-// Si el hotel tiene UN solo tipo de habitación, el array "habitaciones"
-// tiene UN elemento con nombre 'Estándar' (o el que corresponda).
-// Si tiene VARIOS tipos, hay múltiples elementos.
-// ─────────────────────────────────────────────────────────────
-
 export const HOTELES = [
 
     // ── 1. HOTEL 17 DE NOVIEMBRE ── datos reales
@@ -46,14 +88,14 @@ export const HOTELES = [
         tipo: 'propio',
         rating: 4.8,
         precio_socio: 68600, // precio base (mayor afiliado) para mostrar en la card
-        imagen_portada: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800&q=80',
+        imagen_portada: portadaImg17,
         imagenes: [
-            'https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=400&q=80',
-            'https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?w=400&q=80',
-            'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=400&q=80',
-            'https://images.unsplash.com/photo-1631049552057-403cdb8f0658?w=400&q=80',
+            habitacionImg1,
+            habitacionImg2,
+            vistaImg17,
+            desayunoImg17,
         ],
-        descripcion: 'COMPLETAR — Descripción del Hotel 17 de Noviembre.',
+        descripcion: 'Ubicado en una posición privilegiada frente al mar y al icónico Torreón del Monje, el Hotel Punta Piedras "17 de Noviembre" es tu destino soñado en Mar del Plata. Despierta cada mañana con una vista inigualable al Atlántico y disfruta de instalaciones confortables, ideales para descansar en pareja o familia. Nuestra ubicación estratégica te permite estar a un paso de las mejores playas y puntos turísticos de la ciudad. ¡Vení a disfrutar de una estadía inolvidable donde el relax y la belleza costera se encuentran!',
         servicios: ['media_pension', 'wifi', 'estacionamiento', 'aire'],
         habitaciones: [
             {
@@ -70,12 +112,12 @@ export const HOTELES = [
             },
         ],
         direccion: 'Boulevard Marítimo Patricio Peralta Ramos 3185, Mar del Plata, Buenos Aires, Argentina',
-        mapa_embed: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3141.8!2d-57.5559!3d-38.0023!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sBoulevard%20Mar%C3%ADtimo%203185%2C%20Mar%20del%20Plata!5e0!3m2!1ses!2sar!4v1700000000000',
-        telefono: 'COMPLETAR',
-        whatsapp: 'COMPLETAR',
-        email: 'COMPLETAR',
-        instagram: 'COMPLETAR',
-        facebook: 'COMPLETAR',
+        mapa_embed: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2992.194434754323!2d-57.53342379999999!3d-38.0087136!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9584dd80fcd64b37%3A0xb46a8c726d273f48!2sHotel%20Punta%20Piedras!5e1!3m2!1ses-419!2sar!4v1777379025206!5m2!1ses-419!2sar',
+        telefono: '341 683-1506',
+        whatsapp: '341 683-1506',
+        email: 'administracion@smatarosario.com.ar',
+        instagram: 'puntapiedrashotel',
+        facebook: 'puntapiedrashotel',
     },
 
     // ── 2. SIERRAS HOTEL ── datos reales
@@ -86,15 +128,15 @@ export const HOTELES = [
         tipo: 'propio',
         rating: 4.3,
         precio_socio: 38400,
-        imagen_portada: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80',
+        imagen_portada: portadaImgSH,
         imagenes: [
-            'https://images.unsplash.com/photo-1510798831971-661eb04b3739?w=400&q=80',
-            'https://images.unsplash.com/photo-1501117716987-c8c394bb29df?w=400&q=80',
-            'https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=400&q=80',
-            'https://images.unsplash.com/photo-1445019980597-93fa8acb246c?w=400&q=80',
+            habitacionImgSH,
+            comedorImgSH,
+            livingImgSH,
+            piletaImgSH,
         ],
         descripcion: 'Rodeado de los atractivos turísticos más importantes de la región, se encuentra Sierras Hotel, un emprendimiento turístico que busca satisfacer todas las expectativas de quienes lo visitan, sin perder los valores tradicionales de familia y amistad que caracterizan a estos pagos puntanos.',
-        servicios: ['wifi', 'desayuno', 'estacionamiento'],
+        servicios: ['wifi', 'desayuno', 'piscina', 'estacionamiento'],
         habitaciones: [
             {
                 tipo: 'Estándar',
@@ -102,37 +144,37 @@ export const HOTELES = [
                 destacada: false,
                 amenities: [], // COMPLETAR
                 tarifas: [
-                    { categoria: 'Mayor', precio_afiliado: 38400, precio_invitado: 48600 },
-                    { categoria: 'Menor de 12', precio_afiliado: 28000, precio_invitado: 32400 },
-                    { categoria: 'Menor de 3', precio_afiliado: 'Sin cargo', precio_afiliado: 'Sin cargo'}
+                    { categoria: 'Mayor', precio_afiliado: 38400, precio_invitado: 48600, precio_particular: '-' },
+                    { categoria: 'Menor de 12', precio_afiliado: 28000, precio_invitado: 32400, precio_particular: '-' },
+                    { categoria: 'Menor de 3', precio_afiliado: 'Sin cargo', precio_invitado: 'Sin cargo', precio_particular: '-'}
                 ],
             },
         ],
-        direccion: 'COMPLETAR — Dirección Sierras Hotel, San Luis',
-        mapa_embed: 'COMPLETAR',
-        telefono: 'COMPLETAR',
-        whatsapp: 'COMPLETAR',
-        email: 'COMPLETAR',
-        instagram: 'COMPLETAR',
-        facebook: 'COMPLETAR',
+        direccion: 'Las Calandrias 100, Las Chacras, Juana Koslay',
+        mapa_embed: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3175.264428021916!2d-66.23325369999999!3d-33.266955!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95d415f4b81b104d%3A0x9a426bad3f1455cd!2sSierras%20Hotel%20-%20Las%20Chacras%2FJuana%20Koslay!5e1!3m2!1ses-419!2sar!4v1777378632908!5m2!1ses-419!2sar',
+        telefono: '341 683-1506',
+        whatsapp: '341 683-1506',
+        email: 'administracion@smatarosario.com.ar',
+        instagram: 'sierrashotel',
+        facebook: 'SierrasHotelLasChacras',
     },
 
     // ── 3. HOTEL 17 DE OCTUBRE ── 2 tipos de habitación
     {
         id: 3,
         nombre: 'Hotel 17 de Octubre',
-        destino: 'Lujan, San Luis',
+        destino: 'San Luis',
         tipo: 'propio',
         rating: 4.7, // COMPLETAR
         precio_socio: 77500, // COMPLETAR — precio base para la card
-        imagen_portada: 'https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=800&q=80',
+        imagen_portada: portada17,
         imagenes: [
-            'https://images.unsplash.com/photo-1590381105924-c72589b9ef3f?w=400&q=80',
-            'https://images.unsplash.com/photo-1445019980597-93fa8acb246c?w=400&q=80',
-            'https://images.unsplash.com/photo-1563911302283-d2bc129e7570?w=400&q=80',
-            'https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=400&q=80',
+            hotel17,
+            habitacion17,
+            baño17,
+            pileta17,
         ],
-        descripcion: 'COMPLETAR — Descripción del Hotel 17 de Octubre.',
+        descripcion: 'Ubicada en la localidad de Luján, nuestra Hostería 17 de Octubre es el destino ideal para quienes buscan desconectar en medio de la paz de las sierras puntanas. Rodeada de un extenso entorno natural, ofrecemos instalaciones pensadas para el disfrute familiar, destacando nuestra pileta climatizada y espacios recreativos al aire libre. Vení a vivir una estadía de pleno descanso y confort, con la atención cálida y el servicio integral que nos caracteriza. ¡Te esperamos para compartir momentos inolvidables en San Luis!',
         servicios: ['wifi', 'pension_completa', 'piscina'], // COMPLETAR
         habitaciones: [
             {
@@ -160,11 +202,11 @@ export const HOTELES = [
                 ],
             },
         ],
-        direccion: 'COMPLETAR',
-        mapa_embed: 'COMPLETAR',
-        telefono: 'COMPLETAR',
-        whatsapp: 'COMPLETAR',
-        email: 'COMPLETAR',
+        direccion: 'Ruta 20 y 146, Coronel Loyola, Luján, San Luis',
+        mapa_embed: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3206.652610243943!2d-65.93487139999999!3d-32.39345430000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95d4a6ae5564bb17%3A0x15d391c1bdbd14a!2sHosteria%2017%20de%20octubre%20(smata)!5e1!3m2!1ses-419!2sar!4v1777378060332!5m2!1ses-419!2sar',
+        telefono: '341 683-1506',
+        whatsapp: '341 683-1506',
+        email: 'administracion@smatarosario.com.ar',
         instagram: 'COMPLETAR',
         facebook: 'COMPLETAR',
     },
@@ -177,14 +219,14 @@ export const HOTELES = [
         tipo: 'propio',
         rating: 4.0, // COMPLETAR
         precio_socio: 59100, // COMPLETAR
-        imagen_portada: 'https://images.unsplash.com/photo-1540541338287-41700207dee6?w=800&q=80',
+        imagen_portada: portadaAV,
         imagenes: [
-            'https://images.unsplash.com/photo-1587213811864-46e59f6873e1?w=400&q=80',
-            'https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=400&q=80',
-            'https://images.unsplash.com/photo-1455587734955-081b22074882?w=400&q=80',
-            'https://images.unsplash.com/photo-1566665797739-1674de7a421a?w=400&q=80',
+            habitacionAV,
+            comedorAV,
+            desayunoAV,
+            vistaAV,
         ],
-        descripcion: 'COMPLETAR — Descripción del Hotel Avenida del Mar.',
+        descripcion: 'Ubicado en el corazón de Mar del Plata, nuestro hotel es el punto de encuentro perfecto entre el relax de la playa y la vibrante vida céntrica. A solo metros del mar y del emblemático Casino Central, te ofrecemos la comodidad que buscas para disfrutar de una estadía inolvidable en familia. Disfruta de una ubicación privilegiada, instalaciones renovadas y la calidez de un servicio diseñado para que tu descanso sea total. ¡Vení a vivir la experiencia de la costa con nosotros!',
         servicios: [ 'wifi', 'desayuno',  ], // COMPLETAR
         habitaciones: [
             {
@@ -201,32 +243,32 @@ export const HOTELES = [
                 ],
             },
         ],
-        direccion: 'COMPLETAR',
-        mapa_embed: 'COMPLETAR',
-        telefono: 'COMPLETAR',
-        whatsapp: 'COMPLETAR',
-        email: 'COMPLETAR',
-        instagram: 'COMPLETAR',
-        facebook: 'COMPLETAR',
+        direccion: 'Av. Pedro Luro, Centro 2252, B7600GTO Mar del Plata, Provincia de Buenos Aires',
+        mapa_embed: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2992.5320363994624!2d-57.5429604!3d-38.0004412!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9584dc1a88a53c79%3A0xcc492dd3ca7edb42!2sHotel%20Avenida%20del%20Mar!5e1!3m2!1ses-419!2sar!4v1777377835388!5m2!1ses-419!2sar',
+        telefono: '341 683-1506',
+        whatsapp: '341 683-1506',
+        email: 'administracion@smatarosario.com.ar',
+        instagram: ' ',
+        facebook: 'avenidadelmarhotel',
     },
 
     // ── 5. HOTEL BIONDIS ── 2 tipos de habitación
     {
         id: 5,
         nombre: 'Hotel Biondis',
-        destino: 'Valle Hermoso, Córdoba',
+        destino: 'Córdoba',
         tipo: 'propio',
         rating: 4.0, // COMPLETAR
         precio_socio: 37000, // COMPLETAR
-        imagen_portada: 'https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=800&q=80',
+        imagen_portada: portadaHB,
         imagenes: [
-            'https://images.unsplash.com/photo-1578683010236-d716f9a3f461?w=400&q=80',
-            'https://images.unsplash.com/photo-1582719508461-905c673771fd?w=400&q=80',
-            'https://images.unsplash.com/photo-1584132967334-10e028bd69f7?w=400&q=80',
-            'https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?w=400&q=80',
+            habitacion1HB,
+            habitacion2HB,
+            bañoHB,
+            piletaHB,
         ],
-        descripcion: 'COMPLETAR — Descripción del Hotel Biondis.',
-        servicios: [], // COMPLETAR
+        descripcion: 'Descubre el Hotel Biondis, tu refugio de descanso en el corazón de Valle Hermoso, rodeado por la magia natural de las sierras cordobesas. Disfruta de una estadía familiar con piscina al aire libre, quincho con asador y la calidez de un servicio pensado para tu bienestar. Es el destino ideal para quienes buscan desconectar y reconectar con la naturaleza en un entorno auténtico y acogedor. ¡Te esperamos para vivir unas vacaciones inolvidables en el Valle de Punilla!',
+        servicios: ['piscina', 'wifi', 'estacionamiento', 'desayuno'], // COMPLETAR
         habitaciones: [
             {
                 tipo: 'Estándar',
@@ -255,13 +297,13 @@ export const HOTELES = [
                 ],
             },
         ],
-        direccion: 'COMPLETAR',
-        mapa_embed: 'COMPLETAR',
-        telefono: 'COMPLETAR',
-        whatsapp: 'COMPLETAR',
-        email: 'COMPLETAR',
-        instagram: 'COMPLETAR',
-        facebook: 'COMPLETAR',
+        direccion: 'Av. Gral Paz 186 - Valle Hermoso - Córdoba',
+        mapa_embed: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3251.065085421038!2d-64.4836122!3d-31.120300999999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x942d82ead5871651%3A0x7aca75930dfb9008!2sHotel%20Biondis!5e1!3m2!1ses-419!2sar!4v1777377728261!5m2!1ses-419!2sar',
+        telefono: '341 683-1506',
+        whatsapp: '341 683-1506',
+        email: 'administracion@smatarosario.com.ar',
+        instagram: 'hotelbiondis',
+        facebook: 'HotelBiondis',
     },
 
     // ── 6. CONTE HOTEL ── 5 tipos de habitación
@@ -269,18 +311,18 @@ export const HOTELES = [
         id: 6,
         nombre: 'Conte Hotel',
         destino: 'Buenos Aires',
-        tipo: 'propio',
+        tipo: 'externo',
         rating: 4.0, // COMPLETAR
         precio_socio: 95000, // COMPLETAR
-        imagen_portada: 'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=800&q=80',
+        imagen_portada: portadaCH,
         imagenes: [
-            'https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=400&q=80',
-            'https://images.unsplash.com/photo-1590381105924-c72589b9ef3f?w=400&q=80',
-            'https://images.unsplash.com/photo-1584132967334-10e028bd69f7?w=400&q=80',
-            'https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?w=400&q=80',
+            exteriorCH,
+            comedorCH,
+            desayunoCH,
+            habitacionCH,
         ],
-        descripcion: 'COMPLETAR — Descripción del Conte Hotel.',
-        servicios: [], // COMPLETAR
+        descripcion: 'Ubicado a pasos del emblemático Obelisco, el Conte Hotel es el punto de partida ideal para vivir Buenos Aires en todo su esplendor. Disfruta de habitaciones confortables, un desayuno buffet completo y la atención dedicada del personal en el corazón de la ciudad. Con una ubicación estratégica inmejorable y servicios pensados para tu bienestar, somos tu mejor opción tanto para viajes de negocios como de turismo. ¡Vení a descubrir la verdadera esencia porteña hospedándote con nosotros!',
+        servicios: ['wifi', 'desayuno', 'aire'], // COMPLETAR
         habitaciones: [
             {
                 tipo: 'Single/Doble Estándar',
@@ -294,7 +336,7 @@ export const HOTELES = [
             },
             {
                 tipo: 'Single/Doble Superior',
-                desc: 'COMPLETAR',
+                desc: '',
                 destacada: true,
                 amenities: [],
                 tarifas: [
@@ -304,7 +346,7 @@ export const HOTELES = [
             },
             {
                 tipo: 'Triple Estándar',
-                desc: 'COMPLETAR',
+                desc: '',
                 destacada: false,
                 amenities: [],
                 tarifas: [
@@ -314,7 +356,7 @@ export const HOTELES = [
             },
             {
                 tipo: 'Suite Junior',
-                desc: 'COMPLETAR',
+                desc: '',
                 destacada: false,
                 amenities: [],
                 tarifas: [
@@ -324,7 +366,7 @@ export const HOTELES = [
             },
             {
                 tipo: 'Suite Ejecutiva',
-                desc: 'COMPLETAR',
+                desc: '',
                 destacada: false,
                 amenities: [],
                 tarifas: [
@@ -333,32 +375,32 @@ export const HOTELES = [
                 ],
             },
         ],
-        direccion: 'COMPLETAR',
-        mapa_embed: 'COMPLETAR',
-        telefono: 'COMPLETAR',
-        whatsapp: 'COMPLETAR',
-        email: 'COMPLETAR',
-        instagram: 'COMPLETAR',
-        facebook: 'COMPLETAR',
+        direccion: 'Carlos Pellegrini 101, C1009 Cdad. Autónoma de Buenos Aires',
+        mapa_embed: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3125.676121269136!2d-58.380647599999996!3d-34.607092699999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bccad0282e80ef%3A0x8ec181c3d5f349fa!2sConte%20Hotel!5e1!3m2!1ses-419!2sar!4v1777376529987!5m2!1ses-419!2sar',
+        telefono: '341 683-1506',
+        whatsapp: '341 683-1506',
+        email: 'administracion@smatarosario.com.ar',
+        instagram: 'conte.hotel',
+        facebook: ' ',
     },
 
     // ── 7. EL NIHUIL ── 5 tipos de habitación
     {
         id: 7,
         nombre: 'El Nihuil',
-        destino: 'COMPLETAR',
+        destino: 'Mendoza',
         tipo: 'propio',
-        rating: 0.0, // COMPLETAR
-        precio_socio: 0, // COMPLETAR
-        imagen_portada: 'https://images.unsplash.com/photo-1510798831971-661eb04b3739?w=800&q=80',
+        rating: 4.5, // COMPLETAR
+        precio_socio: 62700, // COMPLETAR
+        imagen_portada: portadaEN,
         imagenes: [
-            'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&q=80',
-            'https://images.unsplash.com/photo-1501117716987-c8c394bb29df?w=400&q=80',
-            'https://images.unsplash.com/photo-1540541338287-41700207dee6?w=400&q=80',
-            'https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=400&q=80',
+            habitacionEN,
+            bañoEN,
+            comedorEN,
+            piletaEN,
         ],
-        descripcion: 'COMPLETAR — Descripción de El Nihuil.',
-        servicios: [], // COMPLETAR
+        descripcion: 'Ubicado frente al imponente Lago El Nihuil, nuestro hotel es el refugio ideal para conectar con la naturaleza y el descanso en Mendoza. Disfruta de instalaciones completas, piletas y una gastronomía regional que garantiza una estadía inigualable para toda la familia. Combinamos confort, limpieza impecable y una atención cálida que te hará sentir como en casa. ¡Ven a vivir tu mejor experiencia en el sur mendocino!',
+        servicios: ['wifi', 'piscina', 'estacionamiento', 'desayuno'], // COMPLETAR
         habitaciones: [
             {
                 tipo: 'Estándar',
@@ -366,33 +408,109 @@ export const HOTELES = [
                 destacada: false,
                 amenities: [],
                 tarifas: [
-                    { categoria: 'Mayor', precio_afiliado: 62700, precio_invitado: 86100 },
-                    { categoria: 'Menor de 12', precio_afiliado: 39500, precio_invitado: 55800 },
-                    { categoria: 'Menor de 6', precio_afiliado: 19200, precio_invitado: 37400 },
-                    { categoria: 'Menor de 3', precio_afiliado: 'Sin Cargo', precio_invitado: 'Sin Cargo' },
+                    { categoria: 'Mayor', precio_afiliado: 62700, precio_invitado: 86100, precio_particular: '-' },
+                    { categoria: 'Menor de 12', precio_afiliado: 39500, precio_invitado: 55800, precio_particular: '-' },
+                    { categoria: 'Menor de 6', precio_afiliado: 19200, precio_invitado: 37400, precio_particular: '-' },
+                    { categoria: 'Menor de 3', precio_afiliado: 'Sin Cargo', precio_invitado: 'Sin Cargo', precio_particular: '-' },
                 ],
             },
         ],
-        direccion: 'COMPLETAR',
-        mapa_embed: 'COMPLETAR',
-        telefono: 'COMPLETAR',
-        whatsapp: 'COMPLETAR',
-        email: 'COMPLETAR',
-        instagram: 'COMPLETAR',
-        facebook: 'COMPLETAR',
+        direccion: 'C del Nihuil S/n, M5605 El Nihuil, Mendoza',
+        mapa_embed: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1554.7179561477762!2d-68.68334653375578!3d-35.036186146605786!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9679ed3b311e5f6d%3A0xeb04d0e9efe80502!2sEl%20Nihuil%20Hotel!5e1!3m2!1ses-419!2sar!4v1777375270685!5m2!1ses-419!2sar',
+        telefono: '341 683-1506',
+        whatsapp: '341 683-1506',
+        email: 'administracion@smatarosario.com.ar',
+        instagram: 'smata.oficial',
+        facebook: 'elnihuilhotel',
     },
 ];
 
 export const CONVENIOS = [
-    { id: 101, nombre: 'Patagonia Resort & Spa', destino: 'Bariloche', tipo: 'convenio', rating: 4.7, precio_socio: 28000, descuento: '30% OFF', imagen_portada: 'https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?w=800&q=80', servicios: ['wifi', 'piscina', 'spa', 'gimnasio', 'desayuno'], descripcion: 'Resort de montaña con vistas al lago Nahuel Huapi. Descuento del 30% para afiliados SMATA.', habitaciones: [], direccion: 'Av. Bustillo km 8.5, Bariloche', mapa_embed: '', telefono: '', whatsapp: '', email: '', instagram: '', facebook: '' },
-    { id: 102, nombre: 'Iguazú Grand Hotel', destino: 'Puerto Iguazú', tipo: 'convenio', rating: 4.8, precio_socio: 24500, descuento: '25% OFF', imagen_portada: 'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=800&q=80', servicios: ['wifi', 'piscina', 'aire', 'desayuno'], descripcion: 'A pasos de las Cataratas del Iguazú con tarifas preferenciales para socios.', habitaciones: [], direccion: 'Ruta 12 km 1640, Puerto Iguazú', mapa_embed: '', telefono: '', whatsapp: '', email: '', instagram: '', facebook: '' },
-    { id: 103, nombre: 'Cabañas Fin del Mundo', destino: 'Ushuaia', tipo: 'convenio', rating: 4.5, precio_socio: 32000, descuento: '20% OFF', imagen_portada: 'https://images.unsplash.com/photo-1510798831971-661eb04b3739?w=800&q=80', servicios: ['wifi', 'estacionamiento', 'desayuno'], descripcion: 'Cabañas de montaña en el confín del mundo con naturaleza patagónica premium.', habitaciones: [], direccion: 'Los Ñires 2850, Ushuaia', mapa_embed: '', telefono: '', whatsapp: '', email: '', instagram: '', facebook: '' },
-    { id: 104, nombre: 'Mendoza Wine Resort', destino: 'Mendoza', tipo: 'convenio', rating: 4.6, precio_socio: 21000, descuento: '35% OFF', imagen_portada: 'https://images.unsplash.com/photo-1445019980597-93fa8acb246c?w=800&q=80', servicios: ['wifi', 'piscina', 'spa', 'aire'], descripcion: 'En el corazón vitivinícola argentino. Bodegas, spa y gastronomía de primer nivel.', habitaciones: [], direccion: 'Luján de Cuyo, Mendoza', mapa_embed: '', telefono: '', whatsapp: '', email: '', instagram: '', facebook: '' },
+    { 
+        id: 101, 
+        nombre: 'Hotel Tierra del Sol',
+        destino: 'Salta', 
+        tipo: 'convenio', 
+        rating: 4.4, 
+        precio_socio: ' ', 
+        descuento: ' ', 
+        imagen_portada: portadaTDS, 
+        servicios: ['wifi', 'desayuno'], 
+        descripcion: 'Hotel Ubicado en Salta. Reservas manejadas directamente con el hotel, Solicitan carnet de afiliado a SMATA y se hace el descuento.', 
+        habitaciones: [], 
+        direccion: 'Urquiza 1646, A4400 Salta', 
+        mapa_embed: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3447.624419753053!2d-65.42569139999999!3d-24.791070800000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x941bc3e877dc22a9%3A0x68e1bc5883f61656!2sHotel%20Tierra%20del%20Sol!5e1!3m2!1ses-419!2sar!4v1777380060647!5m2!1ses-419!2sar', 
+        telefono: '387 474-2436', 
+        whatsapp: '387 474-2436', 
+        email: 'infohoteltierradelsol@gmail.com', 
+        instagram: 'hoteltierradelsolsalta', 
+        facebook: 'hoteltierradelsolsla' 
+    },
+    { 
+        id: 102, 
+        nombre: 'Cabañas Bosque y Mar', 
+        destino: 'Mar de Cobo', 
+        tipo: 'convenio', 
+        rating: 4.8, 
+        precio_socio: ' ', 
+        descuento: ' ', 
+        imagen_portada: portadaCBM, 
+        servicios: ['wifi', 'piscina', 'desayuno'], 
+        descripcion: 'Complejo ubicado en Mar de Cobo. Reservas manejadas directamente con el hotel, Solicitan carnet de afiliado a SMATA y se hace el descuento.', 
+        habitaciones: [], 
+        direccion: 'Buena Vista 369, B7609 Mar de Cobo, Provincia de Buenos Aires', 
+        mapa_embed: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3001.904587257929!2d-57.45810529999999!3d-37.7701674!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9584cd7f276eb32d%3A0xb142acba057bc0c9!2sBuena%20Vista%20369%2C%20B7609%20Mar%20de%20Cobo%2C%20Provincia%20de%20Buenos%20Aires!5e1!3m2!1ses-419!2sar!4v1777380638932!5m2!1ses-419!2sar', 
+        telefono: '223 570-5779', 
+        whatsapp: '223 570-5779', 
+        email: 'bosqueymarreservas@gmail.com', 
+        instagram: 'bosqueymar.apart', 
+        facebook: ' ' 
+    },
+    { 
+        id: 103, 
+        nombre: 'Cabañas Villa Chenaut', 
+        destino: 'Tucumán', 
+        tipo: 'convenio', 
+        rating: 4.5, 
+        precio_socio: ' ', 
+        descuento: '', 
+        imagen_portada: portadaCVC, 
+        servicios: ['wifi', 'estacionamiento', 'desayuno'], 
+        descripcion: 'Complejo ubicado en Tucumán. Reservas manejadas por Smata secc. Tucumán, Solicitan carnet de afiliado a SMATA y se hace el descuento.', 
+        habitaciones: [], 
+        direccion: '', 
+        mapa_embed: '', 
+        telefono: '0381 231-8433', 
+        whatsapp: '', 
+        email: 'tucuman@smata.com.ar', 
+        instagram: '', 
+        facebook: '' 
+    },
+    { 
+        id: 104, 
+        nombre: 'Hotel Real Luján', 
+        destino: 'Buenos Aires', 
+        tipo: 'convenio', 
+        rating: 4.3, 
+        precio_socio: ' ', 
+        descuento: ' ', 
+        imagen_portada: portadaHL, 
+        servicios: ['desayuno', 'wifi', 'aire'], 
+        descripcion: 'Hotel Ubicado en Luján. Reservas manejadas directamente con el hotel, Solicitan carnet de afiliado a SMATA y se hace el descuento.', 
+        habitaciones: [], 
+        direccion: 'Av. Ntra Sra de Luján 816, B6700CCU Luján, Provincia de Buenos Aires', 
+        mapa_embed: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3127.3712184945553!2d-59.11991739999999!3d-34.5620371!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bc7deb8ae4de5b%3A0xf2b5dd112d3f208c!2sReal%20Hotel%20Luj%C3%A1n!5e1!3m2!1ses-419!2sar!4v1777381205037!5m2!1ses-419!2sar', 
+        telefono: '11 3417-1313', 
+        whatsapp: '11 3417-1313', 
+        email: 'hotelreallujan@gmail.com', 
+        instagram: 'hotel.reallujan', 
+        facebook: 'people/Real-Luján/pfbid02wy47zSFTKfTgMkAK45WVG4srH2LMEW1hqumEFMXQ7CpMpkff5RL9FZb9eUUeNV5zl/?mibextid=ZbWKwL' 
+    },
 ];
 
 export const TODOS_LOS_HOTELES = [...HOTELES, ...CONVENIOS];
 
-const DESTINOS = ['Todos', 'Mar del Plata', 'Villa Carlos Paz', 'Salta Capital', 'San Luis', 'Córdoba', 'Bariloche', 'Puerto Iguazú', 'Ushuaia', 'Mendoza'];
+const DESTINOS = ['Todos', 'Mar del Plata', 'Buenos Aires', 'San Luis', 'Córdoba', 'Mendoza', 'Salta', 'Mar de Cobo', 'Tucumán'];
 const SERVICIOS = ['wifi', 'piscina', 'desayuno', 'media_pension', 'aire', 'estacionamiento', 'spa', 'gimnasio'];
 const ORDEN_OPTS = ['Recomendados', 'Precio: menor a mayor', 'Precio: mayor a menor', 'Mejor puntuación'];
 const PAGE_SIZE = 6;

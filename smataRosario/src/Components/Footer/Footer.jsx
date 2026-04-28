@@ -39,7 +39,7 @@ export default function Footer() {
                 >
                     <FaLocationDot /> Gorriti 1046, Rosario, SF
                 </a>
-                <a href="#"><FaPhone /> +54 341-456-7890</a>
+                <a href="tel:+543416831506"><FaPhone /> +54 341 683-1506</a>
                 </div>
             </div>
     
@@ -58,10 +58,10 @@ export default function Footer() {
             <div className="footer-col">
                 <h4>Servicios</h4>
                 <ul>
-                <li><Link to="/prestadores">OSMATA Salud</Link></li>
+                <li><Link to="/obra-social">OSMATA Salud</Link></li>
                 <li><Link to="/beneficios">Beneficios Sociales</Link></li>
-                <li><a href="#">Turismo Sindical</a></li>
-                <li><a href="#">Asesoría Legal</a></li>
+                <li><Link to="/turismo">Turismo</Link></li>
+                <li><Link to="/camping">Complejos</Link></li>
                 </ul>
             </div>
     

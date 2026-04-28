@@ -43,10 +43,10 @@ const benefits = [
   },
 ]
 
-    const subject = encodeURIComponent("Consulta sobre Afiliación.");
-    const body = encodeURIComponent(
-        `Hola! Quiero información para afiliarme a la mutual.`
-    );
+const subject = encodeURIComponent("Consulta sobre Afiliación.");
+const body = encodeURIComponent(
+  `Hola! Quiero información para afiliarme a la mutual.`
+);
 
 const requisitos = [
   'Último recibo de sueldo (original y copia).',
@@ -59,7 +59,7 @@ const requisitos = [
 const contactItems = [
   {
     label: 'Sede Rosario',
-    value: 'Gorriti 1101, S2000 Rosario, Santa Fe',
+    value: 'Gorriti 1095, S2000 Rosario, Santa Fe',
     icon: <FaLocationDot />,
   },
   {
@@ -259,11 +259,11 @@ export default function Mutual() {
             </div>
 
             <button className="carrusel-btn prev" onClick={anterior} aria-label="Anterior">
-              <FaChevronLeft className='icon'/>
+              <FaChevronLeft className='icon' />
             </button>
 
             <button className="carrusel-btn next" onClick={siguiente} aria-label="Siguiente">
-              <FaChevronRight className='icon'/>
+              <FaChevronRight className='icon' />
             </button>
 
             <div className="carrusel-dots">
@@ -313,36 +313,36 @@ export default function Mutual() {
               <h3>Atención Administrativa</h3>
 
               <div className="atencion-items">
-  {contactItems.map((item, i) => {
-    const content = (
-      <>
-        <div className="atencion-icon">
-          {item.icon}
-        </div>
-        <div className="atencion-text">
-          <strong>{item.label}</strong>
-          <span>{item.value}</span>
-        </div>
-      </>
-    );
+                {contactItems.map((item, i) => {
+                  const content = (
+                    <>
+                      <div className="atencion-icon">
+                        {item.icon}
+                      </div>
+                      <div className="atencion-text">
+                        <strong>{item.label}</strong>
+                        <span>{item.value}</span>
+                      </div>
+                    </>
+                  );
 
-    return item.link ? (
-      <a
-        key={i}
-        href={item.link}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="atencion-item"
-      >
-        {content}
-      </a>
-    ) : (
-      <div className="atencion-item" key={i}>
-        {content}
-      </div>
-    );
-  })}
-</div>
+                  return item.link ? (
+                    <a
+                      key={i}
+                      href={item.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="atencion-item"
+                    >
+                      {content}
+                    </a>
+                  ) : (
+                    <div className="atencion-item" key={i}>
+                      {content}
+                    </div>
+                  );
+                })}
+              </div>
 
               <div className="map-placeholder">
                 <iframe

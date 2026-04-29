@@ -183,7 +183,7 @@ export default function Prestadores() {
                     <h2 className="dir-centro-title">Auditoría Médica</h2>
                     <div className="dir-centro-row">
                         <FaLocationDot className="dir-centro-icon" />
-                        <span>Gorriti 1101,<br />S2000 Rosario, Santa Fe</span>
+                        <span>Gorriti 1095,<br />S2000 Rosario, Santa Fe</span>
                     </div>
 
                     <div>

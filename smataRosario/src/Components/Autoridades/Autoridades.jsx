@@ -18,7 +18,7 @@ const sindicatoSecundarios = [
   { role: 'Sec. de Finanzas', name: 'Paola Corvetti' },
   { role: 'Sec. de Actas', name: 'Hugo M. Barros' },
   { role: 'Sec. Acción Social', name: 'Andrés Gobbi' },
-  { role: 'Sec. Administrativo', name: 'Andrés Gobbi' },
+  { role: 'Sec. Administrativo', name: 'Marcelo Sebastianelli' },
   { role: 'Vocal Titular 1°', name: 'Ruggeri Agustin Mario' },
   { role: 'Vocal Titular 2°', name: 'Mathieu Ana Maria' },
 ];
@@ -73,7 +73,7 @@ export default function Autoridades() {
                   <h3 className="card-name">Sergio Gazzera</h3>
                   <p className="card-desc">
                     Liderando con determinación la defensa de los derechos
-                    laborales en la región desde 2018.
+                    laborales en la región desde 2023.
                   </p>
                 </div>
               </div>
@@ -144,7 +144,7 @@ export default function Autoridades() {
               </div>
               <div className="card-body">
                 <p className="card-role">Secretario</p>
-                <h3 className="card-name">Ricardo H. Luna</h3>
+                <h3 className="card-name">Sergio Gazzera</h3>
               </div>
             </div>
 
@@ -155,17 +155,18 @@ export default function Autoridades() {
               </div>
               <div className="card-body">
                 <p className="card-role">Tesorera</p>
-                <h3 className="card-name">Silvia M. Lopez</h3>
+                <h3 className="card-name">Andrés Gobbi</h3>
               </div>
             </div>
 
-            {/* Junta Fiscalizadora */}
+            {/* Junta Fiscalizadora 
             <div className="junta-card">
               <div className="junta-renovacion">
                 <p className="label">Próxima Renovación</p>
                 <p className="fecha">Diciembre 2026</p>
               </div>
             </div>
+            */}
 
           </div>
         </section>

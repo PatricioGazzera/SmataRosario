@@ -47,13 +47,13 @@ const subsidios = [
         image: lentesImg,
     },
     {
-        id: 'subsidio-fallecimiento',
-        title: 'Subsidio por Fallecimiento',
+        id: 'subsidio-fallecimiento-sepelio-seguro',
+        title: 'Subsidio por Fallecimiento, Cobertura de Sepelio y Seguro de vida',
         desc: 'Accedé a un subsidio exclusivo por fallecimiento.',
         link: 'Conocé Más',
         image: girasolImg,
     },
-    {
+    /*{
         id: 'cobertura-sepelio',
         title: 'Cobertura de Sepelio',
         desc: 'Cobertura exclusiva en sepelio.',
@@ -66,7 +66,7 @@ const subsidios = [
         desc: 'Accedé a nuestro Seguro de Vida',
         link: 'Conocé Más',
         image: familiaImg,
-    },
+    }, */
 ];
 
 export default function Subsidios() {

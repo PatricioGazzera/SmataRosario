@@ -1,0 +1,492 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Barlow:wght@300;400;500;600&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --green: #22c55e;
+  --green-dark: #16a34a;
+  --green-dim: rgba(34, 197, 94, 0.12);
+  --dark: #0d1a0d;
+  --dark-2: #1a2e1a;
+  --text: #1a2e1a;
+  --muted: #6b8f6b;
+  --border: #e4ece4;
+  --bg: #f5f7f5;
+  --white: #fff;
+  --shadow: 0 2px 20px rgba(0,0,0,.07);
+  --shadow-lg: 0 8px 40px rgba(0,0,0,.13);
+  --radius: 14px;
+  --font: 'Barlow', sans-serif;
+  --font-display: 'Barlow Condensed', sans-serif;
+}
+
+body { font-family: var(--font); color: var(--text); background: var(--bg); }
+.fm-root { overflow-x: hidden; }
+
+/* ══════════════════════════════════════
+   HERO
+══════════════════════════════════════ */
+.fm-hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+  padding-bottom: 120px;
+}
+
+.fm-hero-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+}
+
+.fm-hero-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(
+    100deg,
+    rgba(5, 20, 5, .92) 0%,
+    rgba(5, 20, 5, .7) 50%,
+    rgba(5, 20, 5, .25) 100%
+  );
+}
+
+.fm-hero-content {
+  position: relative;
+        z-index: 2;
+        max-width: 620px;
+        padding: 0 2.5rem;
+        animation: fadeInUp 0.7s 0.1s ease both;
+}
+
+.fm-hero-tag {
+  display: inline-block;
+  background: var(--green);
+  color: #fff;
+  font-size: .65rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: .3rem .8rem;
+  border-radius: 5px;
+  margin-bottom: .9rem;
+}
+
+.fm-hero-title {
+  font-family: 'Barlow Condensed', sans-serif;
+        font-size: clamp(3rem, 7vw, 5.5rem);
+        font-weight: 800;
+        line-height: 0.95;
+        color: var(--text-white);
+        letter-spacing: -1px;
+        margin-bottom: 1.25rem;
+        text-transform: uppercase;
+}
+
+.fm-accent { color: var(--green); }
+
+.fm-hero-sub {
+  font-size: .95rem;
+  color: rgba(255,255,255,.78);
+  line-height: 1.7;
+  max-width: 480px;
+}
+
+/* ══════════════════════════════════════
+   MAIN — FARMACIAS + EMERGENCIA
+══════════════════════════════════════ */
+.fm-main {
+  padding: 3rem 2.5rem;
+  background: var(--bg);
+}
+
+.fm-main-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 1.5rem;
+  align-items: start;
+}
+
+/* Cards generales */
+.fm-card {
+  border-radius: var(--radius);
+  padding: 2rem;
+  box-shadow: var(--shadow);
+}
+
+.fm-card--main {
+  background: var(--white);
+  border: 1px solid var(--border);
+}
+
+.fm-card--dark {
+  background: var(--dark);
+  border: 1px solid rgba(34,197,94,.15);
+}
+
+/* Header de la card principal */
+.fm-card-header {
+  display: flex;
+  align-items: center;
+  gap: .9rem;
+  margin-bottom: 1rem;
+}
+
+.fm-card-icon-wrap {
+  width: 42px; height: 42px;
+  background: var(--green);
+  border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  color: #fff;
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+.fm-card-header h2 {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.fm-card-desc {
+  font-size: .88rem;
+  color: var(--muted);
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+}
+
+/* Coberturas */
+.fm-coberturas {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: .8rem;
+  margin-bottom: 1.5rem;
+}
+
+.fm-cobertura {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1rem .8rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: .4rem;
+  text-align: center;
+  border-bottom: 3px solid var(--border);
+  transition: border-color .2s;
+}
+
+.fm-cobertura--accent {
+  border-bottom-color: var(--green);
+}
+
+.fm-cobertura-pct {
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: var(--green);
+  line-height: 1;
+}
+
+.fm-cobertura-label {
+  font-size: .62rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--muted);
+  line-height: 1.3;
+}
+
+/* Botón principal */
+.fm-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  background: var(--dark);
+  color: #fff;
+  text-decoration: none;
+  border-radius: 9px;
+  padding: .8rem 1.4rem;
+  font-size: .88rem;
+  font-weight: 700;
+  font-family: var(--font);
+  transition: background .2s, transform .15s;
+}
+.fm-btn-primary:hover { background: var(--green); transform: translateY(-1px); }
+
+/* Card emergencia (dark) */
+.fm-emergency-icon {
+  width: 48px; height: 48px;
+  background: rgba(34,197,94,.15);
+  border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--green);
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+}
+
+.fm-emergency-title {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.2;
+  margin-bottom: .6rem;
+}
+
+.fm-emergency-desc {
+  font-size: .82rem;
+  color: rgba(255,255,255,.6);
+  line-height: 1.65;
+  margin-bottom: 1.2rem;
+}
+
+.fm-emergency-contacts {
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+  margin-bottom: 1.2rem;
+  padding-bottom: 1.2rem;
+  border-bottom: 1px solid rgba(255,255,255,.08);
+}
+
+.fm-emergency-contact {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  font-size: .82rem;
+  color: rgba(255,255,255,.85);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color .2s;
+}
+.fm-emergency-contact:hover { color: var(--green); }
+
+.fm-ubication {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  font-size: .8rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--green);
+  text-decoration: none;
+}
+
+.fm-ubication:hover {
+    color: #fff;
+    transition: 0.3s all ease;
+}
+
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: .5; transform: scale(1.4); }
+}
+
+/* ══════════════════════════════════════
+   COSEGUROS
+══════════════════════════════════════ */
+.fm-coseguros {
+  padding: 0 2.5rem 3rem;
+  background: var(--bg);
+}
+
+.fm-coseguros-grid {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+.fm-coseguro-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  padding: 1.2rem;
+  box-shadow: var(--shadow);
+  transition: box-shadow .25s, transform .25s;
+}
+.fm-coseguro-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); }
+
+.fm-coseguro-img {
+  width: 110px;
+  height: 100px;
+  border-radius: 10px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.fm-coseguro-img img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transition: transform .3s;
+}
+.fm-coseguro-card:hover .fm-coseguro-img img { transform: scale(1.06); }
+
+.fm-coseguro-body h3 {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: .4rem;
+}
+
+.fm-coseguro-body p {
+  font-size: .8rem;
+  color: var(--muted);
+  line-height: 1.6;
+  margin-bottom: .7rem;
+}
+
+.fm-coseguro-link {
+  display: inline-flex;
+  align-items: center;
+  gap: .35rem;
+  font-size: .8rem;
+  font-weight: 700;
+  color: var(--green-dark);
+  text-decoration: none;
+  transition: gap .2s, color .2s;
+}
+.fm-coseguro-link:hover { gap: .6rem; color: var(--green); }
+
+/* ══════════════════════════════════════
+   PASOS — VALIDAR RECETA
+══════════════════════════════════════ */
+.fm-pasos {
+  padding: 4rem 2.5rem;
+  background: var(--white);
+}
+
+.fm-pasos-header {
+  text-align: center;
+  max-width: 560px;
+  margin: 0 auto 3rem;
+}
+
+.fm-pasos-title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  font-weight: 800;
+  color: var(--text);
+  text-transform: uppercase;
+  letter-spacing: -.5px;
+  margin-bottom: .7rem;
+}
+
+.fm-pasos-sub {
+  font-size: .9rem;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.fm-pasos-grid {
+  max-width: 900px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  position: relative;
+}
+
+/* Línea conectora entre pasos */
+.fm-pasos-grid::before {
+  content: '';
+  position: absolute;
+  top: 70px;
+  left: calc(16.66% + 1rem);
+  right: calc(16.66% + 1rem);
+  height: 2px;
+  background: linear-gradient(to right, var(--green), var(--green));
+  opacity: .2;
+  z-index: 0;
+}
+
+.fm-paso {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.fm-paso-num {
+  font-family: var(--font-display);
+  font-size: 5rem;
+  font-weight: 800;
+  color: rgba(34,197,94,.12);
+  line-height: 1;
+  margin-bottom: -.5rem;
+  letter-spacing: -2px;
+}
+
+.fm-paso-icon-wrap {
+  width: 56px; height: 56px;
+  background: var(--green);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  color: #fff;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 6px 20px rgba(34,197,94,.3);
+}
+
+.fm-paso-titulo {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: .5rem;
+}
+
+.fm-paso-desc {
+  font-size: .82rem;
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+@keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(28px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+@media (max-width: 900px) {
+  .fm-main-inner { grid-template-columns: 1fr; }
+  .fm-coseguros-grid { grid-template-columns: 1fr; }
+  .fm-pasos-grid { grid-template-columns: 1fr; }
+  .fm-pasos-grid::before { display: none; }
+  .fm-footer-inner { grid-template-columns: 1fr 1fr; }
+  .fm-hero { height: 60vh; }
+}
+
+@media (max-width: 600px) {
+  .fm-hero-content { padding: 0 1.5rem 2rem; }
+  .fm-main { padding: 2rem 1rem; }
+  .fm-coseguros { padding: 0 1rem 2rem; }
+  .fm-pasos { padding: 3rem 1rem; }
+  .fm-footer { padding: 2.5rem 1rem 1.5rem; }
+  .fm-footer-inner { grid-template-columns: 1fr; gap: 1.5rem; }
+  .fm-coseguro-card { flex-direction: column; align-items: flex-start; }
+  .fm-coseguro-img { width: 100%; height: 160px; }
+  .fm-coberturas { grid-template-columns: repeat(3, 1fr); }
+}

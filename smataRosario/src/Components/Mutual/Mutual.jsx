@@ -15,33 +15,7 @@ import {
   FaChevronRight
 } from '../../utils/icons/icons';
 import mutualJpg from "../../utils/images/mutual3.jpeg";
-
-const benefits = [
-  {
-    icon: FaArrowRight,
-    title: 'Cobertura Médica Integral',
-    desc: 'Accedé a una amplia red de profesionales y centros de salud con cobertura total para vos y tu familia.',
-    link: 'Conocé Más',
-  },
-  {
-    icon: FaHotel,
-    title: 'Turismo y Ocio',
-    desc: 'Disfrutá de descuentos en turismo. Accedé a paquetes exclusivos para afiliados en destinos nacionales.',
-    link: 'Ver Beneficios',
-  },
-  {
-    icon: FaHospital,
-    title: 'Farmacias y Salud',
-    desc: 'Contá con asesoramiento jurídico profesional para resolver cualquier consulta o trámite legal.',
-    link: 'Consultar',
-  },
-  {
-    icon: FaBook,
-    title: 'Programas de Capacitación',
-    desc: 'Accedé a cursos y talleres gratuitos para potenciar tus habilidades y oportunidades laborales.',
-    link: 'Ver Cursos',
-  },
-]
+import centroImg from "../../utils/images/centro.jpeg"
 
 const subject = encodeURIComponent("Consulta sobre Afiliación.");
 const body = encodeURIComponent(
@@ -88,15 +62,15 @@ const slides = [
     desc: 'Nuestra casa central, equipada con los mejores productos para nuestros afiliados.',
   },
   {
-    img: 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=1200&q=80',
+    img: centroImg,
     title: 'Centro de Salud OSMATA',
-    desc: 'Instalaciones modernas con especialistas en todas las áreas médicas para vos y tu familia.',
+    desc: 'Nuestro Centro Médico, donde vas a encontrar a los mejores profesionales.',
   },
-  {
+  /*{
     img: 'https://images.unsplash.com/photo-1582719508461-905c673771fd?w=1200&q=80',
     title: 'Turismo Sindical',
     desc: 'Hoteles exclusivos y destinos de primer nivel con tarifas preferenciales para afiliados.',
-  },
+  },*/
 ];
 
 const downloadFiles = [
@@ -219,22 +193,18 @@ export default function Mutual() {
 
         {/* ── BENEFICIOS ── */}
         <section className="benefits" id="beneficios">
-          <div className="section-header">
-            <div>
-              <h2 className="section-title">Nuestros Servicios y Beneficios</h2>
+          <div className="benefits-cta">
+            <div className="benefits-cta-text">
+              <h2 className="benefits-cta-title">Nuestros Servicios y Beneficios</h2>
+              <p className="benefits-cta-desc">
+                Como afiliado a la Mutual de SMATA Rosario accedés a una amplia red de
+                beneficios exclusivos: cobertura médica, turismo sindical, farmacias,
+                capacitación y mucho más. Todo diseñado para vos y tu familia.
+              </p>
             </div>
-          </div>
-          <div className="benefits-grid">
-            {benefits.map(({ icon: Icon, title, desc, link }) => (
-              <div className="benefit-card" key={title}>
-                <div className="benefit-icon">
-                  <Icon size={30} />
-                </div>
-                <h3>{title}</h3>
-                <p>{desc}</p>
-                <a href="#" className="benefit-link">{link} →</a>
-              </div>
-            ))}
+            <a href="/beneficios" className="benefits-cta-btn">
+              Ver todos los beneficios →
+            </a>
           </div>
         </section>
 

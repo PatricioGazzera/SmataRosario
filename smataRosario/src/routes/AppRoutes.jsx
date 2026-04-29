@@ -6,6 +6,7 @@ import ProtectedRoute from './ProtectedRoutes';
 import Home from '../Components/Home/Home';
 import Mutual from '../Components/Mutual/Mutual';
 import Beneficts from '../Components/Beneficts/Beneficts';
+import BenefictsDetails from '../Components/BenefictsDetails/BenefictsDetails';
 import Prestadores from '../Components/Prestadores/Prestadores';
 import Autoridades from '../Components/Autoridades/Autoridades';
 import Camping from '../Components/Camping/Camping';
@@ -21,6 +22,7 @@ import Subsidios from '../Components/Subsidios/Subsidios';
 import SubsidioDetails from '../Components/SubsidiosDetails/SubsidiosDetails';
 import Hotels from '../Components/Hotels/Hotels';
 import HotelDetails from '../Components/HotelDetails/HotelDetails';
+import Farmacia from '../Components/Farmacia/Farmacia';
 
 export default function AppRoutes() {
     return (
@@ -29,9 +31,11 @@ export default function AppRoutes() {
             <Route path='/' element={<Home />} />
             <Route path='/mutual' element={<Mutual />} />
             <Route path='/beneficios' element={<Beneficts/>}/>
+            <Route path='/beneficios/:id' element={<BenefictsDetails />}/>
             <Route path='/subsidios' element={<Subsidios />}/>
             <Route path='/subsidios/:id' element={<SubsidioDetails />}/>
             <Route path='/obra-social' element={<Prestadores/>}/>
+            <Route path='/farmacia' element={<Farmacia />}/>
             <Route path='/autoridades' element={<Autoridades/>}/>
             <Route path='/camping' element={<Camping />} />
             <Route path='/camping/:id' element={<CampingDetail/>}/>

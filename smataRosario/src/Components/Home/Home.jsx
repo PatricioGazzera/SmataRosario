@@ -25,8 +25,8 @@ const services = [
     {
         icon: FaPills,
         title: 'Farmacia',
-        desc: 'Encontrá tu farmacia sindical más cercana...',
-        link: 'Ver Descuentos',
+        desc: 'Conocé nuestra Farmacía...',
+        link: 'Ver Farmacía',
         path: 'farmacia'
     },
     {

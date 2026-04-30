@@ -74,3 +74,4 @@ export { FaBreadSlice } from "react-icons/fa";
 export { FaTv } from "react-icons/fa";
 export { FaEgg } from "react-icons/fa";
 export { FaInfo } from "react-icons/fa";
+export { FaMap } from "react-icons/fa";

@@ -227,7 +227,7 @@ export default function CapacitacionDetails() {
                         </div>
 
                         <a
-                            href={`https://wa.me/5493413130317?text=Hola%20quiero%20informacion%20sobre%20el%20curso%20${encodeURIComponent(curso.titulo)}`}
+                            href={`https://wa.me/5493415843725?text=Hola%20quiero%20informacion%20sobre%20el%20curso%20${encodeURIComponent(curso.titulo)}`}
                             target="_blank"
                             rel="noopener noreferrer"
                             className="btn-preinscribirse"
@@ -238,9 +238,11 @@ export default function CapacitacionDetails() {
                         <div className="cd-contacto-educacion">
                             <div className="cd-contacto-label">Consultas Educación</div>
                             <div className="cd-contacto-icons">
-                                <a href="tel:+5493412555424" title="Teléfono"><FaPhone /></a>
+                                <a href="tel:+5493415843725" title="Teléfono"><FaPhone /></a>
                                 <a
-                                    href={`https://mail.google.com/mail/?view=cm&fs=1&to=mutualmecanica2@smatarosario.com.ar&su=${subject}&body=${body}`}
+                                    href={/Android|iPhone|iPad|iPod/i.test(navigator.userAgent)
+                                        ? `mailto:administracion1@smatarosario.com.ar?subject=${subject}`
+                                        : `https://mail.google.com/mail/?view=cm&fs=1&to=administracion1@smatarosario.com.ar&su=${subject}&body=${body}`}
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     title='email'

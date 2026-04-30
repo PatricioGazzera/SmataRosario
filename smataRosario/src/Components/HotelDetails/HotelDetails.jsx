@@ -1,21 +1,21 @@
 import { useState, useEffect, useCallback } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { TODOS_LOS_HOTELES, SERVICIOS_MAP } from '../Hotels/Hotels';
-import { 
-  FaWhatsapp, 
-  FaPhone, 
-  FaFacebookF, 
-  FaInstagram, 
-  FaStar, 
-  FaEnvelope, 
-  FaLocationDot, 
-  FaChevronLeft, 
-  FaChevronRight, 
-  FaX 
+import {
+  FaWhatsapp,
+  FaPhone,
+  FaFacebookF,
+  FaInstagram,
+  FaStar,
+  FaEnvelope,
+  FaLocationDot,
+  FaChevronLeft,
+  FaChevronRight,
+  FaX
 } from '../../utils/icons/icons'
 import './HotelDetails.css';
 
-const IconBack  = () => <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" width="16" height="16"><polyline points="15 18 9 12 15 6"/></svg>;
+const IconBack = () => <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" width="16" height="16"><polyline points="15 18 9 12 15 6" /></svg>;
 
 const formatPrecio = (val) => {
   if (typeof val === 'number') return `$${val.toLocaleString('es-AR')}`;
@@ -111,8 +111,8 @@ export default function HotelDetails() {
   useEffect(() => {
     if (!lightboxOpen) return;
     const onKey = (e) => {
-      if (e.key === 'Escape')     cerrarLightbox();
-      if (e.key === 'ArrowLeft')  lbPrev();
+      if (e.key === 'Escape') cerrarLightbox();
+      if (e.key === 'ArrowLeft') lbPrev();
       if (e.key === 'ArrowRight') lbNext();
     };
     window.addEventListener('keydown', onKey);
@@ -342,7 +342,9 @@ export default function HotelDetails() {
                   <span className="hd-contact-icon"><FaEnvelope /></span>
                   <div>
                     <div className="hd-contact-label">CORREO ELECTRÓNICO</div>
-                    <a href={`mailto:${hotel.email}`} className="hd-contact-val hd-contact-link">
+                    <a href={/Android|iPhone|iPad|iPod/i.test(navigator.userAgent)
+                      ? `mailto:${hotel.email}`
+                      : `https://mail.google.com/mail/?view=cm&to=${hotel.email}`} className="hd-contact-val hd-contact-link">
                       {hotel.email}
                     </a>
                   </div>
@@ -352,18 +354,18 @@ export default function HotelDetails() {
 
             {(hotel.facebook || hotel.instagram) &&
               hotel.facebook !== 'COMPLETAR' && hotel.instagram !== 'COMPLETAR' && (
-              <div className="hd-contact-socials">
-                <div className="hd-contact-label">SEGUINOS EN REDES</div>
-                <div className="hd-social-row">
-                  {hotel.facebook && hotel.facebook !== 'COMPLETAR' && (
-                    <a href={`https://facebook.com/${hotel.facebook}`} target="_blank" rel="noreferrer" className="hd-social-btn"><FaFacebookF /></a>
-                  )}
-                  {hotel.instagram && hotel.instagram !== 'COMPLETAR' && (
-                    <a href={`https://instagram.com/${hotel.instagram}`} target="_blank" rel="noreferrer" className="hd-social-btn"><FaInstagram /></a>
-                  )}
+                <div className="hd-contact-socials">
+                  <div className="hd-contact-label">SEGUINOS EN REDES</div>
+                  <div className="hd-social-row">
+                    {hotel.facebook && hotel.facebook !== 'COMPLETAR' && (
+                      <a href={`https://facebook.com/${hotel.facebook}`} target="_blank" rel="noreferrer" className="hd-social-btn"><FaFacebookF /></a>
+                    )}
+                    {hotel.instagram && hotel.instagram !== 'COMPLETAR' && (
+                      <a href={`https://instagram.com/${hotel.instagram}`} target="_blank" rel="noreferrer" className="hd-social-btn"><FaInstagram /></a>
+                    )}
+                  </div>
                 </div>
-              </div>
-            )}
+              )}
 
             {hotel.telefono && hotel.telefono !== 'COMPLETAR' && (
               <a href={`tel:${hotel.telefono.replace(/\D/g, '')}`} className="hd-btn-llamar">

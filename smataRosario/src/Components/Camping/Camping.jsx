@@ -15,27 +15,15 @@ import {
   FaSquareParking,
   FaCalendar,
   FaClock,
-  FaShapes
+  FaShapes,
+  FaMap,
+  FaLocationDot
 } from 'react-icons/fa6'
-
-// ── Icons propios ──
-const PinIcon = () => (
-  <svg width="11" height="13" viewBox="0 0 11 13" fill="none">
-    <path d="M5.5 0C3.015 0 1 2.015 1 4.5c0 3.375 4.5 8.5 4.5 8.5s4.5-5.125 4.5-8.5C10 2.015 7.985 0 5.5 0Zm0 6.125A1.625 1.625 0 1 1 5.5 2.875a1.625 1.625 0 0 1 0 3.25Z" fill="#22c55e"/>
-  </svg>
-)
-
-const MapIcon = () => (
-  <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-    <path d="M0.5 2L5 0.5l4 1.5 4.5-1.5V12L9 13.5 5 12 0.5 13.5V2Z" stroke="currentColor" strokeWidth="1.1" fill="none"/>
-    <path d="M5 0.5V12M9 2V13.5" stroke="currentColor" strokeWidth="1.1"/>
-  </svg>
-)
 
 // ── Datos ──
 const campgrounds = [
   {
-    id: 1,
+    id: 'camping-ibarlucea',
     name: 'Camping Ibarlucea SMATA',
     location: 'Av. de los Incas, Ibarlucea, Santa Fe',
     image: campingImg,
@@ -54,7 +42,7 @@ const campgrounds = [
     ubication: 'https://maps.app.goo.gl/dMNAtUmSpkDEL29u6',
   },
   {
-    id: 2,
+    id: 'camping-arroyo-seco',
     name: "Camping Arroyo Seco 'Hugo Marcelo Barros'",
     location: 'Jorge Newbery 362, S2128 Arroyo Seco, Santa Fe',
     image: arroyoImg,
@@ -89,7 +77,7 @@ function CampCard({ camp }) {
           <div>
             <h2 className="camp-name">{camp.name}</h2>
             <p className="camp-location">
-              <PinIcon />
+              <FaLocationDot className='location-icon'/>
               {camp.location}
             </p>
           </div>
@@ -153,7 +141,7 @@ function CampCard({ camp }) {
             target='_blank'
             rel='noreferrer'
           >
-            <MapIcon />
+            <FaMap />
             Cómo llegar
           </a>
         </div>

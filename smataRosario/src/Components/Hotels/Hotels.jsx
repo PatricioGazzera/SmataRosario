@@ -82,7 +82,7 @@ export const HOTELES = [
 
     // ── 1. HOTEL 17 DE NOVIEMBRE ── datos reales
     {
-        id: 1,
+        id: '17-noviembre',
         nombre: 'Hotel 17 de Noviembre',
         destino: 'Mar del Plata',
         tipo: 'propio',
@@ -122,7 +122,7 @@ export const HOTELES = [
 
     // ── 2. SIERRAS HOTEL ── datos reales
     {
-        id: 2,
+        id: 'sierras-hotel',
         nombre: 'Sierras Hotel',
         destino: 'San Luis',
         tipo: 'propio',
@@ -161,7 +161,7 @@ export const HOTELES = [
 
     // ── 3. HOTEL 17 DE OCTUBRE ── 2 tipos de habitación
     {
-        id: 3,
+        id: '17-de-octubre',
         nombre: 'Hotel 17 de Octubre',
         destino: 'San Luis',
         tipo: 'propio',
@@ -213,7 +213,7 @@ export const HOTELES = [
 
     // ── 4. HOTEL AVENIDA DEL MAR ── 1 tipo de habitación
     {
-        id: 4,
+        id: 'avenida-del-mar',
         nombre: 'Hotel Avenida del Mar',
         destino: 'Mar del Plata',
         tipo: 'propio',
@@ -254,7 +254,7 @@ export const HOTELES = [
 
     // ── 5. HOTEL BIONDIS ── 2 tipos de habitación
     {
-        id: 5,
+        id: 'hotel-biondis',
         nombre: 'Hotel Biondis',
         destino: 'Córdoba',
         tipo: 'propio',
@@ -308,7 +308,7 @@ export const HOTELES = [
 
     // ── 6. CONTE HOTEL ── 5 tipos de habitación
     {
-        id: 6,
+        id: 'conte-hotel',
         nombre: 'Conte Hotel',
         destino: 'Buenos Aires',
         tipo: 'externo',
@@ -386,7 +386,7 @@ export const HOTELES = [
 
     // ── 7. EL NIHUIL ── 5 tipos de habitación
     {
-        id: 7,
+        id: 'el-nihuil',
         nombre: 'El Nihuil',
         destino: 'Mendoza',
         tipo: 'propio',
@@ -427,7 +427,7 @@ export const HOTELES = [
 
 export const CONVENIOS = [
     { 
-        id: 101, 
+        id: 'tierra-del-sol', 
         nombre: 'Hotel Tierra del Sol',
         destino: 'Salta', 
         tipo: 'convenio', 
@@ -447,7 +447,7 @@ export const CONVENIOS = [
         facebook: 'hoteltierradelsolsla' 
     },
     { 
-        id: 102, 
+        id: 'bosque-y-mar', 
         nombre: 'Cabañas Bosque y Mar', 
         destino: 'Mar de Cobo', 
         tipo: 'convenio', 
@@ -467,7 +467,7 @@ export const CONVENIOS = [
         facebook: ' ' 
     },
     { 
-        id: 103, 
+        id: 'villa-chenaut', 
         nombre: 'Cabañas Villa Chenaut', 
         destino: 'Tucumán', 
         tipo: 'convenio', 
@@ -487,7 +487,7 @@ export const CONVENIOS = [
         facebook: '' 
     },
     { 
-        id: 104, 
+        id: 'real-lujan', 
         nombre: 'Hotel Real Luján', 
         destino: 'Buenos Aires', 
         tipo: 'convenio', 

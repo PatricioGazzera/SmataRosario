@@ -385,7 +385,7 @@ body {
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: .06em;
-  color: var(--dark);
+  color: var(--green);
   display: flex;
   align-items: center;
   gap: .4rem;
@@ -436,11 +436,7 @@ body {
 
 /* ── ARCHIVE ─────────────────────────────────────── */
 .np-archive-block {
-  background: var(--dark-2);
-}
-
-.np-sidebar-title--light {
-  color: var(--green);
+  background: #0e0f0e;
 }
 
 .np-archive-pills {

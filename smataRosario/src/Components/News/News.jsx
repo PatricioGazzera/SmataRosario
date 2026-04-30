@@ -1,30 +1,21 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { supabase } from "../../utils/supabase";
-import { FaList,
+import {
+  FaList,
   FaBorderAll,
-  FaArrowTrendUp,
   FaShield,
   FaPlus,
   FaPenToSquare,
   FaTrashCan,
   FaCircleExclamation,
+  FaCalendar,
 } from "../../utils/icons/icons";
 import NewsForm from "../NewsForm/NewsForm";
 import { useAuth } from "../../context/AuthContext.jsx";
 import "./News.css";
 
 const CATEGORIES = ["Todas", "Gremial", "Beneficios", "Escala Salarial", "Novedades", "Acción Social"];
-
-const MOST_READ = [
-  { tag: "Guía de Beneficios", title: "Cómo solicitar el Kit Escolar 2024" },
-  { tag: "Comunicado Oficial", title: "Declaración sobre la nueva Política de Exportación Automotriz" },
-  { tag: "Salud", title: "Campaña de Vacunación Antigripal: Lugares y Horarios" },
-  { tag: "Archivo", title: "Reseña Histórica: 70 Años de SMATA Rosario" },
-];
-
-const ARCHIVE_MONTHS = ["Mayo 2024", "Abril 2024", "Marzo 2024", "Febrero 2024", "Enero 2024", "Archivo 2023"];
-
 const PAGE_SIZE = 6;
 
 export default function News() {
@@ -32,11 +23,13 @@ export default function News() {
   const navigate = useNavigate();
   const [viewMode, setViewMode] = useState("grid");
   const [activeFilter, setActiveFilter] = useState("Todas");
+  const [activeYear, setActiveYear] = useState(null); // null = todos los años
   const [noticias, setNoticias] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [page, setPage] = useState(0);
   const [hasMore, setHasMore] = useState(true);
+  const [años, setAños] = useState([]);
 
   // NewsForm state
   const [showForm, setShowForm] = useState(false);
@@ -47,12 +40,30 @@ export default function News() {
   const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
   const [deleteTarget, setDeleteTarget] = useState(null);
 
+  // Traer años disponibles del archivo
+  useEffect(() => {
+    const fetchAños = async () => {
+      const { data, error } = await supabase
+        .from("noticias")
+        .select("fecha")
+        .order("fecha", { ascending: false });
+
+      if (!error && data) {
+        const yearsSet = new Set(
+          data.map((n) => new Date(n.fecha).getFullYear())
+        );
+        setAños([...yearsSet]);
+      }
+    };
+    fetchAños();
+  }, []);
+
   useEffect(() => {
     setNoticias([]);
     setPage(0);
     setHasMore(true);
     fetchNoticias(0, true);
-  }, [activeFilter]);
+  }, [activeFilter, activeYear]);
 
   const fetchNoticias = async (pageNum, reset = false) => {
     setLoading(true);
@@ -60,11 +71,18 @@ export default function News() {
     try {
       let query = supabase
         .from("noticias")
-        .select("id, titulo, excerpt, categoria, imagen_url, autor, fecha")
+        .select("id, titulo, excerpt, categoria, imagen_url, autor, contenido, fecha")
         .order("fecha", { ascending: false })
         .range(pageNum * PAGE_SIZE, (pageNum + 1) * PAGE_SIZE - 1);
 
       if (activeFilter !== "Todas") query = query.eq("categoria", activeFilter);
+
+      // Filtro por año: rango desde el 1 enero hasta el 31 dic
+      if (activeYear) {
+        query = query
+          .gte("fecha", `${activeYear}-01-01`)
+          .lte("fecha", `${activeYear}-12-31`);
+      }
 
       const { data, error } = await query;
       if (error) throw error;
@@ -85,6 +103,12 @@ export default function News() {
     const nextPage = page + 1;
     setPage(nextPage);
     fetchNoticias(nextPage);
+  };
+
+  const handleYearFilter = (year) => {
+    // Si clickeás el mismo año, lo deseleccionás (volvés a todos)
+    setActiveYear((prev) => (prev === year ? null : year));
+    setActiveFilter("Todas");
   };
 
   const handleNewNoticia = () => {
@@ -118,7 +142,8 @@ export default function News() {
 
   const formatFecha = (fechaStr) => {
     if (!fechaStr) return "";
-    return new Date(fechaStr).toLocaleDateString("es-AR", {
+    const [year, month, day] = fechaStr.split("T")[0].split("-");
+    return new Date(Number(year), Number(month) - 1, Number(day)).toLocaleDateString("es-AR", {
       day: "numeric", month: "long", year: "numeric",
     });
   };
@@ -138,7 +163,7 @@ export default function News() {
       {/* MAIN */}
       <main className={`np-main ${session ? "np-main--admin" : ""}`}>
 
-        {/* PANEL ADMIN IZQUIERDO — solo si hay sesión */}
+        {/* PANEL ADMIN IZQUIERDO */}
         {session && (
           <aside className="np-admin-panel">
             <div className="np-admin-panel-header">
@@ -187,14 +212,16 @@ export default function News() {
         {/* CONTENIDO PRINCIPAL */}
         <div className="np-content-col">
           <div className="np-toolbar">
-            <h2 className="np-section-title">Últimas Noticias</h2>
+            <h2 className="np-section-title">
+              {activeYear ? `Noticias de ${activeYear}` : "Últimas Noticias"}
+            </h2>
             <div className="np-toolbar-right">
               <div className="np-filter-pills">
                 {CATEGORIES.map((cat) => (
                   <button
                     key={cat}
-                    className={`np-pill ${activeFilter === cat ? "active" : ""}`}
-                    onClick={() => setActiveFilter(cat)}
+                    className={`np-pill ${activeFilter === cat && !activeYear ? "active" : ""}`}
+                    onClick={() => { setActiveFilter(cat); setActiveYear(null); }}
                   >
                     {cat}
                   </button>
@@ -281,28 +308,26 @@ export default function News() {
 
         {/* SIDEBAR DERECHO */}
         <aside className="np-sidebar">
-          <div className="np-sidebar-block">
-            <h3 className="np-sidebar-title">
-              <FaArrowTrendUp />
-              Más leídas
-            </h3>
-            <ul className="np-most-read">
-              {MOST_READ.map((item, i) => (
-                <li key={i} className="np-most-read-item">
-                  <span className="np-most-read-tag">{item.tag}</span>
-                  <span className="np-most-read-title">{item.title}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-
           <div className="np-sidebar-block np-archive-block">
-            <h3 className="np-sidebar-title np-sidebar-title--light">Archivo de Noticias</h3>
-            <div className="np-archive-pills">
-              {ARCHIVE_MONTHS.map((m) => (
-                <button key={m} className="np-archive-pill">{m}</button>
-              ))}
-            </div>
+            <h3 className="np-sidebar-title">
+              <FaCalendar />
+              Archivo de Noticias
+            </h3>
+            {años.length === 0 ? (
+              <p className="np-archive-empty">No hay noticias archivadas.</p>
+            ) : (
+              <div className="np-archive-pills">
+                {años.map((year) => (
+                  <button
+                    key={year}
+                    className={`np-archive-pill ${activeYear === year ? "active" : ""}`}
+                    onClick={() => handleYearFilter(year)}
+                  >
+                    {year}
+                  </button>
+                ))}
+              </div>
+            )}
           </div>
         </aside>
       </main>

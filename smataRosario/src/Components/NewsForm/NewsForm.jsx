@@ -32,25 +32,35 @@ export default function NewsForm({ open, onClose, onSuccess, noticia = null }) {
   // Textarea ref para insertar imagen en el cursor
   const contenidoRef = useRef(null);
 
-  useEffect(() => {
-    if (noticia) {
-      setForm({
-        titulo:     noticia.titulo     || "",
-        excerpt:    noticia.excerpt    || "",
-        categoria:  noticia.categoria  || CATEGORIES[0],
-        imagen_url: noticia.imagen_url || "",
-        autor:      noticia.autor      || "",
-        contenido:  noticia.contenido  || "",
-        fecha:      noticia.fecha
-          ? new Date(noticia.fecha).toISOString().split("T")[0]
-          : new Date().toISOString().split("T")[0],
-      });
-    } else {
-      setForm(emptyForm);
-    }
-    setError(null);
-    setSuccess(false);
-  }, [noticia, open]);
+useEffect(() => {
+  if (!open) return; // ← no hacer nada si el modal está cerrado
+
+  if (noticia) {
+    // Fix fecha: parsear manualmente para evitar problema de timezone
+    const [year, month, day] = (noticia.fecha || '').split('T')[0].split('-');
+    const fechaLocal = year && month && day
+      ? `${year}-${month}-${day}`
+      : new Date().toISOString().split('T')[0];
+
+    setForm({
+      titulo:     noticia.titulo     || '',
+      excerpt:    noticia.excerpt    || '',
+      categoria:  noticia.categoria  || CATEGORIES[0],
+      imagen_url: noticia.imagen_url || '',
+      autor:      noticia.autor      || '',
+      contenido:  noticia.contenido  || '',
+      fecha:      fechaLocal,
+    });
+  } else {
+    setForm({
+      titulo: '', excerpt: '', categoria: CATEGORIES[0],
+      imagen_url: '', autor: '', contenido: '',
+      fecha: new Date().toISOString().split('T')[0],
+    });
+  }
+  setError(null);
+  setSuccess(false);
+}, [noticia, open]); // ← sin emptyForm como dependencia
 
   const handleChange = (e) => {
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
@@ -102,7 +112,10 @@ export default function NewsForm({ open, onClose, onSuccess, noticia = null }) {
     }
 
     const { data } = supabase.storage.from(BUCKET).getPublicUrl(fileName);
-    const imageTag = `\n[img]${data.publicUrl}[/img]\n`;
+    const caption = window.prompt("Subtitulo de la imagen (opcional, Enter para omitir):")
+    const imageTag = caption
+    ? `\n[img caption="${caption}"]${data.publicUrl}[/img]\n`
+    : `\n[img]${data.publicUrl}[/img]\n`;
 
     // Insertar en la posición del cursor dentro del textarea
     const textarea = contenidoRef.current;
@@ -132,7 +145,10 @@ export default function NewsForm({ open, onClose, onSuccess, noticia = null }) {
     setLoading(true);
     setError(null);
 
-    const payload = { ...form };
+    const payload = { 
+      ...form, 
+      fecha: form.fecha ? `${form.fecha}T12:00:00` : form.fecha,
+    };
 
     let result;
     if (isEdit) {

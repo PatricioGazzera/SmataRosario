@@ -41,7 +41,9 @@ const contactDiscapacidad = [
         label: 'Correo Electrónico',
         desc: 'Envianos un email',
         icon: FaEnvelope,
-        link: `https://mail.google.com/mail/?view=cm&to=auditoriametal1@smatarosario.com.ar&su=${subject}&body=${body}`,
+        link: /Android|iPhone|iPad|iPod/i.test(navigator.userAgent)
+            ? `mailto:auditoriametal1@smatarosario.com.ar?subject=${subject}`
+            : `https://mail.google.com/mail/?view=cm&to=auditoriametal1@smatarosario.com.ar&su=${subject}&body=${body}`,
         colorClass: 'contact-btn-email',
     },
 ];

@@ -2,15 +2,15 @@ import { useParams, useNavigate } from 'react-router-dom';
 import './SubsidiosDetails.css';
 import { FaWhatsapp, FaPhone, FaLocationDot, FaInfo, FaCheck, FaEnvelope } from "../../utils/icons/icons";
 
-import farmaciaImg    from '../../utils/images/farmacia.jpg';
-import mochilasImg    from '../../utils/images/mochilas.png';
-import bebeImg        from '../../utils/images/subsidios/bebe.png';
-import bodaImg        from '../../utils/images/subsidios/boda.png';
-import dentistaImg    from '../../utils/images/subsidios/dentista.png';
-import girasolImg     from '../../utils/images/subsidios/girasol.png';
-import lentesImg      from '../../utils/images/subsidios/lentes.png';
+import farmaciaImg from '../../utils/images/farmacia.jpg';
+import mochilasImg from '../../utils/images/mochilas.png';
+import bebeImg from '../../utils/images/subsidios/bebe.png';
+import bodaImg from '../../utils/images/subsidios/boda.png';
+import dentistaImg from '../../utils/images/subsidios/dentista.png';
+import girasolImg from '../../utils/images/subsidios/girasol.png';
+import lentesImg from '../../utils/images/subsidios/lentes.png';
 import medicamentoImg from '../../utils/images/subsidios/medicamento.png';
-import familiaImg     from '../../utils/images/subsidios/familia.png';
+import familiaImg from '../../utils/images/subsidios/familia.png';
 
 // ── ARRAY DE SUBSIDIOS ──
 // Cada subsidio tiene: telefono, whatsapp, email — cambiá los que correspondan.
@@ -161,7 +161,7 @@ const SUBSIDIOS = [
   },
 ];
 
-const IconBack = () => <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" width="16" height="16"><polyline points="15 18 9 12 15 6"/></svg>;
+const IconBack = () => <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" width="16" height="16"><polyline points="15 18 9 12 15 6" /></svg>;
 
 export default function SubsidioDetails() {
   const { id } = useParams();
@@ -179,7 +179,9 @@ export default function SubsidioDetails() {
   );
 
   const asunto = encodeURIComponent(`Consulta sobre: ${subsidio.title}`);
-  const mailtoLink = `https://mail.google.com/mail/?view=cm&to=${subsidio.email}&su=${asunto}`;
+  const mailtoLink = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent)
+    ? `mailto:${subsidio.email}?subject=${asunto}`
+    : `https://mail.google.com/mail/?view=cm&to=${subsidio.email}&su=${asunto}`;
 
   return (
     <div className="sd-root">

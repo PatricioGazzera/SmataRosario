@@ -40,7 +40,7 @@ const areas = [
         telefono: '341 3130317',
         whatsapp: '5493413130317',
         whatsappLabel: 'WhatsApp',
-        email: 'mutual@smata-rosario.com.ar',
+        email: 'mutualmecanica2@smatarosario.com.ar',
     },
     /* {
         id: 'accion-social',
@@ -70,7 +70,7 @@ const areas = [
         telefono: '341 2555416',
         whatsapp: '5493412555416',
         whatsappLabel: 'WhatsApp Turnos',
-        email: 'salud@osmata.com.ar',
+        email: 'centromedico2@smatarosario.com.ar',
     },
     {
         id: 'farmacia',
@@ -195,7 +195,9 @@ function AreaCard({ area }) {
 
                 {area.id !== 'farmacia' && (
                     <a
-                        href={`https://mail.google.com/mail/?view=cm&to=${area.email}&su=${subject}`}
+                        href={/Android|iPhone|iPad|iPod/i.test(navigator.userAgent)
+                            ? `mailto:${area.email}?subject=${subject}`
+                            : `https://mail.google.com/mail/?view=cm&to=${area.email}&su=${subject}`}
                         target="_blank"
                         rel="noreferrer"
                         className="dir-action dir-action--mail">
@@ -250,10 +252,10 @@ export default function Contact() {
                         <span>Contacto: +54 341 6831506</span>
                     </div>
                     <a
-                    href='https://maps.app.goo.gl/SGtishKLUsPw2rhe9' 
-                    target="_blank"
-                    rel="noreferrer"
-                    className="dir-sede-btn"
+                        href='https://maps.app.goo.gl/SGtishKLUsPw2rhe9'
+                        target="_blank"
+                        rel="noreferrer"
+                        className="dir-sede-btn"
                     >Cómo llegar</a>
                 </div>
 

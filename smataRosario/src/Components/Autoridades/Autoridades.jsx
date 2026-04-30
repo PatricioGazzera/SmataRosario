@@ -15,7 +15,7 @@ function Avatar({ size = 'lg', bg = '#d4d4ce' }) {
 
 // ─── DATA ─────────────────────────────────────────────────────────
 const sindicatoSecundarios = [
-  { role: 'Sec. de Finanzas', name: 'Paola Corvetti' },
+  { role: 'Sec. de Finanzas', name: 'Gisela Paola Corvetti' },
   { role: 'Sec. de Actas', name: 'Hugo M. Barros' },
   { role: 'Sec. Acción Social', name: 'Andrés Gobbi' },
   { role: 'Sec. Administrativo', name: 'Marcelo Sebastianelli' },

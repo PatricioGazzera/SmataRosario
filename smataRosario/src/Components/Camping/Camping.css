@@ -199,7 +199,10 @@ body {
   margin-top: 5px;
 }
 
-.camp-location svg { flex-shrink: 0; }
+.location-icon {
+  color: var(--green);
+  font-size: 14px;
+}
 
 /* Status badge */
 .status-badge {

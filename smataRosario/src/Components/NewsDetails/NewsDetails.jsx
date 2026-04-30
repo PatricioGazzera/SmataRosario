@@ -103,33 +103,39 @@ export default function NewsDetail() {
     });
   };
 
-  const renderContent = (text) => {
-    if (!text) return null;
+const renderContent = (text) => {
+  if (!text) return null;
 
-    const parts = text.split(/(\[img\].*?\[\/img\])/gs);
+  // Regex actualizado para capturar caption opcional
+  const parts = text.split(/(\[img(?:[^\]]*)?\].*?\[\/img\])/gs);
 
-    return parts.map((part, i) => {
-      const imgMatch = part.match(/^\[img\](.*?)\[\/img\]$/s);
-      if (imgMatch) {
-        const src = imgMatch[1].trim();
-        return (
-          <div key={i} className="nd-body-img-wrap">
-            <img
-              src={src}
-              alt="Imagen de la noticia"
-              className="nd-body-img"
-              onClick={() => setLightboxImg(src)}
-            />
-          </div>
-        );
-      }
+  return parts.map((part, i) => {
+    // Intenta matchear con caption
+    const imgMatch = part.match(/^\[img(?:\s+caption="([^"]*)")?\](.*?)\[\/img\]$/s);
+    if (imgMatch) {
+      const caption = imgMatch[1]; // puede ser undefined
+      const src = imgMatch[2].trim();
+      return (
+        <div key={i} className="nd-body-img-wrap">
+          <img
+            src={src}
+            alt={caption || 'Imagen de la noticia'}
+            className="nd-body-img"
+            onClick={() => setLightboxImg(src)}
+          />
+          {caption && (
+            <p className="nd-body-img-caption">{caption}</p>
+          )}
+        </div>
+      );
+    }
 
-      const paragraphs = part.split(/\n\n+/).filter((p) => p.trim());
-      return paragraphs.map((p, j) => (
-        <p key={`${i}-${j}`} className="nd-paragraph">{p.trim()}</p>
-      ));
-    });
-  };
+    const paragraphs = part.split(/\n\n+/).filter((p) => p.trim());
+    return paragraphs.map((p, j) => (
+      <p key={`${i}-${j}`} className="nd-paragraph">{p.trim()}</p>
+    ));
+  });
+};
 
   /* ── ESTADOS ── */
   if (loading) return (

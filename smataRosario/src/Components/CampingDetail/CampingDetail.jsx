@@ -2,25 +2,25 @@ import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import './CampingDetail.css';
 import {
-    FaPersonSwimming,
-    FaFutbol,
-    FaFire,
-    FaCampground,
-    FaToilet,
-    FaWifi,
-    FaSun,
-    FaUtensils,
-    FaGamepad,
-    FaSquareParking,
-    FaCalendar,
-    FaClock,
-    FaShapes,
-    FaImages,
-    FaLocationDot,
-    FaCheck,
-    FaWhatsapp,
-    FaEnvelope,
-    FaPhone,
+  FaPersonSwimming,
+  FaFutbol,
+  FaFire,
+  FaCampground,
+  FaToilet,
+  FaWifi,
+  FaSun,
+  FaUtensils,
+  FaGamepad,
+  FaSquareParking,
+  FaCalendar,
+  FaClock,
+  FaShapes,
+  FaImages,
+  FaLocationDot,
+  FaCheck,
+  FaWhatsapp,
+  FaEnvelope,
+  FaPhone,
 
 } from 'react-icons/fa6'
 
@@ -56,14 +56,14 @@ const campingsData = {
       campingPool
     ],
     services: [
-        { icon: FaPersonSwimming, label: 'Pileta' },
-        { icon: FaFutbol, label: 'Campo de Deporte' },
-        { icon: FaFire, label: 'Parrilleros' },
-        { icon: FaCampground, label: 'Área para Acampar' },
-        { icon: FaToilet, label: 'Vestuarios' },
-        { icon: FaSquareParking, label: 'Estacionamiento' },
-        { icon: FaUtensils, label: 'Buffet' },
-        { icon: FaShapes, label: 'Juegos al Aire Libre' }
+      { icon: FaPersonSwimming, label: 'Pileta' },
+      { icon: FaFutbol, label: 'Campo de Deporte' },
+      { icon: FaFire, label: 'Parrilleros' },
+      { icon: FaCampground, label: 'Área para Acampar' },
+      { icon: FaToilet, label: 'Vestuarios' },
+      { icon: FaSquareParking, label: 'Estacionamiento' },
+      { icon: FaUtensils, label: 'Buffet' },
+      { icon: FaShapes, label: 'Juegos al Aire Libre' }
     ],
     mapAddress: 'Av. de los Incas, Ibarlucea, Santa Fe',
     mapEmbedUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3351.180621827289!2d-60.76006712439976!3d-32.86694016786713!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95b651f9c10da5d1%3A0xfa9515e4db69c1ef!2sCamping%20Smata!5e0!3m2!1ses!2sar!4v1776782101796!5m2!1ses!2sar" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade',
@@ -77,9 +77,9 @@ const campingsData = {
       'Prohibido el ingreso con mascotas',
     ],
     contact: {
-      phone:    '+54 341 313-0317',
+      phone: '+54 341 313-0317',
       whatsapp: '+54 9 341 313-0317',
-      email:    'mutualmetalmecanica@smatarosario.com.ar',
+      email: 'mutualmetalmecanica@smatarosario.com.ar',
     },
     notice: 'Recordá que para el uso de la pileta es necesario realizar la revisión médica en el predio o presentar certificado.',
   },
@@ -96,13 +96,13 @@ const campingsData = {
       arroyo3,
     ],
     services: [
-        { icon: FaPersonSwimming, label: 'Pileta' },
-        { icon: FaFutbol, label: 'Campo de Deporte' },
-        { icon: FaFire, label: 'Parrilleros' },
-        { icon: FaShapes, label: 'Juegos al Aire Libre' },
-        { icon: FaToilet, label: 'Vestuarios' },
-        { icon: FaSquareParking, label: 'Estacionamiento' },
-        { icon: FaUtensils, label: 'Buffet' },
+      { icon: FaPersonSwimming, label: 'Pileta' },
+      { icon: FaFutbol, label: 'Campo de Deporte' },
+      { icon: FaFire, label: 'Parrilleros' },
+      { icon: FaShapes, label: 'Juegos al Aire Libre' },
+      { icon: FaToilet, label: 'Vestuarios' },
+      { icon: FaSquareParking, label: 'Estacionamiento' },
+      { icon: FaUtensils, label: 'Buffet' },
     ],
     mapAddress: 'Jorge Newbery 362, S2128 Arroyo Seco, Santa Fe',
     mapEmbedUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3178.929209242693!2d-60.5013730243854!3d-33.16602128300223!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95b70b851ce674c7%3A0x862c43925526482f!2sCamping%20SMATA!5e1!3m2!1ses-419!2sar!4v1776784338412!5m2!1ses-419!2sar" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade',
@@ -116,9 +116,9 @@ const campingsData = {
       'Prohibido el ingreso de vidrios',
     ],
     contact: {
-      phone:    '+54 341 313-0317',
+      phone: '+54 341 313-0317',
       whatsapp: '+54 9 341 313-0317',
-      email:    'mutualmetalmecanica@smatarosario.com.ar',
+      email: 'mutualmetalmecanica@smatarosario.com.ar',
     },
     notice: 'Recordá que para el uso de la pileta es necesario realizar la revisión médica en el predio o presentar certificado.',
   },
@@ -130,20 +130,20 @@ export default function CampingDetail() {
   const navigate = useNavigate();
   const camping = campingsData[id] || campingsData[1];
 
-    // --- MENSAJE CAMPING ---
-    const message = encodeURIComponent(
-        `Hola! Quiero información sobre el ${camping.name}.`
-    );
+  // --- MENSAJE CAMPING ---
+  const message = encodeURIComponent(
+    `Hola! Quiero información sobre el ${camping.name}.`
+  );
 
-    // --- MENSAJE ARANCELES ---
-    const aranceles = encodeURIComponent(
-        `Hola! Quiero consultar los aranceles del ${camping.name}.`
-    )
+  // --- MENSAJE ARANCELES ---
+  const aranceles = encodeURIComponent(
+    `Hola! Quiero consultar los aranceles del ${camping.name}.`
+  )
 
-    const subject = encodeURIComponent("Consulta sobre Camping.");
-    const body = encodeURIComponent(
-        `Hola! Quiero información sobre el ${camping.name}.`
-    );
+  const subject = encodeURIComponent("Consulta sobre Camping.");
+  const body = encodeURIComponent(
+    `Hola! Quiero información sobre el ${camping.name}.`
+  );
 
   const [lightboxSrc, setLightboxSrc] = useState(null);
 
@@ -212,7 +212,7 @@ export default function CampingDetail() {
           {/* Galería */}
           <section className="cd-section">
             <h2 className="cd-section-title">
-              <span className="cd-service-icon"><FaImages/></span>
+              <span className="cd-service-icon"><FaImages /></span>
               Galería de Fotos
             </h2>
             <div className="cd-gallery">
@@ -266,7 +266,7 @@ export default function CampingDetail() {
           {/* Reglamento */}
           <section className="cd-section cd-rules-section">
             <h2 className="cd-rules-title">
-              <span className="cd-rules-icon"><FaClock/></span>
+              <span className="cd-rules-icon"><FaClock /></span>
               Reglamento y Horarios
             </h2>
             <div className="cd-rules-grid">
@@ -310,10 +310,10 @@ export default function CampingDetail() {
               </div>
             </a>
 
-            <a href={`https://wa.me/${camping.contact.whatsapp.replace(/\D/g,'')}?text=${message}`}
-            className="cd-contact-row"
-            target="_blank"
-            rel="noreferrer">
+            <a href={`https://wa.me/${camping.contact.whatsapp.replace(/\D/g, '')}?text=${message}`}
+              className="cd-contact-row"
+              target="_blank"
+              rel="noreferrer">
               <span className="cd-contact-icon cd-contact-icon--whatsapp"><FaWhatsapp /></span>
               <div>
                 <p className="cd-contact-label">WhatsApp</p>
@@ -322,10 +322,12 @@ export default function CampingDetail() {
             </a>
 
             <a
-                href={`https://mail.google.com/mail/?view=cm&to=${camping.contact.email}&su=${subject}&body=${body}`}
-                target="_blank"
-                rel="noreferrer"
-                className="cd-contact-row"
+              href={/Android|iPhone|iPad|iPod/i.test(navigator.userAgent)
+                ? `mailto:${camping.contact.email}?subject=${subject}`
+                : `https://mail.google.com/mail/?view=cm&to=${camping.contact.email}&su=${subject}&body=${body}`}
+              target="_blank"
+              rel="noreferrer"
+              className="cd-contact-row"
             >
               <span className="cd-contact-icon cd-contact-icon--mail"><FaEnvelope /></span>
               <div>
@@ -335,12 +337,12 @@ export default function CampingDetail() {
             </a>
 
             <a
-            href={`https://wa.me/${camping.contact.whatsapp.replace(/\D/g,'')}?text=${aranceles}`}
-                className="cd-btn-aranceles"
-                target="_blank"
-                rel="noreferrer"
+              href={`https://wa.me/${camping.contact.whatsapp.replace(/\D/g, '')}?text=${aranceles}`}
+              className="cd-btn-aranceles"
+              target="_blank"
+              rel="noreferrer"
             >
-                Consultar Aranceles
+              Consultar Aranceles
             </a>
             <p className="cd-aranceles-note">Precios diferenciados para afiliados y particulares.</p>
           </div>

@@ -23,6 +23,7 @@ import SubsidioDetails from '../Components/SubsidiosDetails/SubsidiosDetails';
 import Hotels from '../Components/Hotels/Hotels';
 import HotelDetails from '../Components/HotelDetails/HotelDetails';
 import Farmacia from '../Components/Farmacia/Farmacia';
+import AboutUs from '../Components/AboutUs/AboutUs';
 
 export default function AppRoutes() {
     return (
@@ -46,6 +47,7 @@ export default function AppRoutes() {
             <Route path='/capacitacion/:id' element={<CapacitacionDetails />}/>
             <Route path='/turismo' element={<Hotels/>}/>
             <Route path='/turismo/:id' element={<HotelDetails/>}/>
+            <Route path='/sobre-smata' element={<AboutUs />}/>
 
             {/* LOGIN ADMIN */}
             <Route path='/admin/login' element={<AdminLogin />}/>

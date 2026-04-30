@@ -56,7 +56,7 @@ export default function Footer() {
             <div className="footer-col">
                 <h4>Navegación</h4>
                 <ul>
-                <li><a href="#">Sobre SMATA</a></li>
+                <li><Link to="/sobre-smata">Sobre SMATA</Link></li>
                 <li><Link to="/autoridades">Autoridades</Link></li>
                 <li><Link to="/contacto">Contacto</Link></li>
                 <li><Link to="/noticias">Noticias</Link></li>

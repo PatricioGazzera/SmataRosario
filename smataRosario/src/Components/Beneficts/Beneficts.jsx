@@ -2,11 +2,11 @@ import './Beneficts.css';
 import prestadoresImg from '../../utils/images/prestadores.png'
 import farmaciaImg from '../../utils/images/farmacia.jpg';
 import mochilasImg from '../../utils/images/mochilas.png';
-import turismoImg  from '../../utils/images/turismo.jpg';
-import campingImg  from '../../utils/images/Camping/camping.png';
-import cursoImg    from '../../utils/images/cursito.jpg';
+import turismoImg from '../../utils/images/turismo.jpg';
+import campingImg from '../../utils/images/Camping/camping.png';
+import cursoImg from '../../utils/images/cursito.jpg';
 import gimnasioImg from '../../utils/images/gimnasio.jpg';
-import juezImg     from '../../utils/images/juez.png';
+import juezImg from '../../utils/images/juez.png';
 import transporteImg from '../../utils/images/transporteBoda.png';
 import vajillaImg from '../../utils/images/vajilla.png';
 import donAlejoImg from '../../utils/images/donAlejo.jpg';
@@ -14,11 +14,10 @@ import sierrasImg from '../../utils/images/Las Sierras/portada1.jpg';
 import organizadorImg from '../../utils/images/organizador.png';
 import spaImage from '../../utils/images/spa.jpg';
 import indumentariaImg from '../../utils/images/indumentaria.png'
+import eccoImg from '../../utils/images/ecco.jpg'
 import { useNavigate } from 'react-router-dom';
 import { FaStar } from '../../utils/icons/icons.js'
 
-// route que empieza con '/' → ruta absoluta (componente propio)
-// route que NO empieza con '/' → va a /beneficios/:id via BenefictsDetails
 const beneficts = [
   {
     title: 'Obra Social',
@@ -75,6 +74,13 @@ const beneficts = [
     link: 'Conocé Más',
     route: '/capacitacion',
     image: cursoImg,
+  },
+  {
+    title: 'ECCO Emergencias',
+    desc: 'Accedé a atención médica con ECCO Emergencias...',
+    link: 'Conocé Más',
+    route: '/beneficios/ecco',
+    image: eccoImg,
   },
   {
     title: 'Transporte el día de tu Boda',
@@ -174,14 +180,13 @@ export default function Beneficts() {
               onClick={() => benefict.route && navigate(benefict.route)}
               style={{ cursor: benefict.route ? 'pointer' : 'default' }}
             >
-              {/* Imagen de fondo */}
               <div
                 className="beneficts-bg"
                 style={{ backgroundImage: `url(${benefict.image})` }}
               />
 
               {benefict.mutual && (
-                <div className= "beneficts-mutual-badge"><FaStar /> Exclusivo Mutual </div>
+                <div className="beneficts-mutual-badge"><FaStar /> Exclusivo Mutual </div>
               )}
 
               {/* Overlay */}

@@ -1,10 +1,9 @@
 import { useParams, useNavigate } from 'react-router-dom';
 import './BenefictsDetails.css';
 import { FaWhatsapp, FaPhone, FaLocationDot, FaInfo, FaCheck, FaEnvelope } from "../../utils/icons/icons";
-
 import gimnasioImg from '../../utils/images/gimnasio.jpg';
-import juezImg     from '../../utils/images/juez.png';
-import cursoImg    from '../../utils/images/cursito.jpg';
+import juezImg from '../../utils/images/juez.png';
+import cursoImg from '../../utils/images/cursito.jpg';
 import transporteImg from '../../utils/images/transporteBoda.png';
 import vajillaImg from '../../utils/images/vajilla.png';
 import donAlejoImg from '../../utils/images/donAlejo.jpg';
@@ -12,18 +11,17 @@ import sierrasImg from '../../utils/images/Las Sierras/portada1.jpg';
 import organizadorImg from '../../utils/images/organizador.png';
 import spaImage from '../../utils/images/spa.jpg';
 import indumentariaImg from '../../utils/images/indumentaria.png'
+import eccoImg from '../../utils/images/ecco.jpg'
 
-// ── BENEFICIOS CON DETALLE ──
-// Excluidos: Salud y Medicina, Subsidios, Turismo, Complejos, Cursos (tienen su propio componente)
 const BENEFICIOS = [
   {
     id: 'gimnasio-bienestar',
     title: 'Gimnasio y Bienestar',
     desc: 'Accedé al gimnasio exclusivo para afiliados, con entrenadores personales y programas de bienestar diseñados para mantenerte en forma y saludable.',
     image: gimnasioImg,
-    telefono: '341 618-6835', 
-    whatsapp: '5493416186835',        
-    email: 'entrada2@smatarosario.com.ar', 
+    telefono: '341 618-6835',
+    whatsapp: '5493416186835',
+    email: 'entrada2@smatarosario.com.ar',
     contacto: 'Para más información comunicarse con nuestra sede o por WhatsApp.',
     info: [
       {
@@ -45,9 +43,9 @@ const BENEFICIOS = [
     title: 'Asesoría Legal',
     desc: 'Nuestro equipo de abogados especializados en derecho laboral está disponible para brindar asesoría legal gratuita a nuestros afiliados.',
     image: juezImg,
-    telefono: '341 618-6835',   // COMPLETAR
-    whatsapp: '5493416186835',        // COMPLETAR
-    email: 'entrada2@smatarosario.com.ar', // COMPLETAR
+    telefono: '341 618-6835',
+    whatsapp: '5493416186835',
+    email: 'entrada2@smatarosario.com.ar',
     contacto: 'Para solicitar un turno comunicarse con nuestra sede o por WhatsApp.',
     info: [
       {
@@ -65,13 +63,36 @@ const BENEFICIOS = [
     ],
   },
   {
+    id: 'ecco',
+    title: 'ECCO Emergencias',
+    desc: 'Accedé a atención médica con Ecco',
+    image: eccoImg,
+    telefono: '0810 888-3226',
+    whatsapp: '541144499787',
+    contacto: 'contacto directo con ECCO.',
+    info: [
+      {
+        subtitulo: '¿En qué consiste?',
+        texto: 'Accedé a atención médica a domicilio con ECCO Emergencias. (Coseguro de $10.000).',
+      },
+      {
+        subtitulo: '¿Quiénes pueden acceder?',
+        texto: 'Todos los afiliados activos.',
+      },
+      {
+        subtitulo: '¿Cómo solicitarlo?',
+        texto: 'Comunicate directamente con Ecco via whatsapp o mediante llamada.',
+      },
+    ],
+  },
+  {
     id: 'transporte-boda',
     title: 'Transporte el día de tu Boda',
     desc: 'Te regalamos el transporte en el día de tu Boda.',
     image: transporteImg,
-    telefono: '341 313-0317',   // COMPLETAR
-    whatsapp: '5493413130317',       // COMPLETAR
-    email: 'mutualmecanica2@smatarosario.com.ar', // COMPLETAR
+    telefono: '341 313-0317',
+    whatsapp: '5493413130317',
+    email: 'mutualmecanica2@smatarosario.com.ar',
     contacto: 'Para coordinar el servicio comunicarse con anticipación por WhatsApp o mail.',
     info: [
       {
@@ -93,9 +114,9 @@ const BENEFICIOS = [
     title: 'Alquiler de Vajilla',
     desc: 'Accedé a un descuento exclusivo en alquiler de vajilla.',
     image: vajillaImg,
-    telefono: '341 313-0317',   // COMPLETAR
-    whatsapp: '5493413130317',        // COMPLETAR
-    email: 'mutualmecanica2@smatarosario.com.ar', // COMPLETAR
+    telefono: '341 313-0317',
+    whatsapp: '5493413130317',
+    email: 'mutualmecanica2@smatarosario.com.ar',
     contacto: 'Para más información comunicarse con nuestra sede o por WhatsApp.',
     info: [
       {
@@ -117,9 +138,9 @@ const BENEFICIOS = [
     title: 'Descuento Autoservicio Don Alejo',
     desc: 'Accedé a descuentos exclusivos en Autoservicio Don Alejo.',
     image: donAlejoImg,
-    telefono: '341 313-0317',   // COMPLETAR
-    whatsapp: '5493413130317',        // COMPLETAR
-    email: 'mutualmecanica2@smatarosario.com.ar', // COMPLETAR
+    telefono: '341 313-0317',
+    whatsapp: '5493413130317',
+    email: 'mutualmecanica2@smatarosario.com.ar',
     contacto: 'Para más información comunicarse con nuestra sede o por WhatsApp.',
     info: [
       {
@@ -141,9 +162,9 @@ const BENEFICIOS = [
     title: 'Descuento exclusivo en Sierras Hotel',
     desc: 'Accedé a un descuento exclusivo en tu estadía.',
     image: sierrasImg,
-    telefono: '341 313-0317',   // COMPLETAR
-    whatsapp: '5493413130317',        // COMPLETAR
-    email: 'mutualmecanica2@smatarosario.com.ar', // COMPLETAR
+    telefono: '341 313-0317',
+    whatsapp: '5493413130317',
+    email: 'mutualmecanica2@smatarosario.com.ar',
     contacto: 'Para reservas y más información comunicarse con nuestra sede o por WhatsApp.',
     info: [
       {
@@ -165,9 +186,9 @@ const BENEFICIOS = [
     title: 'Organizador Profesional',
     desc: 'Accedé a descuentos especiales en el servicio de Orden y Organización.',
     image: organizadorImg,
-    telefono: '341 313-0317',   // COMPLETAR
-    whatsapp: '5493413130317',        // COMPLETAR
-    email: 'mutualmecanica2@smatarosario.com.ar', // COMPLETAR
+    telefono: '341 313-0317',
+    whatsapp: '5493413130317',
+    email: 'mutualmecanica2@smatarosario.com.ar',
     contacto: 'Para más información comunicarse con nuestra sede o por WhatsApp.',
     info: [
       {
@@ -189,9 +210,9 @@ const BENEFICIOS = [
     title: 'Spa de Campo',
     desc: 'Accedé a precios y descuentos especiales en Spa.',
     image: spaImage,
-    telefono: '341 313-0317',   // COMPLETAR
-    whatsapp: '5493413130317',        // COMPLETAR
-    email: 'mutualmecanica2@smatarosario.com.ar', // COMPLETAR
+    telefono: '341 313-0317',
+    whatsapp: '5493413130317',
+    email: 'mutualmecanica2@smatarosario.com.ar',
     contacto: 'Para reservas comunicarse con nuestra sede o por WhatsApp.',
     info: [
       {
@@ -213,9 +234,9 @@ const BENEFICIOS = [
     title: 'Indumentaria Deportiva y Urbana',
     desc: 'Accedé a descuentos en Indumentaria Deportiva y Urbana Femenina.',
     image: indumentariaImg,
-    telefono: '341 313-0317',   // COMPLETAR
-    whatsapp: '5493413130317',        // COMPLETAR
-    email: 'mutualmecanica2@smatarosario.com.ar', // COMPLETAR
+    telefono: '341 313-0317',
+    whatsapp: '5493413130317',
+    email: 'mutualmecanica2@smatarosario.com.ar',
     contacto: 'Para más información comunicarse con nuestra sede o por WhatsApp.',
     info: [
       {
@@ -234,7 +255,7 @@ const BENEFICIOS = [
   },
 ];
 
-const IconBack = () => <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" width="16" height="16"><polyline points="15 18 9 12 15 6"/></svg>;
+const IconBack = () => <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" width="16" height="16"><polyline points="15 18 9 12 15 6" /></svg>;
 
 export default function BenefictsDetails() {
   const { id } = useParams();
@@ -251,17 +272,13 @@ export default function BenefictsDetails() {
     </div>
   );
 
-  // Detecta si es mobile
-const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
-
-// Mobile → mailto (abre la app de correo nativa)
-// Desktop → Gmail web
+  const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
   const asunto = encodeURIComponent(`Consulta sobre: ${beneficio.title}`);
   const mailtoLink = isMobile
-  ? `mailto:${beneficio.email}?subject=${asunto}`
-  : `https://mail.google.com/mail/?view=cm&to=${beneficio.email}&su=${asunto}`;
+    ? `mailto:${beneficio.email}?subject=${asunto}`
+    : `https://mail.google.com/mail/?view=cm&to=${beneficio.email}&su=${asunto}`;
 
-  
+
 
   return (
     <div className="bd-root">

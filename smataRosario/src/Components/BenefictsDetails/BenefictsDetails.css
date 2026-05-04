@@ -133,7 +133,6 @@ body {
     line-height: 1.65;
 }
 
-/* ── BODY ── */
 .bd-body {
     display: grid;
     grid-template-columns: 1fr 300px;
@@ -144,7 +143,6 @@ body {
     align-items: start;
 }
 
-/* ── SECTIONS ── */
 .bd-section {
     background: var(--white);
     border: 1px solid var(--border);
@@ -181,7 +179,6 @@ body {
     line-height: 1.78;
 }
 
-/* ── LISTA REQUISITOS ── */
 .bd-req-list {
     list-style: none;
     display: flex;
@@ -207,7 +204,6 @@ body {
     height: 18px;
 }
 
-/* ── COLUMNA DERECHA ── */
 .bd-right {
     display: flex;
     flex-direction: column;
@@ -216,7 +212,6 @@ body {
     top: 90px;
 }
 
-/* ── CONTACT CARD ── */
 .bd-contact-card {
     background: var(--white);
     border: 1px solid var(--border);
@@ -330,7 +325,6 @@ body {
     transition: 0.3s all ease;
 }
 
-/* ── SEDE CARD ── */
 .bd-sede-card {
     background: var(--white);
     border: 1px solid var(--border);
@@ -368,7 +362,6 @@ body {
     font-weight: 600;
 }
 
-/* ── REQ CARD ── */
 .bd-req-card {
     background: var(--dark);
     border-radius: var(--radius);
@@ -404,7 +397,6 @@ body {
     color: #7a9a7a;
 }
 
-/* ── RESPONSIVE ── */
 @media (max-width: 900px) {
     .bd-body {
         grid-template-columns: 1fr;

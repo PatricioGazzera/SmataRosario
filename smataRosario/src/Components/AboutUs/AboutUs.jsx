@@ -1,10 +1,8 @@
 import './AboutUs.css';
 import { FaFlag, FaEye, FaUsers, FaLocationDot, FaShield, FaArrowRight } from '../../utils/icons/icons';
 import { useState, useEffect, useCallback } from 'react';
-
-// ── Imágenes del carrusel — reemplazá con las tuyas ──
 import apretonImg from "../../utils/images/apreton.png";
-import heroImg from '../../utils/images/AboutUs.png'; 
+import heroImg from '../../utils/images/AboutUs.png';
 import sindicatoImg from "../../utils/images/sindicato.png";
 
 
@@ -46,8 +44,6 @@ const PRESENCIA = [
 export default function AboutUs() {
   return (
     <div className="au-root">
-
-      {/* ── HERO ── */}
       <section className="au-hero">
         <div className="au-hero-bg" style={{ backgroundImage: `url(${heroImg})` }} />
         <div className="au-hero-overlay" />
@@ -64,11 +60,8 @@ export default function AboutUs() {
         </div>
       </section>
 
-      {/* ── HISTORIA ── */}
       <section className="au-historia">
         <div className="au-historia-inner">
-
-          {/* Texto */}
           <div className="au-historia-text">
             <h2 className="au-historia-titulo">
               La Raíz de un{' '}
@@ -92,20 +85,17 @@ export default function AboutUs() {
               que la transición hacia la movilidad del futuro sea con justicia social.
             </p>
           </div>
-
-          {/* Carrusel */}
           <div className="au-carrusel">
             <div className="au-carrusel-track">
-                <div className="au-carrusel-slide">
-                  <img src={apretonImg} />
-                </div>
+              <div className="au-carrusel-slide">
+                <img src={apretonImg} />
+              </div>
             </div>
           </div>
 
         </div>
       </section>
 
-      {/* ── PILARES ── */}
       <section className="au-pilares">
         <div className="au-pilares-header">
           <h2 className="au-pilares-title">
@@ -136,11 +126,8 @@ export default function AboutUs() {
         </div>
       </section>
 
-      {/* ── PRESENCIA ── */}
       <section className="au-presencia">
         <div className="au-presencia-inner">
-
-          {/* Texto */}
           <div className="au-presencia-text">
             <h2 className="au-presencia-titulo">
               Presencia Real en{' '}
@@ -165,7 +152,6 @@ export default function AboutUs() {
             </a>
           </div>
 
-          {/* Imagen */}
           <div className="au-presencia-img">
             <img
               src={sindicatoImg}

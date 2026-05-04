@@ -9,19 +9,20 @@
   --gris-medio: #c8c8c0;
   --gris-texto: #555550;
   --borde: #e0e0d8;
-  --sombra: 0 4px 24px rgba(0,0,0,0.08);
-  --sombra-hover: 0 12px 40px rgba(0,0,0,0.14);
+  --sombra: 0 4px 24px rgba(0, 0, 0, 0.08);
+  --sombra-hover: 0 12px 40px rgba(0, 0, 0, 0.14);
   --radio: 12px;
   --radio-lg: 20px;
 }
 
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-/* ── menu ── */
 .menu {
   padding: 72px 48px 60px;
   display: grid;
@@ -63,7 +64,6 @@
   max-width: 420px;
 }
 
-/* ── SECTION HEADER ── */
 .sindicato-section-header {
   display: flex;
   align-items: center;
@@ -86,14 +86,12 @@
   color: var(--negro);
 }
 
-/* ── CONTENT WRAPPER ── */
 .content {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 48px 80px;
 }
 
-/* ── SINDICATO SECTION ── */
 .sindicato-section {
   margin-bottom: 72px;
 }
@@ -105,7 +103,6 @@
   margin-bottom: 20px;
 }
 
-/* Card principal */
 .card {
   background: var(--blanco);
   border: 1px solid var(--borde);
@@ -201,7 +198,6 @@
   align-self: flex-start;
 }
 
-/* Card secondary (foto arriba) */
 .card-secondary .card-img-square,
 .card-secondary .card-img-tall {
   height: 200px;
@@ -211,7 +207,6 @@
   padding: 20px;
 }
 
-/* Cards row pequeñas */
 .cards-row {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
@@ -241,7 +236,6 @@
   font-weight: 600;
 }
 
-/* ── MUTUAL SECTION ── */
 .mutual-section {
   margin-bottom: 72px;
 }
@@ -277,13 +271,13 @@
   bottom: 0;
   left: 0;
   right: 0;
-  background: linear-gradient(to top, rgba(0,0,0,0.75) 60%, transparent);
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.75) 60%, transparent);
   padding: 20px 16px 16px;
   color: #fff;
 }
 
 .card-presidente-overlay .card-role {
-  color: rgba(255,255,255,0.75);
+  color: rgba(255, 255, 255, 0.75);
   font-size: 0.65rem;
   background: var(--verde);
   display: inline-block;
@@ -369,7 +363,7 @@
   font-size: 0.65rem;
   text-transform: uppercase;
   letter-spacing: 0.12em;
-  color: rgba(255,255,255,0.45);
+  color: rgba(255, 255, 255, 0.45);
   margin-bottom: 4px;
 }
 
@@ -379,20 +373,52 @@
   color: var(--verde);
 }
 
-/* ── RESPONSIVE ── */
 @media (max-width: 900px) {
-  .menu { grid-template-columns: 1fr; padding: 40px 24px; }
-  .cards-top { grid-template-columns: 1fr; }
-  .cards-row { grid-template-columns: repeat(2, 1fr); }
-  .mutual-grid { grid-template-columns: 1fr 1fr; }
-  .content { padding: 0 24px 60px; }
-  .nav { padding: 0 24px; }
-  .footer { padding: 40px 24px; }
-  .footer-inner { grid-template-columns: 1fr; gap: 28px; }
+  .menu {
+    grid-template-columns: 1fr;
+    padding: 40px 24px;
+  }
+
+  .cards-top {
+    grid-template-columns: 1fr;
+  }
+
+  .cards-row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .mutual-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .content {
+    padding: 0 24px 60px;
+  }
+
+  .nav {
+    padding: 0 24px;
+  }
+
+  .footer {
+    padding: 40px 24px;
+  }
+
+  .footer-inner {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
 }
 
 @media (max-width: 600px) {
-  .nav-links { display: none; }
-  .cards-row { grid-template-columns: 1fr; }
-  .mutual-grid { grid-template-columns: 1fr; }
+  .nav-links {
+    display: none;
+  }
+
+  .cards-row {
+    grid-template-columns: 1fr;
+  }
+
+  .mutual-grid {
+    grid-template-columns: 1fr;
+  }
 }

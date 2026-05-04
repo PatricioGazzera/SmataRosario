@@ -1,28 +1,33 @@
 @import url("https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=Barlow:wght@400;500;600&display=swap");
 
 :root {
-  --green:    #22c55e;
+  --green: #22c55e;
   --green-dk: #15803d;
-  --dark:     #0e0f0e;
-  --dark-2:   #1a1c1a;
-  --mid:      #3a3d3a;
-  --light:    #f5f5f3;
-  --muted:    #8a8e8a;
-  --white:    #ffffff;
-  --border:   #e4e4e0;
-  --red:      #ef4444;
-  --red-bg:   #fee2e2;
+  --dark: #0e0f0e;
+  --dark-2: #1a1c1a;
+  --mid: #3a3d3a;
+  --light: #f5f5f3;
+  --muted: #8a8e8a;
+  --white: #ffffff;
+  --border: #e4e4e0;
+  --red: #ef4444;
+  --red-bg: #fee2e2;
 
   --font-display: "Barlow Condensed", sans-serif;
-  --font-body:    "Barlow", sans-serif;
-  --transition:   0.22s cubic-bezier(.4,0,.2,1);
-  --radius-sm:    6px;
-  --radius-md:    12px;
+  --font-body: "Barlow", sans-serif;
+  --transition: 0.22s cubic-bezier(.4, 0, .2, 1);
+  --radius-sm: 6px;
+  --radius-md: 12px;
 }
 
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
-/* ── ROOT ────────────────────────────────────────── */
 .al-root {
   min-height: 100vh;
   background: var(--dark);
@@ -34,17 +39,15 @@
   overflow: hidden;
 }
 
-/* fondo decorativo con patrón de puntos */
 .al-root::before {
   content: "";
   position: absolute;
   inset: 0;
-  background-image: radial-gradient(rgba(34,197,94,.12) 1px, transparent 1px);
+  background-image: radial-gradient(rgba(34, 197, 94, .12) 1px, transparent 1px);
   background-size: 28px 28px;
   pointer-events: none;
 }
 
-/* acento de color en esquina */
 .al-root::after {
   content: "";
   position: absolute;
@@ -52,11 +55,10 @@
   right: -120px;
   width: 400px;
   height: 400px;
-  background: radial-gradient(circle, rgba(34,197,94,.18) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(34, 197, 94, .18) 0%, transparent 70%);
   pointer-events: none;
 }
 
-/* ── CARD ────────────────────────────────────────── */
 .al-card {
   position: relative;
   z-index: 1;
@@ -65,10 +67,9 @@
   padding: 2.5rem 2.75rem;
   width: 100%;
   max-width: 420px;
-  box-shadow: 0 25px 60px rgba(0,0,0,.4);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, .4);
 }
 
-/* ── LOGO ────────────────────────────────────────── */
 .al-logo-wrap {
   display: flex;
   align-items: baseline;
@@ -92,7 +93,6 @@
   letter-spacing: .02em;
 }
 
-/* ── HEADER ──────────────────────────────────────── */
 .al-header {
   margin-bottom: 2rem;
 }
@@ -125,7 +125,6 @@
   line-height: 1.5;
 }
 
-/* ── FORM ────────────────────────────────────────── */
 .al-form {
   display: flex;
   flex-direction: column;
@@ -174,7 +173,7 @@
 
 .al-input:focus {
   border-color: var(--green);
-  box-shadow: 0 0 0 3px rgba(34,197,94,.15);
+  box-shadow: 0 0 0 3px rgba(34, 197, 94, .15);
   background: var(--white);
 }
 
@@ -191,9 +190,10 @@
   transition: color var(--transition);
 }
 
-.al-eye-btn:hover { color: var(--dark); }
+.al-eye-btn:hover {
+  color: var(--dark);
+}
 
-/* ── ERROR ───────────────────────────────────────── */
 .al-error {
   display: flex;
   align-items: center;
@@ -206,7 +206,6 @@
   font-weight: 500;
 }
 
-/* ── SUBMIT ──────────────────────────────────────── */
 .al-submit-btn {
   display: flex;
   align-items: center;
@@ -236,21 +235,21 @@
   cursor: not-allowed;
 }
 
-/* spinner */
 .al-spinner {
   width: 18px;
   height: 18px;
-  border: 2px solid rgba(255,255,255,.3);
+  border: 2px solid rgba(255, 255, 255, .3);
   border-top-color: var(--white);
   border-radius: 50%;
   animation: al-spin .7s linear infinite;
 }
 
 @keyframes al-spin {
-  to { transform: rotate(360deg); }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
-/* ── BACK LINK ───────────────────────────────────── */
 .al-back {
   text-align: center;
   font-size: .78rem;
@@ -260,4 +259,6 @@
   transition: color var(--transition);
 }
 
-.al-back:hover { color: var(--dark); }
+.al-back:hover {
+  color: var(--dark);
+}

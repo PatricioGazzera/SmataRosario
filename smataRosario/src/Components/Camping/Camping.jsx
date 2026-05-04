@@ -20,7 +20,6 @@ import {
   FaLocationDot
 } from 'react-icons/fa6'
 
-// ── Datos ──
 const campgrounds = [
   {
     id: 'camping-ibarlucea',
@@ -28,14 +27,14 @@ const campgrounds = [
     location: 'Av. de los Incas, Ibarlucea, Santa Fe',
     image: campingImg,
     amenities: [
-        { icon: FaPersonSwimming, label: 'Pileta' },
-        { icon: FaFutbol, label: 'Campo de Deporte' },
-        { icon: FaFire, label: 'Parrilleros' },
-        { icon: FaCampground, label: 'Área para Acampar' },
-        { icon: FaToilet, label: 'Vestuarios' },
-        { icon: FaSquareParking, label: 'Estacionamiento' },
-        { icon: FaUtensils, label: 'Buffet' },
-        { icon: FaShapes, label: 'Juegos al Aire Libre' }
+      { icon: FaPersonSwimming, label: 'Pileta' },
+      { icon: FaFutbol, label: 'Campo de Deporte' },
+      { icon: FaFire, label: 'Parrilleros' },
+      { icon: FaCampground, label: 'Área para Acampar' },
+      { icon: FaToilet, label: 'Vestuarios' },
+      { icon: FaSquareParking, label: 'Estacionamiento' },
+      { icon: FaUtensils, label: 'Buffet' },
+      { icon: FaShapes, label: 'Juegos al Aire Libre' }
     ],
     activities: 'Football tournaments every weekend. Family Days on Sundays, and summer camp for children.',
     hours: 'Martes-Domingo 10hs. a 22hs.',
@@ -47,13 +46,13 @@ const campgrounds = [
     location: 'Jorge Newbery 362, S2128 Arroyo Seco, Santa Fe',
     image: arroyoImg,
     amenities: [
-        { icon: FaPersonSwimming, label: 'Pileta' },
-        { icon: FaFutbol, label: 'Campo de Deporte' },
-        { icon: FaFire, label: 'Parrilleros' },
-        { icon: FaShapes, label: 'Juegos al Aire Libre' },
-        { icon: FaToilet, label: 'Vestuarios' },
-        { icon: FaSquareParking, label: 'Estacionamiento' },
-        { icon: FaUtensils, label: 'Buffet' },
+      { icon: FaPersonSwimming, label: 'Pileta' },
+      { icon: FaFutbol, label: 'Campo de Deporte' },
+      { icon: FaFire, label: 'Parrilleros' },
+      { icon: FaShapes, label: 'Juegos al Aire Libre' },
+      { icon: FaToilet, label: 'Vestuarios' },
+      { icon: FaSquareParking, label: 'Estacionamiento' },
+      { icon: FaUtensils, label: 'Buffet' },
     ],
     activities: "Monthly events and family activities.",
     hours: 'Martes-Domingo 10hs. a 22hs.',
@@ -63,7 +62,7 @@ const campgrounds = [
 
 // ── Card ──
 function CampCard({ camp }) {
-    const navigate = useNavigate();
+  const navigate = useNavigate();
   return (
     <article className="camp-card">
 
@@ -77,7 +76,7 @@ function CampCard({ camp }) {
           <div>
             <h2 className="camp-name">{camp.name}</h2>
             <p className="camp-location">
-              <FaLocationDot className='location-icon'/>
+              <FaLocationDot className='location-icon' />
               {camp.location}
             </p>
           </div>
@@ -131,11 +130,11 @@ function CampCard({ camp }) {
         </div>
 
         <div className="camp-actions">
-            <button className="info-btn" onClick={()=> navigate(`/camping/${camp.id}`)}>
+          <button className="info-btn" onClick={() => navigate(`/camping/${camp.id}`)}>
             Más Detalles
-            </button>
+          </button>
 
-          <a 
+          <a
             href={camp.ubication}
             className="ubication-button"
             target='_blank'

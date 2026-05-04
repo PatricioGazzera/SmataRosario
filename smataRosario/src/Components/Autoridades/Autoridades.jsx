@@ -1,6 +1,5 @@
 import './Autoridades.css';
 
-// ─── Avatares SVG inline ───────────────────────────────────────────
 function Avatar({ size = 'lg', bg = '#d4d4ce' }) {
   const fontSize = size === 'lg' ? 56 : 38;
   return (
@@ -13,7 +12,6 @@ function Avatar({ size = 'lg', bg = '#d4d4ce' }) {
   );
 }
 
-// ─── DATA ─────────────────────────────────────────────────────────
 const sindicatoSecundarios = [
   { role: 'Sec. de Finanzas', name: 'Gisela Paola Corvetti' },
   { role: 'Sec. de Actas', name: 'Hugo M. Barros' },
@@ -29,11 +27,9 @@ const juntaMembers = [
   'Fernando S. Vila',
 ];
 
-// ─── COMPONENTE PRINCIPAL ─────────────────────────────────────────
 export default function Autoridades() {
   return (
     <div className="smata-app">
-      {/* HERO */}
       <section className="menu">
         <div>
           <p className="menu-tag">Institucional</p>
@@ -50,19 +46,12 @@ export default function Autoridades() {
         </p>
       </section>
 
-      {/* CONTENT */}
       <main className="content">
-
-        {/* ── SINDICATO ── */}
         <section className="sindicato-section">
           <div className="sindicato-section-header">
             <h2>Sindicato SMATA Rosario</h2>
           </div>
-
-          {/* Cards principales */}
           <div className="cards-top">
-
-            {/* Secretario General */}
             <div className="card card-main">
               <div className="card-main-inner">
                 <div className="card-img" style={{ overflow: 'hidden', borderRadius: 10 }}>
@@ -81,8 +70,6 @@ export default function Autoridades() {
                 Comisión Ejecutiva
               </span>
             </div>
-
-            {/* Subsecretario */}
             <div className="card card-secondary">
               <div className="card-img-square">
                 <Avatar bg="#d8d8d2" />
@@ -92,8 +79,6 @@ export default function Autoridades() {
                 <h3 className="card-name">Ernesto Rojas</h3>
               </div>
             </div>
-
-            {/* Sec. Organización */}
             <div className="card card-secondary">
               <div className="card-img-square">
                 <Avatar bg="#cacac4" />
@@ -104,8 +89,6 @@ export default function Autoridades() {
               </div>
             </div>
           </div>
-
-          {/* Cards secundarias */}
           <div className="cards-row">
             {sindicatoSecundarios.map((m) => (
               <div className="card-mini" key={m.name}>
@@ -115,16 +98,12 @@ export default function Autoridades() {
             ))}
           </div>
         </section>
-
-        {/* ── MUTUAL ── */}
         <section className="mutual-section">
           <div className="section-header">
             <h2>Mutual de SMATA Rosario</h2>
           </div>
 
           <div className="mutual-grid">
-
-            {/* Presidente Mutual */}
             <div>
               <div className="card-presidente">
                 <div className="img-wrapper">
@@ -136,8 +115,6 @@ export default function Autoridades() {
                 </div>
               </div>
             </div>
-
-            {/* Secretario Mutual */}
             <div className="card-mutual-sec">
               <div className="img-wrapper">
                 <Avatar bg="#c4c4be" />
@@ -147,8 +124,6 @@ export default function Autoridades() {
                 <h3 className="card-name">Sergio Gazzera</h3>
               </div>
             </div>
-
-            {/* Tesorera */}
             <div className="card-mutual-sec">
               <div className="img-wrapper">
                 <Avatar bg="#ccccc6" />
@@ -158,7 +133,6 @@ export default function Autoridades() {
                 <h3 className="card-name">Andrés Gobbi</h3>
               </div>
             </div>
-
             {/* Junta Fiscalizadora 
             <div className="junta-card">
               <div className="junta-renovacion">
@@ -167,7 +141,6 @@ export default function Autoridades() {
               </div>
             </div>
             */}
-
           </div>
         </section>
       </main>

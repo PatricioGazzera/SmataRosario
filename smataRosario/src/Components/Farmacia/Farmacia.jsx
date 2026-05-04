@@ -28,7 +28,7 @@ const PASOS = [
         num: '2',
         icon: <FaShield />,
         titulo: 'Validación Presencial',
-        desc: 'La farmacia validará la recetay te informará el monto a pagar por la misma.',
+        desc: 'La farmacia validará la receta y te informará el monto a pagar por la misma.',
     },
     {
         num: '3',

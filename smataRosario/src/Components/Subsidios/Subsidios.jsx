@@ -1,4 +1,4 @@
-import './subsidios.css';
+import './Subsidios.css';
 import farmaciaImg    from '../../utils/images/farmacia.jpg';
 import mochilasImg    from '../../utils/images/mochilas.png';
 import bebeImg        from '../../utils/images/subsidios/bebe.png';

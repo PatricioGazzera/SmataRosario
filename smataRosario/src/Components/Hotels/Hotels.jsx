@@ -257,7 +257,7 @@ export const HOTELES = [
         id: 'hotel-biondis',
         nombre: 'Hotel Biondis',
         destino: 'Córdoba',
-        tipo: 'propio',
+        tipo: 'externo',
         rating: 4.0, // COMPLETAR
         precio_socio: 37000, // COMPLETAR
         imagen_portada: portadaHB,

@@ -39,17 +39,17 @@ export default function Footer() {
                         >
                             <FaLocationDot /> Gorriti 1046, Rosario, SF
                         </a>
-                        <a href="tel:+543416831506"><FaPhone /> +54 341 683-1506</a>
+                        <a href="tel:+543416186835"><FaPhone /> +54 341 618 6835</a>
                         <a
                             href={
                                 /Android|iPhone|iPad|iPod/i.test(navigator.userAgent)
-                                    ? `mailto:administracion1@smatarosario.com.ar`
-                                    : `https://mail.google.com/mail/?view=cm&fs=1&to=administracion1@smatarosario.com.ar`
+                                    ? `mailto:entrada2@smatarosario.com.ar`
+                                    : `https://mail.google.com/mail/?view=cm&fs=1&to=entrada2@smatarosario.com.ar`
                             }
                             target='_blank'
                             rel='noreferrer'
                         >
-                            <FaEnvelope /> administracion1@smatarosario.com.ar
+                            <FaEnvelope /> entrada2@smatarosario.com.ar
                         </a>
                     </div>
                 </div>
@@ -119,7 +119,7 @@ export default function Footer() {
                         rel='noopener norefferer'>
                         <FaFacebookF />
                     </a>
-                    <a href='https://wa.me/5493416655027?text=Hola%20quiero%20hacer%20una%20consulta'
+                    <a href='https://wa.me/5493416186835?text=Hola%20quiero%20hacer%20una%20consulta'
                         target='_blank'
                         rel='noopener norefferer'>
                         <FaWhatsapp />

@@ -510,14 +510,33 @@ body {
 }
 
 @media (max-width: 560px) {
+  /* El hero pasa a height auto para que el contenido
+     no quede cortado cuando el título es largo */
   .cd-hero {
-    height: 260px;
+    height: auto;
+    min-height: 260px;
     border-radius: 10px;
+    margin: 0.75rem 0.75rem 0;
   }
 
+  /* La imagen pasa a absolute para seguir cubriendo
+     todo el fondo mientras el contenedor crece */
+  .cd-hero-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* El contenido ya no se posiciona con bottom/left absoluto
+     — fluye normalmente con padding para no tapar la imagen */
   .cd-hero-content {
-    left: 1.2rem;
-    bottom: 1.5rem;
+    position: relative;
+    left: unset;
+    bottom: unset;
+    padding: 5rem 1.2rem 1.6rem;
+    max-width: 100%;
   }
 
   .cd-stats {

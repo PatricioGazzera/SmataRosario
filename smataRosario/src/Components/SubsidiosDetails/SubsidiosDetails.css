@@ -251,7 +251,8 @@ body {
   font-weight: 600;
   font-family: var(--font);
   text-decoration: none;
-  transition: background .2s, color .2s;;
+  transition: background .2s, color .2s;
+  ;
 }
 
 .sd-btn-wa:hover {

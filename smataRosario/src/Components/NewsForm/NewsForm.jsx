@@ -32,11 +32,14 @@ export default function NewsForm({ open, onClose, onSuccess, noticia = null }) {
   // Textarea ref para insertar imagen en el cursor
   const contenidoRef = useRef(null);
 
+  // Estado para el modal de caption de imagen
+  const [captionModal, setCaptionModal] = useState(null); // { url, cursorStart, cursorEnd } | null
+  const [captionInput, setCaptionInput] = useState("");
+
 useEffect(() => {
-  if (!open) return; // ← no hacer nada si el modal está cerrado
+  if (!open) return;
 
   if (noticia) {
-    // Fix fecha: parsear manualmente para evitar problema de timezone
     const [year, month, day] = (noticia.fecha || '').split('T')[0].split('-');
     const fechaLocal = year && month && day
       ? `${year}-${month}-${day}`
@@ -60,7 +63,7 @@ useEffect(() => {
   }
   setError(null);
   setSuccess(false);
-}, [noticia, open]); // ← sin emptyForm como dependencia
+}, [noticia, open]);
 
   const handleChange = (e) => {
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
@@ -88,7 +91,6 @@ useEffect(() => {
     const { data } = supabase.storage.from(BUCKET).getPublicUrl(fileName);
     setForm((prev) => ({ ...prev, imagen_url: data.publicUrl }));
     setUploadingCover(false);
-    // Limpiar input para permitir subir el mismo archivo de nuevo
     e.target.value = "";
   };
 
@@ -112,32 +114,50 @@ useEffect(() => {
     }
 
     const { data } = supabase.storage.from(BUCKET).getPublicUrl(fileName);
-    const caption = window.prompt("Subtitulo de la imagen (opcional, Enter para omitir):")
-    const imageTag = caption
-    ? `\n[img caption="${caption}"]${data.publicUrl}[/img]\n`
-    : `\n[img]${data.publicUrl}[/img]\n`;
 
-    // Insertar en la posición del cursor dentro del textarea
+    // Guardar posición del cursor antes de abrir el modal
     const textarea = contenidoRef.current;
-    if (textarea) {
-      const start = textarea.selectionStart;
-      const end = textarea.selectionEnd;
-      const current = form.contenido;
-      const newContenido = current.slice(0, start) + imageTag + current.slice(end);
-      setForm((prev) => ({ ...prev, contenido: newContenido }));
+    const cursorStart = textarea ? textarea.selectionStart : form.contenido.length;
+    const cursorEnd = textarea ? textarea.selectionEnd : form.contenido.length;
 
-      // Mover cursor después de la imagen insertada
-      setTimeout(() => {
-        textarea.selectionStart = start + imageTag.length;
-        textarea.selectionEnd = start + imageTag.length;
-        textarea.focus();
-      }, 0);
-    } else {
-      setForm((prev) => ({ ...prev, contenido: prev.contenido + imageTag }));
-    }
+    // Abrir modal de caption en lugar de window.prompt
+    setCaptionInput("");
+    setCaptionModal({ url: data.publicUrl, cursorStart, cursorEnd });
 
     setUploadingBody(false);
     e.target.value = "";
+  };
+
+  // ── Confirmar inserción desde el modal ───────────
+  const handleCaptionConfirm = () => {
+    if (!captionModal) return;
+
+    const { url, cursorStart, cursorEnd } = captionModal;
+    const imageTag = captionInput.trim()
+      ? `\n[img caption="${captionInput.trim()}"]${url}[/img]\n`
+      : `\n[img]${url}[/img]\n`;
+
+    const current = form.contenido;
+    const newContenido = current.slice(0, cursorStart) + imageTag + current.slice(cursorEnd);
+    setForm((prev) => ({ ...prev, contenido: newContenido }));
+
+    // Mover cursor después de la imagen insertada
+    setTimeout(() => {
+      const textarea = contenidoRef.current;
+      if (textarea) {
+        textarea.selectionStart = cursorStart + imageTag.length;
+        textarea.selectionEnd = cursorStart + imageTag.length;
+        textarea.focus();
+      }
+    }, 0);
+
+    setCaptionModal(null);
+    setCaptionInput("");
+  };
+
+  const handleCaptionCancel = () => {
+    setCaptionModal(null);
+    setCaptionInput("");
   };
 
   const handleSubmit = async (e) => {
@@ -175,6 +195,7 @@ useEffect(() => {
   if (!open) return null;
 
   return (
+    <>
     <div className="nf-backdrop" onClick={(e) => e.target === e.currentTarget && onClose()}>
       <div className="nf-modal">
 
@@ -397,6 +418,74 @@ useEffect(() => {
           </div>
         </form>
       </div>
+
     </div>
+
+      {/* ── MODAL DE CAPTION — fuera del backdrop principal para evitar stacking context ── */}
+      {captionModal && (
+        <div className="nf-caption-backdrop" onClick={(e) => e.target === e.currentTarget && handleCaptionCancel()}>
+          <div className="nf-caption-modal">
+            <div className="nf-caption-header">
+              <div className="nf-caption-header-icon">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <rect x="3" y="3" width="18" height="18" rx="2"/>
+                  <circle cx="8.5" cy="8.5" r="1.5"/>
+                  <polyline points="21 15 16 10 5 21"/>
+                </svg>
+              </div>
+              <h3 className="nf-caption-title">Agregar descripción a la imagen</h3>
+              <button className="nf-close-btn" onClick={handleCaptionCancel} aria-label="Cerrar">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                  <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+                </svg>
+              </button>
+            </div>
+
+            <div className="nf-caption-body">
+              <div className="nf-caption-preview-wrap">
+                <img
+                  src={captionModal.url}
+                  alt="Vista previa"
+                  className="nf-caption-preview-img"
+                />
+                {captionInput.trim() && (
+                  <p className="nf-caption-preview-text">{captionInput}</p>
+                )}
+              </div>
+
+              <div className="nf-caption-input-wrap">
+                <label className="nf-label" htmlFor="caption-input">
+                  Descripción <span className="nf-caption-optional">(opcional)</span>
+                </label>
+                <input
+                  id="caption-input"
+                  className="nf-input"
+                  placeholder="Ej: Trabajadores reunidos en asamblea"
+                  value={captionInput}
+                  onChange={(e) => setCaptionInput(e.target.value)}
+                  onKeyDown={(e) => e.key === "Enter" && handleCaptionConfirm()}
+                  autoFocus
+                />
+                <span className="nf-hint">
+                  La descripción aparece debajo de la imagen en la nota. Podés dejarla vacía.
+                </span>
+              </div>
+            </div>
+
+            <div className="nf-caption-footer">
+              <button type="button" className="nf-cancel-btn" onClick={handleCaptionCancel}>
+                Cancelar
+              </button>
+              <button type="button" className="nf-submit-btn" onClick={handleCaptionConfirm}>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                  <polyline points="20 6 9 17 4 12"/>
+                </svg>
+                Insertar imagen
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+    </>
   );
 }

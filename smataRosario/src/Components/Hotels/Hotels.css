@@ -122,13 +122,13 @@ body {
 .ht-btn-primary:hover {
     background: var(--green-dark);
     transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(34,197,94,0.3);
+    box-shadow: 0 8px 20px rgba(34, 197, 94, 0.3);
 }
 
 .ht-btn-outline {
     background: transparent;
     color: #fff;
-    border: 1.5px solid rgba(255,255,255,0.4);
+    border: 1.5px solid rgba(255, 255, 255, 0.4);
     border-radius: 7px;
     padding: 0.8rem 1.6rem;
     font-size: 0.9rem;

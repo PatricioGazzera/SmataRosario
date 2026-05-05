@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate, Navigate } from 'react-router-dom';
 import './CampingDetail.css';
 import {
   FaPersonSwimming,
@@ -43,8 +43,8 @@ import arroyo3 from "../../utils/images/Arroyo/arroyo6.webp";
 
 // ── Data ──
 const campingsData = {
-  1: {
-    id: 1,
+  'camping-ibarlucea': {
+    id: 'camping-ibarlucea',
     name: 'Camping Ibarlucea SMATA',
     location: 'Ibarlucea, Santa Fe',
     heroImage: campingBg,
@@ -83,8 +83,8 @@ const campingsData = {
     },
     notice: 'Recordá que para el uso de la pileta es necesario realizar la revisión médica en el predio o presentar certificado.',
   },
-  2: {
-    id: 2,
+  'camping-arroyo-seco': {
+    id: 'camping-arroyo-seco',
     name: "Camping SMATA 'Hugo Marcelo Barros'",
     location: 'Arroyo Seco, Santa Fe',
     heroImage: arroyoBg,
@@ -128,7 +128,11 @@ const campingsData = {
 export default function CampingDetail() {
   const { id } = useParams();
   const navigate = useNavigate();
-  const camping = campingsData[id] || campingsData[1];
+  const camping = campingsData[id];
+
+  if (!camping) {
+    return <Navigate to='/not-found' replace />;
+  }
 
   // --- MENSAJE CAMPING ---
   const message = encodeURIComponent(

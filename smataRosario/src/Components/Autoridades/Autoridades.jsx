@@ -85,7 +85,7 @@ export default function Autoridades() {
               </div>
               <div className="card-body">
                 <p className="card-role">Secretario Gremial</p>
-                <h3 className="card-name">Mariano Fernandez</h3>
+                <h3 className="card-name">Mariano Nicanor Fernandez</h3>
               </div>
             </div>
           </div>

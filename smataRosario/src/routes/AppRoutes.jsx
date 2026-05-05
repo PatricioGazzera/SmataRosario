@@ -1,4 +1,4 @@
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import ProtectedRoute from './ProtectedRoutes';
 
 // Pages compontents
@@ -60,7 +60,8 @@ export default function AppRoutes() {
             />
 
             {/* NOT FOUND */}
-            <Route path='*' element={<NotFound />}/>
+            <Route path='/not-found' element={<NotFound />} />
+            <Route path='*' element={<Navigate to='/not-found' replace />} />
         </Routes>
     )
 }

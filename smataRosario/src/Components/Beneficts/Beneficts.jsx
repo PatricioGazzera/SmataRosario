@@ -213,7 +213,11 @@ export default function Beneficts() {
               SMATA para su seguridad laboral y bienestar familiar.
             </p>
             <div className="contact-btns">
-              <button className="contact-btn-white">Contactanos</button>
+              <a
+                href='https://wa.me/5493413130317?text=Hola%20quiero%20hacer%20una%20consulta%20sobre%20los%20beneficios'
+                target='_blank'
+                rel='noopener norefferer'
+                className="contact-btn-white">Contactanos</a>
             </div>
           </div>
         </div>

@@ -1,5 +1,15 @@
 import './Prestadores.css'
-import { FaLocationDot, FaHeadset, FaArrowsRotate, FaArrowUpRightFromSquare, FaPhone, FaWhatsapp, FaCheck, FaEnvelope } from '../../utils/icons/icons';
+import {
+    FaLocationDot,
+    FaHeadset,
+    FaArrowsRotate,
+    FaArrowUpRightFromSquare,
+    FaPhone,
+    FaWhatsapp,
+    FaCheck,
+    FaEnvelope,
+    FaTruckMedical
+} from '../../utils/icons/icons';
 import { useEffect, useState } from 'react';
 
 const informacion = [
@@ -18,6 +28,12 @@ const informacion = [
         title: 'Soporte',
         desc: '¿No encuentra lo que busca? Contáctenos y lo ayudaremos.',
     },
+    {
+        icon: FaTruckMedical,
+        title: 'Emergencia Médica',
+        desc: 'Contamos con servicio de emergencia médica mediante ECCO',
+        link: '/beneficios/ecco'
+    }
 ];
 
 const requisitos = [
@@ -127,15 +143,20 @@ export default function Prestadores() {
             <section className="informacion">
                 <div className="section-header" />
                 <div className="informacion-grid">
-                    {informacion.map(({ icon: Icon, title, info, desc }) => (
-                        <div className="informacion-card" key={title}>
-                            <div className="informacion-icon">
-                                <Icon size={30} />
-                            </div>
-                            <h3>{title}</h3>
-                            <p>{desc}</p>
-                        </div>
-                    ))}
+                    {informacion.map(({ icon: Icon, title, desc, link }) => (
+    <div className="informacion-card" key={title}>
+        <div className="informacion-icon">
+            <Icon size={30} />
+        </div>
+        <h3>{title}</h3>
+        <p>{desc}</p>
+        {link && (
+            <a href={link} className="informacion-card-btn">
+                Ver más
+            </a>
+        )}
+    </div>
+))}
                 </div>
             </section>
 

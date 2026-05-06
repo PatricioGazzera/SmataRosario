@@ -10,7 +10,7 @@ import {
     FaLocationDot,
     FaChevronLeft,
     FaChevronRight,
-    FaWhatsapp
+    FaWhatsapp,
 } from '../../utils/icons/icons';
 import farmaciaImg from '../../utils/images/farmacia.jpg';
 import farmacia1 from '../../utils/images/Farmacia/farmacia1.jpeg';
@@ -196,12 +196,13 @@ export default function Farmacia() {
                             rel='noreferrer'
                             className='fm-emergency-contact'
                             >
-                                <FaWhatsapp /> 341 375-0103
+                                <FaWhatsapp /> Whatsapp
                             </a>
                         </div>
                         <a
                             href='https://maps.app.goo.gl/hYoDCuSGh9d3n3vi7'
-
+                            target='_blank'
+                            rel='noreferrer'
                             className="fm-ubication">
                             <FaLocationDot /> Gorriti 1101
                         </a>

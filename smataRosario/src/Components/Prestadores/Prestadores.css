@@ -183,6 +183,27 @@ body {
   margin-bottom: 1.2rem;
 }
 
+.informacion-card-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: 1rem;
+  padding: 0.5rem 1.2rem;
+  background: var(--green);
+  color: #fff;
+  border-radius: 7px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.informacion-card-btn:hover {
+  background: #fff;
+  color: var(--green);
+  border: 1px solid var(--green);
+}
+
 .informacion-badge {
   position: absolute;
   top: 0.65rem;

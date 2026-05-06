@@ -144,19 +144,19 @@ export default function Prestadores() {
                 <div className="section-header" />
                 <div className="informacion-grid">
                     {informacion.map(({ icon: Icon, title, desc, link }) => (
-    <div className="informacion-card" key={title}>
-        <div className="informacion-icon">
-            <Icon size={30} />
-        </div>
-        <h3>{title}</h3>
-        <p>{desc}</p>
-        {link && (
-            <a href={link} className="informacion-card-btn">
-                Ver más
-            </a>
-        )}
-    </div>
-))}
+                        <div className="informacion-card" key={title}>
+                            <div className="informacion-icon">
+                                <Icon size={30} />
+                            </div>
+                            <h3>{title}</h3>
+                            <p>{desc}</p>
+                            {link && (
+                                <a href={link} className="informacion-card-btn">
+                                    Ver más
+                                </a>
+                            )}
+                        </div>
+                    ))}
                 </div>
             </section>
 

@@ -249,7 +249,7 @@ export default function Contact() {
                     </div>
                     <div className="dir-sede-row">
                         <FaPhone className="dir-sede-icon" />
-                        <span>Contacto: +54 341 6831506</span>
+                        <span>Contacto: +54 341 618 6835</span>
                     </div>
                     <a
                         href='https://maps.app.goo.gl/SGtishKLUsPw2rhe9'

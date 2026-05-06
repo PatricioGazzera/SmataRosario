@@ -165,7 +165,7 @@ export default function SmataRosario() {
             {showFaq && <FaqModal onClose={() => setShowFaq(false)} />}
 
             {/* ── HERO ── */}
-            <section className="hero" id="inicio">
+            <section className="home-hero" id="inicio">
                 <div className="home-bg" />
                 <div className="hero-content">
                     <h1 className="hero-title">

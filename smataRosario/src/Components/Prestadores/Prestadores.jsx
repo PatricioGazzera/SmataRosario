@@ -101,22 +101,21 @@ export default function Prestadores() {
             {/* ── INICIO ── */}
             <section className="hero-prestadores" id="inicio">
                 <div className="prestadores-hero-bg" />
-                <div className="hero-content">
-                    <div className="hero-badge"> Obra Social</div>
-                    <h1 className="hero-title">
+                <div className="prestadores-hero-content">
+                    <h1 className="prestadores-hero-title">
                         Obra Social {' '}
                         <span className="accent">Osmata</span>{' '}
                     </h1>
-                    <p className="hero-sub">
+                    <p className="prestadores-hero-sub">
                         Accedé de forma directa a los Beneficios que ofrece nuestra Obra Social.
                     </p>
-                    <div className="hero-btns">
-                        <a className="btn-primary" href='#centro-medico'>Centro Médico</a>
+                    <div className="prestadores-hero-btns">
+                        <a className="prestadores-btn-primary" href='#centro-medico'>Centro Médico</a>
                         <a
                             href='https://sites.google.com/smatarosario.com.ar/prestadores/smatarosario'
                             target='_blank'
                             rel='noopener norefferer'
-                            className="btn-outline">
+                            className="prestadores-btn-outline">
                             Ver Listado Completo de Prestadores
                             <FaArrowUpRightFromSquare />
                         </a>

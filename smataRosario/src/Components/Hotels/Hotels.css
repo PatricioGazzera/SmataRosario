@@ -45,7 +45,7 @@ body {
     min-height: 100vh;
     display: flex;
     align-items: flex-end;
-    padding-bottom: 80px;
+    padding-bottom: 150px;
     overflow: hidden;
     background: var(--bg-dark);
 }

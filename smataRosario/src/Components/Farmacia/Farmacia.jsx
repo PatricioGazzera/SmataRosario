@@ -49,11 +49,6 @@ const slides = [
         title: 'Medicamentos y más',
         desc: 'Equipada con todos los medicamentos que necesites y mucho más.',
     },
-    /*{
-        img: 'https://images.unsplash.com/photo-1582719508461-905c673771fd?w=1200&q=80',
-        title: 'Turismo Sindical',
-        desc: 'Hoteles exclusivos y destinos de primer nivel con tarifas preferenciales para afiliados.',
-    }, */
 ];
 
 export default function Farmacia() {
@@ -202,12 +197,6 @@ export default function Farmacia() {
                             className='fm-emergency-contact'
                             >
                                 <FaWhatsapp /> 341 375-0103
-                            </a>
-                            <a href="mailto:farmacia@smatarosario.com"
-                            target='_blank'
-                            rel='noreferrer'
-                            className="fm-emergency-contact">
-                                <FaEnvelope /> farmacia@smatarosario.com
                             </a>
                         </div>
                         <a

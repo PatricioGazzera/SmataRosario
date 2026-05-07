@@ -120,9 +120,9 @@ body {
 }
 
 .ht-btn-primary:hover {
-    background: var(--green-dark);
-    transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(34, 197, 94, 0.3);
+    background: #fff;
+    color: var(--green);
+    transition: 0.3s all ease;
 }
 
 .ht-btn-outline {
@@ -139,9 +139,9 @@ body {
 }
 
 .ht-btn-outline:hover {
-    border-color: var(--green);
     color: var(--green);
-    transform: translateY(-2px);
+    background-color: #fff;
+    transition: 0.3s all ease;
 }
 
 /* ── TABS ── */

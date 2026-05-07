@@ -1,16 +1,15 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import './Farmacia.css';
 import {
     FaPills,
     FaPhone,
-    FaEnvelope,
     FaCheck,
-    FaArrowRight,
     FaShield,
     FaLocationDot,
     FaChevronLeft,
     FaChevronRight,
     FaWhatsapp,
+    FaArrowUpRightFromSquare,
 } from '../../utils/icons/icons';
 import farmaciaImg from '../../utils/images/farmacia.jpg';
 import farmacia1 from '../../utils/images/Farmacia/farmacia1.jpeg';
@@ -51,8 +50,23 @@ const slides = [
     },
 ];
 
+// ── LISTADO DE FARMACIAS — reemplazá URLs y textos ──
+const farmacias = [
+    {
+        label: 'Listado Rosario',
+        desc: 'Consulta el listado de las farmacias en Rosario',
+        link: 'https://docs.google.com/spreadsheets/d/1jjdMMnUIKQZ8Cr44uaL5ymt0nmKR6j6ANG2-FOUhEuA/edit?usp=sharing',
+    },
+    {
+        label: 'Listado Interior',
+        desc: 'Consulta el listado de las farmacias en el interior y alrededores de Rosario',
+        link: 'https://docs.google.com/spreadsheets/d/18byq-_fSkirEFLmX9xgYX-gqHlZrNMuYpM_Ib7bG6x4/edit?usp=sharing',
+    },
+];
+
 export default function Farmacia() {
     const [actual, setActual] = useState(0);
+    const [showFarmacias, setShowFarmacias] = useState(false);
 
     const anterior = useCallback(() => {
         setActual((prev) => (prev === 0 ? slides.length - 1 : prev - 1));
@@ -70,15 +84,59 @@ export default function Farmacia() {
 
     // Teclado carrusel — solo cuando el modal está cerrado
     useEffect(() => {
+        if (showFarmacias) return;
         const onKey = (e) => {
             if (e.key === 'ArrowLeft') anterior();
             if (e.key === 'ArrowRight') siguiente();
         };
         window.addEventListener('keydown', onKey);
         return () => window.removeEventListener('keydown', onKey);
-    }, [anterior, siguiente]);
+    }, [anterior, siguiente, showFarmacias]);
+
+    // Cerrar modal con Escape
+    useEffect(() => {
+        if (!showFarmacias) return;
+        const onKey = (e) => {
+            if (e.key === 'Escape') setShowFarmacias(false);
+        };
+        window.addEventListener('keydown', onKey);
+        return () => window.removeEventListener('keydown', onKey);
+    }, [showFarmacias]);
+
     return (
         <div className="fm-root">
+
+            {/* ── MODAL LISTADO DE FARMACIAS ── */}
+            {showFarmacias && (
+                <div className="fm-overlay" onClick={() => setShowFarmacias(false)}>
+                    <div className="fm-modal" onClick={e => e.stopPropagation()}>
+                        <div className="fm-modal-header">
+                            <h3>Listado de Farmacias</h3>
+                            <button className="fm-close" onClick={() => setShowFarmacias(false)}>✕</button>
+                        </div>
+                        <p className="fm-modal-sub">Elegí el listado de farmacias que querés consultar.</p>
+                        <ul className="fm-list">
+                            {farmacias.map((item, i) => (
+                                <li key={i} className="fm-item">
+                                    <div className="fm-item-info">
+                                        <p className="fm-item-name">{item.label}</p>
+                                        <p className="fm-item-desc">{item.desc}</p>
+                                    </div>
+                                    <a
+                                        href={item.link}
+                                        target="_blank"
+                                        rel="noreferrer"
+                                        className="fm-item-btn"
+                                    >
+                                        <FaArrowUpRightFromSquare />
+                                        Ver listado
+                                    </a>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+                </div>
+            )}
 
             {/* ── HERO ── */}
             <section className="fm-hero">
@@ -95,6 +153,15 @@ export default function Farmacia() {
                         ampliada en medicamentos y servicios especializados de salud con
                         beneficios exclusivos en toda la red Rosario.
                     </p>
+                    <div className="fm-hero-btns">
+                        <a href="#receta" className="fm-hero-btn-primary">Pasos para Validar Receta</a>
+                        <button
+                            className="fm-hero-btn-outline"
+                            onClick={() => setShowFarmacias(true)}
+                        >
+                            Ver Listado de Farmacias
+                        </button>
+                    </div>
                 </div>
             </section>
 
@@ -143,38 +210,6 @@ export default function Farmacia() {
                         </div>
                     </div>
 
-                    {/* ── CARD FARMACIAS PROPIAS ── 
-          <div className="fm-card fm-card--main">
-            <div className="fm-card-header">
-              <div className="fm-card-icon-wrap">
-                <FaPills />
-              </div>
-              <h2>Farmacias Propias y Externas</h2>
-            </div>
-            <p className="fm-card-desc">
-              Contamos con una amplia red de atención para garantizar que siempre tengas
-              tus medicamentos al alcance. Nuestro sistema de beneficios se divide en
-              niveles estratégicos de cobertura.
-            </p>
-            <div className="fm-coberturas">
-              <div className="fm-cobertura">
-                <span className="fm-cobertura-pct">40%</span>
-                <span className="fm-cobertura-label">Medicamentos<br/>General</span>
-              </div>
-              <div className="fm-cobertura">
-                <span className="fm-cobertura-pct">70%</span>
-                <span className="fm-cobertura-label">Patologías<br/>Crónicas</span>
-              </div>
-              <div className="fm-cobertura fm-cobertura--accent">
-                <span className="fm-cobertura-pct">100%</span>
-                <span className="fm-cobertura-label">Planes<br/>Especiales</span>
-              </div>
-            </div>
-            {/*<a href="#farmacias" className="fm-btn-primary">
-              <FaPills /> Ver Farmacias Adheridas
-            </a>
-          </div>
-*/}
                     {/* ── CARD EMERGENCIA ── */}
                     <div className="fm-card fm-card--dark">
                         <div className="fm-emergency-icon">
@@ -186,15 +221,15 @@ export default function Farmacia() {
                         </p>
                         <div className="fm-emergency-contacts">
                             <a href="tel:+543413750103"
-                            target='_blank'
-                            rel='noreferrer'
-                            className="fm-emergency-contact">
+                                target='_blank'
+                                rel='noreferrer'
+                                className="fm-emergency-contact">
                                 <FaPhone /> 341 375-0103
                             </a>
                             <a href='https://wa.me/5493413750103?text=Hola%20quiero%20hacer%20una%20consulta'
-                            target='_blank'
-                            rel='noreferrer'
-                            className='fm-emergency-contact'
+                                target='_blank'
+                                rel='noreferrer'
+                                className='fm-emergency-contact'
                             >
                                 <FaWhatsapp /> Whatsapp
                             </a>
@@ -211,56 +246,8 @@ export default function Farmacia() {
                 </div>
             </section>
 
-            {/* ── COSEGUROS ── 
-      <section className="fm-coseguros">
-        <div className="fm-coseguros-grid">
-
-          /* Coseguro Óptico 
-          <div className="fm-coseguro-card">
-            <div className="fm-coseguro-img">
-              <img
-                src="https://images.unsplash.com/photo-1587854692152-cbe660dbde88?w=400&q=80"
-                alt="Coseguro Óptico"
-              />
-            </div>
-            <div className="fm-coseguro-body">
-              <h3>Coseguro Óptico</h3>
-              <p>
-                Cobertura en cristales graduados, marcos seleccionados y lentes de contacto.
-                Renovación anual garantizada para el grupo familiar.
-              </p>
-              <a href="#optico" className="fm-coseguro-link">
-                Ver cartilla de ópticas <FaArrowRight />
-              </a>
-            </div>
-          </div>
-
-            /* Coseguro Odontológico 
-          <div className="fm-coseguro-card">
-            <div className="fm-coseguro-img">
-              <img
-                src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?w=400&q=80"
-                alt="Coseguro Odontológico"
-              />
-            </div>
-            <div className="fm-coseguro-body">
-              <h3>Coseguro Odontológico</h3>
-              <p>
-                Planes de prevención, arreglos generales y prótesis con copagos mínimos.
-                Acceso directo a centros odontológicos propios SMATA.
-              </p>
-              <a href="#odontologico" className="fm-coseguro-link">
-                Centros de atención <FaArrowRight />
-              </a>
-            </div>
-          </div>
-
-        </div>
-      </section>
-            */}
-
             {/* ── CÓMO VALIDAR RECETA ── */}
-            <section className="fm-pasos">
+            <section className="fm-pasos" id='receta'>
                 <div className="fm-pasos-header">
                     <h2 className="fm-pasos-title">Cómo Validar tu Receta</h2>
                     <p className="fm-pasos-sub">

@@ -93,6 +93,54 @@ body { font-family: var(--font); color: var(--text); background: var(--bg); }
   max-width: 480px;
 }
 
+.fm-hero-btns {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+}
+
+.fm-hero-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--green);
+  color: #fff;
+  text-decoration: none;
+  border-radius: 8px;
+  padding: 0.8rem 1.6rem;
+  font-size: 0.9rem;
+  font-weight: 700;
+  transition: all 0.2s ease;
+}
+
+.fm-hero-btn-primary:hover {
+  background: #fff;
+  color: var(--green);
+  transition: 0.3s all ease;
+}
+
+.fm-hero-btn-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: transparent;
+  color: #fff;
+  text-decoration: none;
+  border: 1.5px solid rgba(255, 255, 255, 0.4);
+  border-radius: 8px;
+  padding: 0.8rem 1.6rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.fm-hero-btn-outline:hover {
+  color: var(--green);
+  background-color: #fff;
+  transition: 0.3s all ease;
+}
+
 /* ══════════════════════════════════════
    MAIN — FARMACIAS + EMERGENCIA
 ══════════════════════════════════════ */
@@ -456,6 +504,115 @@ body { font-family: var(--font); color: var(--text); background: var(--bg); }
   font-size: .82rem;
   color: var(--muted);
   line-height: 1.65;
+}
+
+.fm-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.fm-modal {
+  background: white;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 480px;
+  padding: 1.5rem;
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+.fm-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.25rem;
+}
+
+.fm-modal-header h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.fm-close {
+  background: none;
+  border: none;
+  font-size: 1.1rem;
+  cursor: pointer;
+  color: #666;
+  padding: 4px 8px;
+  border-radius: 6px;
+}
+
+.fm-close:hover {
+  background: #f1f1f1;
+}
+
+.fm-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.fm-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.875rem 1rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  gap: 1rem;
+}
+
+.fm-item-name {
+  font-weight: 500;
+  font-size: 0.9rem;
+  margin: 0 0 2px;
+}
+
+.fm-item-desc {
+  font-size: 0.8rem;
+  color: #6b7280;
+  margin: 0;
+}
+
+.fm-item-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  background: #16a34a;
+  color: white;
+  border-radius: 6px;
+  font-size: 0.82rem;
+  font-weight: 500;
+  text-decoration: none;
+  white-space: nowrap;
+  flex-shrink: 0;
+  border: none;
+  cursor: pointer;
+}
+
+.fm-item-btn:hover {
+  background-color: #fff;
+  color: var(--green);
+  border: 1px solid var(--green);
+  transition: 0.3s all ease-out;
+}
+
+.fm-modal-sub {
+  font-size: 0.85rem;
+  color: #6b7280;
+  margin: -0.5rem 0 1.25rem;
+  line-height: 1.5;
 }
 
 @keyframes fadeInUp {

@@ -137,7 +137,7 @@ const areas = [
         nombre: 'Gremiales',
         icon: FaGear,
         atencion: 'Lunes a Jueves, 08:00hs - 17:00hs / Viernes 08:00hs - 16:00hs',
-        telefono: '341 4380095',
+        telefono: '341 6186835',
         whatsapp: '5493416186835',
         whatsappLabel: 'WhatsApp Gremiales',
         email: 'gremiales@smatarosario.com.ar',

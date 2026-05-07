@@ -833,3 +833,35 @@
             padding: 2rem;
         }
     }
+
+    @media (max-width: 768px) {
+  .home-hero {
+    padding-bottom: 80px;
+    min-height: 100svh; /* usa svh en móvil para respetar la barra del navegador */
+  }
+
+  .hero-content {
+    padding: 0 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .home-hero {
+    padding-bottom: 60px;
+    align-items: center; /* centra verticalmente en pantallas muy chicas */
+  }
+
+  .hero-content {
+    padding: 0 1.25rem;
+  }
+
+  .hero-btns {
+    flex-direction: column;
+  }
+
+  .btn-primary,
+  .btn-outline {
+    text-align: center;
+    justify-content: center;
+  }
+}

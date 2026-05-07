@@ -160,8 +160,8 @@ export default function SmataRosario() {
                     </h1>
                     <p className="hero-sub">
                         Redefiniendo el apoyo sindical para el profesional automotriz moderno
-                        en Rosario. Accedé a servicios de salud premium, turismo exclusivo y
-                        protección legal colectiva.
+                        en Rosario. Accedé a servicios de salud, turismo y beneficios exclusivos 
+                        para afiliados de nuestra organización.
                     </p>
                     <div className="hero-btns">
                         <a className="btn-primary" href='#afiliarse'>Afiliarse a SMATA</a>

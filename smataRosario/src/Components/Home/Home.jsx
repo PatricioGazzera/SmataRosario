@@ -74,7 +74,6 @@ function FaqModal({ onClose }) {
 
     const toggle = (i) => setAbierta(prev => prev === i ? null : i);
 
-    // Cerrar con Escape
     useEffect(() => {
         const onKey = (e) => { if (e.key === 'Escape') onClose(); };
         window.addEventListener('keydown', onKey);
@@ -85,7 +84,6 @@ function FaqModal({ onClose }) {
         <div className="faq-backdrop" onClick={onClose}>
             <div className="faq-modal" onClick={e => e.stopPropagation()}>
 
-                {/* Header */}
                 <div className="faq-header">
                     <div>
                         <h2 className="faq-title">Preguntas Frecuentes</h2>
@@ -94,21 +92,12 @@ function FaqModal({ onClose }) {
                     <button className="faq-close" onClick={onClose}><FaX /></button>
                 </div>
 
-                {/* Acordeón */}
                 <div className="faq-list">
                     {FAQS.map((faq, i) => (
-                        <div
-                            key={i}
-                            className={`faq-item ${abierta === i ? 'open' : ''}`}
-                        >
-                            <button
-                                className="faq-question"
-                                onClick={() => toggle(i)}
-                            >
+                        <div key={i} className={`faq-item ${abierta === i ? 'open' : ''}`}>
+                            <button className="faq-question" onClick={() => toggle(i)}>
                                 <span>{faq.pregunta}</span>
-                                <span className="faq-chevron">
-                                    <FaChevronDown />
-                                </span>
+                                <span className="faq-chevron"><FaChevronDown /></span>
                             </button>
                             <div className="faq-answer-wrap">
                                 <p className="faq-answer">{faq.respuesta}</p>
@@ -117,7 +106,6 @@ function FaqModal({ onClose }) {
                     ))}
                 </div>
 
-                {/* Footer */}
                 <div className="faq-footer">
                     <p>¿No encontrás lo que buscás?</p>
                     <a
@@ -153,7 +141,6 @@ export default function SmataRosario() {
         fetchNoticias();
     }, []);
 
-    // Bloquear scroll cuando el modal está abierto
     useEffect(() => {
         document.body.style.overflow = showFaq ? 'hidden' : '';
         return () => { document.body.style.overflow = ''; };
@@ -161,7 +148,6 @@ export default function SmataRosario() {
 
     return (
         <>
-            {/* ── MODAL FAQ ── */}
             {showFaq && <FaqModal onClose={() => setShowFaq(false)} />}
 
             {/* ── HERO ── */}
@@ -199,19 +185,18 @@ export default function SmataRosario() {
 
                 <div className="services-grid">
                     {services.map(({ icon: Icon, title, desc, link, path }) => (
-                        <div className="service-card" key={title}>
+                        <div
+                            className="service-card"
+                            key={title}
+                            onClick={() => navigate(path)}
+                            style={{ cursor: 'pointer' }}
+                        >
                             <div className="service-icon">
                                 <Icon size={30} />
                             </div>
                             <h3>{title}</h3>
                             <p>{desc}</p>
-                            <a
-                                href="#"
-                                className="service-link"
-                                onClick={(e) => {
-                                    e.preventDefault();
-                                    navigate(path);
-                                }}>{link} →</a>
+                            <span className="service-link">{link} →</span>
                         </div>
                     ))}
                 </div>
@@ -289,7 +274,6 @@ export default function SmataRosario() {
                             >
                                 <FaWhatsapp className='whatsapp-btn' /> Solicitar Afiliación
                             </a>
-                            {/* ── BOTÓN QUE ABRE EL MODAL ── */}
                             <button
                                 className="btn-white-outline"
                                 onClick={() => setShowFaq(true)}

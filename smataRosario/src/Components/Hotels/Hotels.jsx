@@ -565,7 +565,7 @@ export default function Hotels() {
             {/* TABS */}
             <div className="ht-tabs">
                 <div className="ht-tabs-inner">
-                    <button className={`ht-tab ${tab === 'propios' ? 'active' : ''}`} onClick={() => goTab('propios')}>Hoteles Propios <span className="ht-tab-count">{HOTELES.length}</span></button>
+                    <button className={`ht-tab ${tab === 'propios' ? 'active' : ''}`} onClick={() => goTab('propios')}>Hoteles <span className="ht-tab-count">{HOTELES.length}</span></button>
                     <button className={`ht-tab ${tab === 'convenios' ? 'active' : ''}`} onClick={() => goTab('convenios')}>Convenios <span className="ht-tab-count">{CONVENIOS.length}</span></button>
                 </div>
             </div>

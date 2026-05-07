@@ -36,7 +36,7 @@ const campgrounds = [
       { icon: FaUtensils, label: 'Buffet' },
       { icon: FaShapes, label: 'Juegos al Aire Libre' }
     ],
-    activities: 'Football tournaments every weekend. Family Days on Sundays, and summer camp for children.',
+    activities: 'Diversas actividades en temporada alta.',
     hours: 'Martes-Domingo 10hs. a 22hs.',
     ubication: 'https://maps.app.goo.gl/dMNAtUmSpkDEL29u6',
   },
@@ -54,7 +54,7 @@ const campgrounds = [
       { icon: FaSquareParking, label: 'Estacionamiento' },
       { icon: FaUtensils, label: 'Buffet' },
     ],
-    activities: "Monthly events and family activities.",
+    activities: "Diversas actividades en temporada alta.",
     hours: 'Martes-Domingo 10hs. a 22hs.',
     ubication: 'https://maps.app.goo.gl/UUHanhKEK66jX3iU7',
   },

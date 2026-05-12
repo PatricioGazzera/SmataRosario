@@ -3,7 +3,8 @@ import { useParams, useNavigate } from "react-router-dom";
 import { supabase } from "../../utils/supabase";
 import "./NewsDetails.css";
 import { useAuth } from "../../context/AuthContext.jsx";
-import { FaWhatsapp,
+import {
+  FaWhatsapp,
   FaShareNodes,
   FaCheck,
   FaCalendar,
@@ -103,39 +104,39 @@ export default function NewsDetail() {
     });
   };
 
-const renderContent = (text) => {
-  if (!text) return null;
+  const renderContent = (text) => {
+    if (!text) return null;
 
-  // Regex actualizado para capturar caption opcional
-  const parts = text.split(/(\[img(?:[^\]]*)?\].*?\[\/img\])/gs);
+    // Regex actualizado para capturar caption opcional
+    const parts = text.split(/(\[img(?:[^\]]*)?\].*?\[\/img\])/gs);
 
-  return parts.map((part, i) => {
-    // Intenta matchear con caption
-    const imgMatch = part.match(/^\[img(?:\s+caption="([^"]*)")?\](.*?)\[\/img\]$/s);
-    if (imgMatch) {
-      const caption = imgMatch[1]; // puede ser undefined
-      const src = imgMatch[2].trim();
-      return (
-        <div key={i} className="nd-body-img-wrap">
-          <img
-            src={src}
-            alt={caption || 'Imagen de la noticia'}
-            className="nd-body-img"
-            onClick={() => setLightboxImg(src)}
-          />
-          {caption && (
-            <p className="nd-body-img-caption">{caption}</p>
-          )}
-        </div>
-      );
-    }
+    return parts.map((part, i) => {
+      // Intenta matchear con caption
+      const imgMatch = part.match(/^\[img(?:\s+caption="([^"]*)")?\](.*?)\[\/img\]$/s);
+      if (imgMatch) {
+        const caption = imgMatch[1]; // puede ser undefined
+        const src = imgMatch[2].trim();
+        return (
+          <div key={i} className="nd-body-img-wrap">
+            <img
+              src={src}
+              alt={caption || 'Imagen de la noticia'}
+              className="nd-body-img"
+              onClick={() => setLightboxImg(src)}
+            />
+            {caption && (
+              <p className="nd-body-img-caption">{caption}</p>
+            )}
+          </div>
+        );
+      }
 
-    const paragraphs = part.split(/\n\n+/).filter((p) => p.trim());
-    return paragraphs.map((p, j) => (
-      <p key={`${i}-${j}`} className="nd-paragraph">{p.trim()}</p>
-    ));
-  });
-};
+      const paragraphs = part.split(/\n\n+/).filter((p) => p.trim());
+      return paragraphs.map((p, j) => (
+        <p key={`${i}-${j}`} className="nd-paragraph">{p.trim()}</p>
+      ));
+    });
+  };
 
   /* ── ESTADOS ── */
   if (loading) return (
@@ -224,11 +225,18 @@ const renderContent = (text) => {
           <span className="nd-share-label">Compartir</span>
           <button className="nd-share-btn" onClick={handleShare} title={copied ? "¡Copiado!" : "Copiar enlace"}>
             {copied
-              ? <FaCheck className="icons"/>
-              : <FaShareNodes className="icons"/>
+              ? <FaCheck className="icons" />
+              : <FaShareNodes className="icons" />
             }
           </button>
-          <button className="nd-share-btn" title="WhatsApp">
+          <button
+            className="nd-share-btn"
+            title="WhatsApp"
+            onClick={() => window.open(
+              `https://wa.me/?text=${encodeURIComponent(article.titulo + ' ' + window.location.href)}`,
+              '_blank'
+            )}
+          >
             <FaWhatsapp className="icons" />
           </button>
         </aside>

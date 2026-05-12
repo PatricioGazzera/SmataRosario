@@ -30,7 +30,7 @@
 .cm-hero-overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(to top, rgba(10,20,10,0.6) 0%, transparent 60%);
+    background: linear-gradient(to top, rgba(10, 20, 10, 0.6) 0%, transparent 60%);
 }
 
 .cm-hero-content {
@@ -67,7 +67,7 @@
 
 .cm-hero-sub {
     font-size: 0.95rem;
-    color: rgba(255,255,255,0.72);
+    color: rgba(255, 255, 255, 0.72);
     line-height: 1.6;
     max-width: 420px;
 }
@@ -82,7 +82,7 @@
     gap: 1.1rem;
     top: 0;
     z-index: 10;
-    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
 }
 
 .cm-search-wrap {
@@ -114,7 +114,7 @@
 
 .cm-search:focus {
     border-color: #22c55e;
-    box-shadow: 0 0 0 3px rgba(34,197,94,0.12);
+    box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.12);
     background: #fff;
 }
 
@@ -151,6 +151,7 @@
 
 /* ── GRID ── */
 .cm-grid-section {
+    flex: 1;
     padding: 2.5rem 2.5rem 4rem;
     background: #f7f8f7;
     min-height: 400px;
@@ -178,7 +179,7 @@
 
 .cm-card:hover {
     transform: translateY(-4px);
-    box-shadow: 0 12px 32px rgba(0,0,0,0.10);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.10);
     border-color: #22c55e;
 }
 
@@ -229,7 +230,7 @@
     position: absolute;
     top: 0.65rem;
     right: 0.65rem;
-    background: rgba(0,0,0,0.65);
+    background: rgba(0, 0, 0, 0.65);
     color: #fff;
     font-size: 0.62rem;
     font-weight: 700;
@@ -315,7 +316,9 @@
 }
 
 /* ── SKELETON ── */
-.cm-card--skeleton { pointer-events: none; }
+.cm-card--skeleton {
+    pointer-events: none;
+}
 
 .cm-card-img-skeleton {
     aspect-ratio: 4/3;
@@ -333,12 +336,24 @@
     margin-bottom: 0.5rem;
 }
 
-.cm-skeleton-line--short { width: 45%; }
-.cm-skeleton-line--price { width: 55%; height: 20px; margin-top: 0.5rem; }
+.cm-skeleton-line--short {
+    width: 45%;
+}
+
+.cm-skeleton-line--price {
+    width: 55%;
+    height: 20px;
+    margin-top: 0.5rem;
+}
 
 @keyframes cm-shimmer {
-    0% { background-position: 200% 0; }
-    100% { background-position: -200% 0; }
+    0% {
+        background-position: 200% 0;
+    }
+
+    100% {
+        background-position: -200% 0;
+    }
 }
 
 /* ── EMPTY ── */
@@ -348,9 +363,31 @@
     color: #6b8f6b;
 }
 
-.cm-empty-icon { font-size: 3rem; display: block; margin-bottom: 1rem; }
-.cm-empty h3 { font-family: 'Barlow Condensed', sans-serif; font-size: 1.5rem; font-weight: 700; color: #1a2e1a; margin-bottom: 0.4rem; }
-.cm-empty p { font-size: 0.88rem; }
+.cm-empty-icon {
+    font-size: 3rem;
+    display: block;
+    margin-bottom: 1rem;
+}
+
+.cm-empty h3 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #1a2e1a;
+    margin-bottom: 0.4rem;
+}
+
+.cm-empty p {
+    font-size: 0.88rem;
+}
+
+.cm-grid-section .cm-empty {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
 
 /* ── CTA ── */
 .cm-cta {
@@ -379,7 +416,7 @@
 
 .cm-cta-desc {
     font-size: 0.88rem;
-    color: rgba(255,255,255,0.6);
+    color: rgba(255, 255, 255, 0.6);
     line-height: 1.6;
     max-width: 460px;
 }
@@ -511,7 +548,7 @@
 
 .cm-admin-panel-divider {
     height: 1px;
-    background: rgba(255,255,255,0.08);
+    background: rgba(255, 255, 255, 0.08);
     margin: 0.25rem 0;
 }
 
@@ -520,7 +557,7 @@
     font-weight: 600;
     letter-spacing: 1.5px;
     text-transform: uppercase;
-    color: rgba(255,255,255,0.35);
+    color: rgba(255, 255, 255, 0.35);
 }
 
 .cm-admin-panel-list {
@@ -541,17 +578,17 @@
     gap: 0.5rem;
     padding: 0.5rem 0.6rem;
     border-radius: 7px;
-    background: rgba(255,255,255,0.04);
+    background: rgba(255, 255, 255, 0.04);
     transition: background 0.15s;
 }
 
 .cm-admin-panel-item:hover {
-    background: rgba(255,255,255,0.08);
+    background: rgba(255, 255, 255, 0.08);
 }
 
 .cm-admin-panel-item-title {
     font-size: 0.75rem;
-    color: rgba(255,255,255,0.75);
+    color: rgba(255, 255, 255, 0.75);
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -579,7 +616,7 @@
 }
 
 .cm-admin-panel-edit {
-    background: rgba(34,197,94,0.15);
+    background: rgba(34, 197, 94, 0.15);
     color: #22c55e;
 }
 
@@ -589,7 +626,7 @@
 }
 
 .cm-admin-panel-delete {
-    background: rgba(220,38,38,0.15);
+    background: rgba(220, 38, 38, 0.15);
     color: #f87171;
 }
 
@@ -605,7 +642,7 @@
 
 .cm-admin-panel-empty {
     font-size: 0.75rem;
-    color: rgba(255,255,255,0.3);
+    color: rgba(255, 255, 255, 0.3);
     text-align: center;
     padding: 1rem 0;
 }
@@ -614,7 +651,7 @@
 .cm-confirm-backdrop {
     position: fixed;
     inset: 0;
-    background: rgba(0,0,0,0.6);
+    background: rgba(0, 0, 0, 0.6);
     backdrop-filter: blur(3px);
     z-index: 99999;
     display: flex;
@@ -630,7 +667,7 @@
     width: 100%;
     max-width: 380px;
     text-align: center;
-    box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
 }
 
 .cm-confirm-icon {

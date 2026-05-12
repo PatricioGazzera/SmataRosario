@@ -1,7 +1,7 @@
 import './Footer.css'
 import { FaFacebookF, FaTwitter, FaInstagram, FaWhatsapp, FaLocationDot, FaPhone, FaEnvelope } from '../../utils/icons/icons';
 import { Link } from "react-router-dom";
-import logo from '../../utils/images/logo.png';
+import logo from '../../utils/images/logo.webp';
 import { useAuth } from '../../context/AuthContext';
 import { useNavigate } from 'react-router-dom';
 import { supabase } from '../../utils/supabase';

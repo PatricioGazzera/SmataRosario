@@ -9,7 +9,7 @@ import {
     FaChevronDown,
     FaX
 } from '../../utils/icons/icons';
-import asociateImg from '../../utils/images/asociate.jpg';
+import asociateImg from '../../utils/images/asociate.webp';
 import { Link, useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { supabase } from '../../utils/supabase';

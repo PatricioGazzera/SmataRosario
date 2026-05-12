@@ -34,7 +34,7 @@
   align-items: flex-end;
   padding-bottom: 120px;
   overflow: hidden;
-  background: url('../../utils/images/contacto.png') center/cover no-repeat;
+  background: url('../../utils/images/contacto.webp') center/cover no-repeat;
 }
 
 .dir-hero-overlay {

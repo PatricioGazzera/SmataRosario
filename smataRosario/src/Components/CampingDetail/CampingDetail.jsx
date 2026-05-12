@@ -25,7 +25,7 @@ import {
 } from 'react-icons/fa6'
 
 // Camping Ibarlucea
-import campingPool from "../../utils/images/Camping/camping.png";
+import campingPool from "../../utils/images/Camping/camping.webp";
 import campingImg1 from "../../utils/images/Camping/camping.webp";
 import campingImg2 from "../../utils/images/Camping/camping1.webp";
 import campingImg3 from "../../utils/images/Camping/camping2.webp";

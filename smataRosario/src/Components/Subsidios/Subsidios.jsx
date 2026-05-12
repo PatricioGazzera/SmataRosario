@@ -1,13 +1,13 @@
 import './Subsidios.css';
-import farmaciaImg    from '../../utils/images/farmacia.jpg';
-import mochilasImg    from '../../utils/images/mochilas.png';
-import bebeImg        from '../../utils/images/subsidios/bebe.png';
-import bodaImg        from '../../utils/images/subsidios/boda.png';
-import dentistaImg    from '../../utils/images/subsidios/dentista.png';
-import girasolImg     from '../../utils/images/subsidios/girasol.png';
-import lentesImg      from '../../utils/images/subsidios/lentes.png';
-import medicamentoImg from '../../utils/images/subsidios/medicamento.png';
-import familiaImg     from '../../utils/images/subsidios/familia.png';
+import farmaciaImg    from '../../utils/images/farmacia.webp';
+import mochilasImg    from '../../utils/images/mochilas.webp';
+import bebeImg        from '../../utils/images/subsidios/bebe.webp';
+import bodaImg        from '../../utils/images/subsidios/boda.webp';
+import dentistaImg    from '../../utils/images/subsidios/dentista.webp';
+import girasolImg     from '../../utils/images/subsidios/girasol.webp';
+import lentesImg      from '../../utils/images/subsidios/lentes.webp';
+import medicamentoImg from '../../utils/images/subsidios/medicamento.webp';
+import familiaImg     from '../../utils/images/subsidios/familia.webp';
 import { useNavigate } from 'react-router-dom';
 
 const subsidios = [

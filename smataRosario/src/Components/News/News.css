@@ -62,7 +62,7 @@ body {
       rgba(0, 0, 0, .88) 0%,
       rgba(0, 0, 0, .45) 50%,
       rgba(0, 0, 0, .15) 100%),
-    url("../../utils/images/noticias.png") center/cover no-repeat;
+    url("../../utils/images/noticias.webp") center/cover no-repeat;
 }
 
 .np-hero-content {

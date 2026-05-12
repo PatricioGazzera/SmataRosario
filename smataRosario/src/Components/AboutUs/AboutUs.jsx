@@ -1,9 +1,9 @@
 import './AboutUs.css';
 import { FaFlag, FaEye, FaUsers, FaLocationDot, FaShield, FaArrowRight } from '../../utils/icons/icons';
 import { useState, useEffect, useCallback } from 'react';
-import apretonImg from "../../utils/images/apreton.png";
-import heroImg from '../../utils/images/AboutUs.png';
-import sindicatoImg from "../../utils/images/sindicato.png";
+import apretonImg from "../../utils/images/apreton.webp";
+import heroImg from '../../utils/images/AboutUs.webp';
+import sindicatoImg from "../../utils/images/sindicato.webp";
 
 
 

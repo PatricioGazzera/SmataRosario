@@ -11,9 +11,9 @@ import {
     FaWhatsapp,
     FaArrowUpRightFromSquare,
 } from '../../utils/icons/icons';
-import farmaciaImg from '../../utils/images/farmacia.jpg';
+import farmaciaImg from '../../utils/images/farmacia.webp';
 import farmacia1 from '../../utils/images/Farmacia/farmacia1.jpeg';
-import farmacia2 from '../../utils/images/Farmacia/farmacia2.jpg';
+import farmacia2 from '../../utils/images/Farmacia/farmacia2.webp';
 
 // ── PASOS PARA VALIDAR RECETA ──
 const PASOS = [

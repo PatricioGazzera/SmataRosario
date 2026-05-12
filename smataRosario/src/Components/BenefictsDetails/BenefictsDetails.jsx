@@ -1,17 +1,17 @@
 import { useParams, useNavigate } from 'react-router-dom';
 import './BenefictsDetails.css';
 import { FaWhatsapp, FaPhone, FaLocationDot, FaInfo, FaCheck, FaEnvelope } from "../../utils/icons/icons";
-import gimnasioImg from '../../utils/images/gimnasio.jpg';
-import juezImg from '../../utils/images/juez.png';
-import cursoImg from '../../utils/images/cursito.jpg';
-import transporteImg from '../../utils/images/transporteBoda.png';
-import vajillaImg from '../../utils/images/vajilla.png';
-import donAlejoImg from '../../utils/images/donAlejo.jpg';
-import sierrasImg from '../../utils/images/Las Sierras/portada1.jpg';
-import organizadorImg from '../../utils/images/organizador.png';
-import spaImage from '../../utils/images/spa.jpg';
-import indumentariaImg from '../../utils/images/indumentaria.png'
-import eccoImg from '../../utils/images/ecco.jpg'
+import gimnasioImg from '../../utils/images/gimnasio.webp';
+import juezImg from '../../utils/images/juez.webp';
+import cursoImg from '../../utils/images/cursito.webp';
+import transporteImg from '../../utils/images/transporteBoda.webp';
+import vajillaImg from '../../utils/images/vajilla.webp';
+import donAlejoImg from '../../utils/images/donAlejo.webp';
+import sierrasImg from '../../utils/images/Las Sierras/portada1.webp';
+import organizadorImg from '../../utils/images/organizador.webp';
+import spaImage from '../../utils/images/spa.webp';
+import indumentariaImg from '../../utils/images/indumentaria.webp'
+import eccoImg from '../../utils/images/ecco.webp'
 
 const BENEFICIOS = [
   {

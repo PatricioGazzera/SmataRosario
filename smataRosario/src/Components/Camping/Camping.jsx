@@ -1,5 +1,5 @@
 import './Camping.css'
-import campingImg from '../../utils/images/Camping/camping.png'
+import campingImg from '../../utils/images/Camping/camping.webp'
 import arroyoImg from '../../utils/images/Arroyo/arroyo5.webp'
 import { useNavigate } from 'react-router-dom'
 import {

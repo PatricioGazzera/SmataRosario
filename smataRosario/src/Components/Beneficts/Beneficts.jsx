@@ -1,20 +1,20 @@
 import './Beneficts.css';
-import prestadoresImg from '../../utils/images/prestadores.png'
-import farmaciaImg from '../../utils/images/farmacia.jpg';
-import mochilasImg from '../../utils/images/mochilas.png';
-import turismoImg from '../../utils/images/turismo.jpg';
-import campingImg from '../../utils/images/Camping/camping.png';
-import cursoImg from '../../utils/images/cursito.jpg';
-import gimnasioImg from '../../utils/images/gimnasio.jpg';
-import juezImg from '../../utils/images/juez.png';
-import transporteImg from '../../utils/images/transporteBoda.png';
-import vajillaImg from '../../utils/images/vajilla.png';
-import donAlejoImg from '../../utils/images/donAlejo.jpg';
-import sierrasImg from '../../utils/images/Las Sierras/portada1.jpg';
-import organizadorImg from '../../utils/images/organizador.png';
-import spaImage from '../../utils/images/spa.jpg';
-import indumentariaImg from '../../utils/images/indumentaria.png'
-import eccoImg from '../../utils/images/ecco.jpg'
+import prestadoresImg from '../../utils/images/prestadores.webp'
+import farmaciaImg from '../../utils/images/farmacia.webp';
+import mochilasImg from '../../utils/images/mochilas.webp';
+import turismoImg from '../../utils/images/turismo.webp';
+import campingImg from '../../utils/images/Camping/camping.webp';
+import cursoImg from '../../utils/images/cursito.webp';
+import gimnasioImg from '../../utils/images/gimnasio.webp';
+import juezImg from '../../utils/images/juez.webp';
+import transporteImg from '../../utils/images/transporteBoda.webp';
+import vajillaImg from '../../utils/images/vajilla.webp';
+import donAlejoImg from '../../utils/images/donAlejo.webp';
+import sierrasImg from '../../utils/images/Las Sierras/portada1.webp';
+import organizadorImg from '../../utils/images/organizador.webp';
+import spaImage from '../../utils/images/spa.webp';
+import indumentariaImg from '../../utils/images/indumentaria.webp'
+import eccoImg from '../../utils/images/ecco.webp'
 import { useNavigate } from 'react-router-dom';
 import { FaStar } from '../../utils/icons/icons.js'
 

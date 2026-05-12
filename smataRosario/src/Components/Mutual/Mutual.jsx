@@ -14,8 +14,8 @@ import {
   FaChevronLeft,
   FaChevronRight
 } from '../../utils/icons/icons';
-import mutualJpg from "../../utils/images/mutual3.jpeg";
-import centroImg from "../../utils/images/centro.jpeg"
+import mutualJpg from "../../utils/images/mutual3.webp";
+import centroImg from "../../utils/images/centro.webp"
 
 const subject = encodeURIComponent("Consulta sobre Afiliación.");
 const body = encodeURIComponent(
@@ -177,7 +177,6 @@ export default function Mutual() {
         <section className="hero" id="inicio">
           <div className="hero-bg" />
           <div className="hero-content">
-            <div className="hero-badge">Mutual de Smata Rosario</div>
             <h1 className="hero-title">
               Comprometidos con el <span className="accent">bienestar</span>{' '}
               de la familia mecánica
@@ -194,21 +193,38 @@ export default function Mutual() {
         </section>
 
         {/* ── BENEFICIOS ── */}
-        <section className="benefits" id="beneficios">
-          <div className="benefits-cta">
-            <div className="benefits-cta-text">
-              <h2 className="benefits-cta-title">Nuestros Servicios y Beneficios</h2>
-              <p className="benefits-cta-desc">
-                Como afiliado a la Mutual de SMATA Rosario accedés a una amplia red de
-                beneficios exclusivos: cobertura médica, turismo sindical, farmacias,
-                capacitación y mucho más. Todo diseñado para vos y tu familia.
-              </p>
-            </div>
-            <a href="/beneficios" className="benefits-cta-btn">
-              Ver todos los beneficios →
-            </a>
-          </div>
-        </section>
+        {/* ── BENEFICIOS ── */}
+<section className="benefits" id="beneficios">
+  <div className="benefits-ctas">
+    <div className="benefits-cta">
+      <div className="benefits-cta-text">
+        <h2 className="benefits-cta-title">Nuestros Servicios y Beneficios</h2>
+        <p className="benefits-cta-desc">
+          Como afiliado a la Mutual de SMATA Rosario accedés a una amplia red de
+          beneficios exclusivos: cobertura médica, turismo sindical, farmacias,
+          capacitación y mucho más. Todo diseñado para vos y tu familia.
+        </p>
+      </div>
+      <a href="/beneficios" className="benefits-cta-btn">
+        Ver todos los beneficios →
+      </a>
+    </div>
+
+    <div className="benefits-cta">
+      <div className="benefits-cta-text">
+        <h2 className="benefits-cta-title">Catálogo Mutual</h2>
+        <p className="benefits-cta-desc">
+          Accedé a nuestro catálogo de productos exclusivos para afiliados con
+          financiación y precios preferenciales. Televisores, electrodomésticos,
+          colchones y mucho más.
+        </p>
+      </div>
+      <a href="/catalogo-mutual" className="benefits-cta-btn">
+        Ver catálogo →
+      </a>
+    </div>
+  </div>
+</section>
 
         {/* ── CARRUSEL ── */}
         <div className="carrusel-wrapper">

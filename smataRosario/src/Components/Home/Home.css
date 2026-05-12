@@ -50,7 +50,7 @@ body {
             rgba(10, 20, 10, 0.92) 0%,
             rgba(10, 20, 10, 0.7) 45%,
             rgba(10, 20, 10, 0.3) 100%),
-        url('../../utils/images/home.jpeg') center/cover no-repeat;
+        url('../../utils/images/home.webp') center/cover no-repeat;
 }
 
 .hero-content {

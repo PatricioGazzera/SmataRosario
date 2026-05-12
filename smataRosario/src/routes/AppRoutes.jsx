@@ -24,6 +24,8 @@ import Hotels from '../Components/Hotels/Hotels';
 import HotelDetails from '../Components/HotelDetails/HotelDetails';
 import Farmacia from '../Components/Farmacia/Farmacia';
 import AboutUs from '../Components/AboutUs/AboutUs';
+import CatalogoMutual from '../Components/CatalogoMutual/CatalogoMutual';
+import CatalogoMutualDetails from '../Components/CatalogoMutualDetails/CatalogoMutualDetails';
 
 export default function AppRoutes() {
     return (
@@ -48,6 +50,8 @@ export default function AppRoutes() {
             <Route path='/turismo' element={<Hotels/>}/>
             <Route path='/turismo/:id' element={<HotelDetails/>}/>
             <Route path='/sobre-smata' element={<AboutUs />}/>
+            <Route path='/catalogo-mutual' element={<CatalogoMutual />}/>
+            <Route path='/catalogo-mutual/:id' element={<CatalogoMutualDetails />}/>
 
             {/* LOGIN ADMIN */}
             <Route path='/admin/login' element={<AdminLogin />}/>

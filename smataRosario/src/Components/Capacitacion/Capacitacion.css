@@ -45,7 +45,7 @@ body {
   inset: 0;
   background:
     linear-gradient(105deg, rgba(10, 20, 10, 0.92) 0%, rgba(10, 20, 10, 0.65) 45%, rgba(10, 20, 10, 0.25) 100%),
-    url('../../utils/images/capacitacion.png') center/cover no-repeat;
+    url('../../utils/images/capacitacion.webp') center/cover no-repeat;
 }
 
 .cap-hero-content {

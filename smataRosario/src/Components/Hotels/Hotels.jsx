@@ -9,59 +9,59 @@ import {
 import './Hotels.css';
 
 // 17 de Noviembre
-import portadaImg17 from "../../utils/images/17 de noviembre/portada.jpg"
-import habitacionImg1 from "../../utils/images/17 de noviembre/habitacion1.jpeg"
-import habitacionImg2 from "../../utils/images/17 de noviembre/habitacion2.jpeg"
-import vistaImg17 from "../../utils/images/17 de noviembre/vista.jpg"
-import desayunoImg17 from "../../utils/images/17 de noviembre/desayuno.jpg"
+import portadaImg17 from "../../utils/images/17 de noviembre/portada.webp"
+import habitacionImg1 from "../../utils/images/17 de noviembre/habitacion1.webp"
+import habitacionImg2 from "../../utils/images/17 de noviembre/habitacion2.webp"
+import vistaImg17 from "../../utils/images/17 de noviembre/vista.webp"
+import desayunoImg17 from "../../utils/images/17 de noviembre/desayuno.webp"
 
 // Sierras Hotel
-import portadaImgSH from "../../utils/images/Las Sierras/portada1.jpg"
-import habitacionImgSH from "../../utils/images/Las Sierras/habitacion1.jpg"
-import comedorImgSH from "../../utils/images/Las Sierras/comedor1.jpg"
-import livingImgSH from "../../utils/images/Las Sierras/living1.jpg"
-import piletaImgSH from "../../utils/images/Las Sierras/pileta1.jpg"
+import portadaImgSH from "../../utils/images/Las Sierras/portada1.webp"
+import habitacionImgSH from "../../utils/images/Las Sierras/habitacion1.webp"
+import comedorImgSH from "../../utils/images/Las Sierras/comedor1.webp"
+import livingImgSH from "../../utils/images/Las Sierras/living1.webp"
+import piletaImgSH from "../../utils/images/Las Sierras/pileta1.webp"
 
 // 17 de Octubre
-import portada17 from "../../utils/images/17 de octubre/portada17.jpg"
+import portada17 from "../../utils/images/17 de octubre/portada17.webp"
 import hotel17 from "../../utils/images/17 de octubre/hotel17.jpg"
-import habitacion17 from "../../utils/images/17 de octubre/habitacion17.jpg"
-import baño17 from "../../utils/images/17 de octubre/baño17.jpg"
+import habitacion17 from "../../utils/images/17 de octubre/habitacion17.webp"
+import baño17 from "../../utils/images/17 de octubre/baño17.webp"
 import pileta17 from "../../utils/images/17 de octubre/pileta2-17.jpg"
 
 //Avenida del Mar
-import portadaAV from "../../utils/images/Avenida del mar/portadaAV.jpeg"
-import habitacionAV from "../../utils/images/Avenida del mar/habitacionAV.jpg"
-import comedorAV from "../../utils/images/Avenida del mar/comedorAV.jpg"
-import desayunoAV from "../../utils/images/Avenida del mar/desayunoAV.jpg"
-import vistaAV from "../../utils/images/Avenida del mar/vistaAV.jpg"
+import portadaAV from "../../utils/images/Avenida del mar/portadaAV.webp"
+import habitacionAV from "../../utils/images/Avenida del mar/habitacionAV.webp"
+import comedorAV from "../../utils/images/Avenida del mar/comedorAV.webp"
+import desayunoAV from "../../utils/images/Avenida del mar/desayunoAV.webp"
+import vistaAV from "../../utils/images/Avenida del mar/vistaAV.webp"
 
 // Hotel Biondis
-import portadaHB from "../../utils/images/Hotel biondis/portadaHB.jpg"
-import habitacion1HB from "../../utils/images/Hotel biondis/habitacion1HB.jpg"
-import habitacion2HB from "../../utils/images/Hotel biondis/habitacion2HB.jpg"
-import bañoHB from "../../utils/images/Hotel biondis/bañoHB.jpg"
-import piletaHB from "../../utils/images/Hotel biondis/piletaHB.jpg"
+import portadaHB from "../../utils/images/Hotel biondis/portadaHB.webp"
+import habitacion1HB from "../../utils/images/Hotel biondis/habitacion1HB.webp"
+import habitacion2HB from "../../utils/images/Hotel biondis/habitacion2HB.webp"
+import bañoHB from "../../utils/images/Hotel biondis/bañoHB.webp"
+import piletaHB from "../../utils/images/Hotel biondis/piletaHB.webp"
 
 // Conte Hotel
-import portadaCH from "../../utils/images/Conte Hotel/portadaCH.jpeg"
-import exteriorCH from "../../utils/images/Conte Hotel/exteriorCH.jpg"
+import portadaCH from "../../utils/images/Conte Hotel/portadaCH.webp"
+import exteriorCH from "../../utils/images/Conte Hotel/exteriorCH.webp"
 import comedorCH from "../../utils/images/Conte Hotel/comedorCH.jpg"
 import desayunoCH from "../../utils/images/Conte Hotel/desayunoCH.jpg"
 import habitacionCH from "../../utils/images/Conte Hotel/habitacionCH.jpg"
 
 // El Nihuil
-import portadaEN from "../../utils/images/El Nihuil/portadaEN.jpg"
-import habitacionEN from "../../utils/images/El Nihuil/habitacionEN.jpeg"
-import bañoEN from "../../utils/images/El Nihuil/bañoEN.jpeg"
-import comedorEN from "../../utils/images/El Nihuil/comedorEN.jpeg"
-import piletaEN from "../../utils/images/El Nihuil/piletaEN.png"
+import portadaEN from "../../utils/images/El Nihuil/portadaEN.webp"
+import habitacionEN from "../../utils/images/El Nihuil/habitacionEN.webp"
+import bañoEN from "../../utils/images/El Nihuil/bañoEN.webp"
+import comedorEN from "../../utils/images/El Nihuil/comedorEN.webp"
+import piletaEN from "../../utils/images/El Nihuil/piletaEN.webp"
 
 // Convenios
-import portadaTDS from "../../utils/images/Convenios/tierraDelSol.png"
-import portadaCBM from "../../utils/images/Convenios/cbym.jpg"
-import portadaCVC from "../../utils/images/Convenios/cvc.jpg"
-import portadaHL from "../../utils/images/Convenios/hotelLujan.jpg"
+import portadaTDS from "../../utils/images/Convenios/tierraDelSol.webp"
+import portadaCBM from "../../utils/images/Convenios/cbym.webp"
+import portadaCVC from "../../utils/images/Convenios/cvc.webp"
+import portadaHL from "../../utils/images/Convenios/hotelLujan.webp"
 
 
 export const SERVICIOS_MAP = {

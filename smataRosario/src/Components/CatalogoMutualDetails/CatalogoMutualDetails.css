@@ -1,0 +1,377 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Barlow:wght@300;400;500;600&display=swap');
+
+.cmd-page {
+    font-family: 'Barlow', sans-serif;
+    background: #fff;
+    min-height: 100vh;
+    padding-bottom: 4rem;
+}
+
+/* ── LOADING ── */
+.cmd-loading {
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cmd-spinner {
+    width: 40px;
+    height: 40px;
+    border: 3px solid #e0e0e0;
+    border-top-color: #22c55e;
+    border-radius: 50%;
+    animation: cmd-spin 0.8s linear infinite;
+}
+
+@keyframes cmd-spin {
+    to { transform: rotate(360deg); }
+}
+
+/* ── BREADCRUMB ── */
+.cmd-breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem 2.5rem;
+    font-size: 0.78rem;
+    color: #9ab89a;
+    border-bottom: 1px solid #f0f0f0;
+    flex-wrap: wrap;
+}
+
+.cmd-breadcrumb a {
+    color: #6b8f6b;
+    text-decoration: none;
+    transition: color 0.15s;
+}
+
+.cmd-breadcrumb a:hover {
+    color: #22c55e;
+}
+
+.cmd-breadcrumb-actual {
+    color: #1a2e1a;
+    font-weight: 600;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 200px;
+}
+
+/* ── BODY ── */
+.cmd-body {
+    display: grid;
+    grid-template-columns: 1fr 420px;
+    gap: 3rem;
+    padding: 2.5rem 2.5rem;
+    max-width: 1100px;
+    margin: 0 auto;
+    align-items: start;
+}
+
+/* ── GALERÍA ── */
+.cmd-galeria {
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+}
+
+.cmd-img-principal-wrap {
+    position: relative;
+    border-radius: 14px;
+    overflow: hidden;
+    background: #f4f4f2;
+    aspect-ratio: 4/3;
+}
+
+.cmd-img-principal {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s;
+}
+
+.cmd-img-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 5rem;
+    background: #f4f4f2;
+}
+
+/* Flechas galería */
+.cmd-galeria-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.85);
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    color: #1a2e1a;
+    z-index: 2;
+    transition: background 0.2s, transform 0.2s;
+    backdrop-filter: blur(4px);
+}
+
+.cmd-galeria-btn:hover {
+    background: #22c55e;
+    color: #fff;
+    transform: translateY(-50%) scale(1.08);
+}
+
+.cmd-galeria-btn--prev { left: 0.75rem; }
+.cmd-galeria-btn--next { right: 0.75rem; }
+
+/* Badges */
+.cmd-badge-destacado {
+    position: absolute;
+    top: 0.75rem;
+    left: 0.75rem;
+    background: #22c55e;
+    color: #fff;
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 0.25rem 0.65rem;
+    border-radius: 5px;
+    z-index: 2;
+}
+
+.cmd-badge-agotado {
+    position: absolute;
+    top: 0.75rem;
+    right: 0.75rem;
+    background: rgba(0,0,0,0.65);
+    color: #fff;
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 0.25rem 0.65rem;
+    border-radius: 5px;
+    z-index: 2;
+}
+
+/* Thumbnails */
+.cmd-thumbnails {
+    display: flex;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+}
+
+.cmd-thumb {
+    width: 72px;
+    height: 72px;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 2px solid #e4e4e0;
+    cursor: pointer;
+    padding: 0;
+    background: #f4f4f2;
+    transition: border-color 0.18s;
+    flex-shrink: 0;
+}
+
+.cmd-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.cmd-thumb.active {
+    border-color: #22c55e;
+}
+
+.cmd-thumb:hover {
+    border-color: #22c55e;
+}
+
+/* ── INFO ── */
+.cmd-info {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    position: sticky;
+    top: 80px;
+}
+
+.cmd-info-categoria {
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #22c55e;
+}
+
+.cmd-info-nombre {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+    font-weight: 800;
+    color: #1a2e1a;
+    line-height: 1.05;
+    text-transform: uppercase;
+}
+
+.cmd-info-desc {
+    font-size: 0.9rem;
+    color: #5a7a5a;
+    line-height: 1.7;
+}
+
+.cmd-info-precio {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 2.4rem;
+    font-weight: 800;
+    color: #1a2e1a;
+    letter-spacing: -0.5px;
+}
+
+/* Descripción larga */
+.cmd-info-larga {
+    border-top: 1px solid #f0f0f0;
+    padding-top: 1rem;
+}
+
+.cmd-info-larga h3 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    color: #1a2e1a;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 0.5rem;
+}
+
+.cmd-info-larga p {
+    font-size: 0.88rem;
+    color: #5a7a5a;
+    line-height: 1.75;
+}
+
+/* Actions */
+.cmd-info-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+    border-top: 1px solid #f0f0f0;
+    padding-top: 1rem;
+}
+
+.cmd-wsp-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    background: #25d366;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 10px;
+    padding: 0.95rem;
+    font-family: 'Barlow', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 700;
+    transition: background 0.2s, transform 0.15s;
+}
+
+.cmd-wsp-btn:hover {
+    background: #1ebe5d;
+    transform: translateY(-2px);
+}
+
+.cmd-back-btn {
+    background: transparent;
+    border: 1.5px solid #e4e4e0;
+    border-radius: 10px;
+    padding: 0.75rem;
+    font-family: 'Barlow', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #6b8f6b;
+    cursor: pointer;
+    transition: border-color 0.18s, color 0.18s;
+}
+
+.cmd-back-btn:hover {
+    border-color: #1a2e1a;
+    color: #1a2e1a;
+}
+
+.cmd-agotado-msg {
+    background: #f4f4f2;
+    border-radius: 10px;
+    padding: 1rem;
+    font-size: 0.88rem;
+    color: #9ab89a;
+    text-align: center;
+    font-weight: 500;
+}
+
+/* Info envío */
+.cmd-info-envio {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    background: #f4faf4;
+    border: 1px solid #d1f0d1;
+    border-radius: 10px;
+    padding: 0.9rem 1rem;
+}
+
+.cmd-info-envio-icon {
+    font-size: 1.4rem;
+    flex-shrink: 0;
+}
+
+.cmd-info-envio strong {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #1a2e1a;
+    margin-bottom: 0.15rem;
+}
+
+.cmd-info-envio p {
+    font-size: 0.78rem;
+    color: #6b8f6b;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+    .cmd-body {
+        grid-template-columns: 1fr;
+        padding: 1.5rem 1.25rem;
+        gap: 2rem;
+    }
+
+    .cmd-info {
+        position: static;
+    }
+
+    .cmd-breadcrumb {
+        padding: 0.85rem 1.25rem;
+    }
+}
+
+@media (max-width: 560px) {
+    .cmd-thumb {
+        width: 58px;
+        height: 58px;
+    }
+
+    .cmd-info-precio {
+        font-size: 2rem;
+    }
+}

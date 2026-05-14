@@ -144,7 +144,7 @@ export default function CatalogoMutualDetails() {
                             </div>
                         ) : (
                             <a
-                                href={`https://wa.me/5493412555424?text=${mensajeWsp}`}
+                                href={`https://wa.me/5493413130317?text=${mensajeWsp}`}
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="cmd-wsp-btn"

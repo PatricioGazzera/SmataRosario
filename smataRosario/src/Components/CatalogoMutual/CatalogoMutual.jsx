@@ -13,7 +13,7 @@ import {
     FaCircleExclamation,
 } from '../../utils/icons/icons';
 import { useAuth } from '../../context/AuthContext.jsx';
-import ProductForm from '../ProductForm/ProductForm';
+import ProductForm from '../ProductForm/ProductForm.jsx';
 
 const CATEGORIAS = ['Todos', 'Televisores', 'Electrodomésticos', 'Colchones y Sommiers', 'Hogar', 'Varios'];
 
@@ -28,7 +28,7 @@ export default function CatalogoMutual() {
     const [categoriaActiva, setCategoriaActiva] = useState('Todos');
     const [busqueda, setBusqueda] = useState('');
 
-    // ProductoForm state
+    // ProductForm state
     const [showForm, setShowForm] = useState(false);
     const [editingProducto, setEditingProducto] = useState(null);
 
@@ -232,6 +232,24 @@ export default function CatalogoMutual() {
                                         {producto.estado === 'agotado' && (
                                             <span className="cm-badge-agotado">Agotado</span>
                                         )}
+                                        {session && (
+                                            <div className="cm-card-admin-actions">
+                                                <button
+                                                    className="cm-card-admin-edit"
+                                                    onClick={(e) => { e.stopPropagation(); handleEditProducto(producto); }}
+                                                    title="Editar"
+                                                >
+                                                    <FaPenToSquare />
+                                                </button>
+                                                <button
+                                                    className="cm-card-admin-delete"
+                                                    onClick={(e) => { e.stopPropagation(); handleDeleteClick(producto); }}
+                                                    title="Eliminar"
+                                                >
+                                                    <FaTrashCan />
+                                                </button>
+                                            </div>
+                                        )}
                                     </div>
 
                                     <div className="cm-card-body">
@@ -269,7 +287,7 @@ export default function CatalogoMutual() {
                         </p>
                     </div>
                     <a
-                        href="https://wa.me/5493413130317?text=Hola%20quiero%20información%20sobre%20el%20catálogo%20mutual."
+                        href="https://wa.me/5493412555424?text=Hola%20quiero%20información%20sobre%20el%20catálogo%20mutual."
                         target="_blank"
                         rel="noopener noreferrer"
                         className="cm-cta-btn"

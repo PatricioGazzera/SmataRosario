@@ -147,7 +147,7 @@ export default function ProductForm({ open, onClose, onSuccess, producto = null 
   if (!open) return null;
 
   return (
-    <div className="nf-backdrop" onClick={(e) => e.target === e.currentTarget && onClose()}>
+    <div className="nf-backdrop">
       <div className="nf-modal">
 
         {/* HEADER */}

@@ -187,7 +187,7 @@ export default function Mutual() {
             </p>
             <div className="hero-btns">
               <a className="btn-primary" href='#afiliarse'>Asociarse ahora</a>
-              <a className="btn-outline" href='#beneficios'>Ver Beneficios de Socio</a>
+              <a className="btn-outline" href='#beneficios'>Ver Beneficios de Afiliado</a>
             </div>
           </div>
         </section>

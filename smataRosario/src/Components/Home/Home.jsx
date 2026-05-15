@@ -165,7 +165,7 @@ export default function SmataRosario() {
                     </p>
                     <div className="hero-btns">
                         <a className="btn-primary" href='#afiliarse'>Afiliarse a SMATA</a>
-                        <a className="btn-outline" href='#beneficios'>Ver Beneficios de Socio</a>
+                        <a className="btn-outline" href='#beneficios'>Ver Beneficios de Afiliado</a>
                     </div>
                 </div>
             </section>
@@ -178,7 +178,7 @@ export default function SmataRosario() {
                         <h2 className="section-title">Servicios de Acceso Rápido</h2>
                     </div>
                     <p className="section-desc">
-                        Todo lo que necesitás como socio, accesible con un clic.
+                        Todo lo que necesitás como Afiliado, accesible con un clic.
                         Desde turnos médicos hasta planificación de vacaciones.
                     </p>
                 </div>

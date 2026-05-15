@@ -19,9 +19,9 @@ const BENEFICIOS = [
     title: 'Gimnasio y Bienestar',
     desc: 'Accedé al gimnasio exclusivo para afiliados, con entrenadores personales y programas de bienestar diseñados para mantenerte en forma y saludable.',
     image: gimnasioImg,
-    telefono: '341 618-6835',
-    whatsapp: '5493416186835',
-    email: 'entrada2@smatarosario.com.ar',
+    telefono: '341 313-0317',
+    whatsapp: '5493413130317',
+    email: 'mutualmecanica2@smatarosario.com.ar',
     contacto: 'Para más información comunicarse con nuestra sede o por WhatsApp.',
     info: [
       {

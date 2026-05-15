@@ -35,10 +35,11 @@ const beneficts = [
   },
   {
     title: 'Gimnasio y Bienestar',
-    desc: 'Accedé al gimnasio exclusivo para afiliados, con entrenadores personales y programas de bienestar.',
+    desc: 'Accedé a un descuento exclusivo para afiliados en el gimnasio, con entrenadores personales y programas de bienestar.',
     link: 'Conocé Más',
     route: '/beneficios/gimnasio-bienestar',
     image: gimnasioImg,
+    mutual: true,
   },
   {
     title: 'Subsidios y Descuentos',

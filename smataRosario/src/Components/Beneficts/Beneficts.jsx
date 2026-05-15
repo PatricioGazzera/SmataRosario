@@ -34,14 +34,6 @@ const beneficts = [
     image: farmaciaImg,
   },
   {
-    title: 'Gimnasio y Bienestar',
-    desc: 'Accedé a un descuento exclusivo para afiliados en el gimnasio, con entrenadores personales y programas de bienestar.',
-    link: 'Conocé Más',
-    route: '/beneficios/gimnasio-bienestar',
-    image: gimnasioImg,
-    mutual: true,
-  },
-  {
     title: 'Subsidios y Descuentos',
     desc: 'Accedé a subsidios y descuentos exclusivos para nuestros afiliados.',
     link: 'Conocé Más',
@@ -82,6 +74,14 @@ const beneficts = [
     link: 'Conocé Más',
     route: '/beneficios/ecco',
     image: eccoImg,
+  },
+  {
+    title: 'Gimnasio y Bienestar',
+    desc: 'Accedé a un descuento exclusivo para afiliados en el gimnasio, con entrenadores personales y programas de bienestar.',
+    link: 'Conocé Más',
+    route: '/beneficios/gimnasio-bienestar',
+    image: gimnasioImg,
+    mutual: true,
   },
   {
     title: 'Transporte el día de tu Boda',

@@ -287,7 +287,7 @@ export default function CatalogoMutual() {
                         </p>
                     </div>
                     <a
-                        href="https://wa.me/5493412555424?text=Hola%20quiero%20información%20sobre%20el%20catálogo%20mutual."
+                        href="https://wa.me/5493413130317?text=Hola%20quiero%20información%20sobre%20el%20catálogo%20mutual."
                         target="_blank"
                         rel="noopener noreferrer"
                         className="cm-cta-btn"

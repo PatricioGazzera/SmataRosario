@@ -15,7 +15,7 @@ import {
 import { useAuth } from '../../context/AuthContext.jsx';
 import ProductForm from '../ProductForm/ProductForm.jsx';
 
-const CATEGORIAS = ['Todos', 'Televisores', 'Electrodomésticos', 'Colchones y Sommiers', 'Hogar', 'Varios'];
+const CATEGORIAS = ['Todos', 'Televisores', 'Electrodomésticos', 'Audio', 'Colchones y Sommiers', 'Hogar', 'Varios'];
 
 const formatPrecio = (precio) =>
     new Intl.NumberFormat('es-AR', { style: 'currency', currency: 'ARS', maximumFractionDigits: 0 }).format(precio);

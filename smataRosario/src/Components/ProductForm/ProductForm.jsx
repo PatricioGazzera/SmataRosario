@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { supabase } from "../../utils/supabase";
 import "./ProductForm.css";
 
-const CATEGORIAS = ["Televisores", "Electrodomésticos", "Colchones y Sommiers", "Hogar", "Varios"];
+const CATEGORIAS = ["Televisores", "Electrodomésticos", "Audio", "Colchones y Sommiers", "Hogar", "Varios"];
 const BUCKET = "productos-imagenes";
 
 const formatPrecio = (precio) => {

@@ -166,7 +166,7 @@ export const HOTELES = [
         destino: 'San Luis',
         tipo: 'propio',
         rating: 4.7, // COMPLETAR
-        precio_socio: 77500, // COMPLETAR — precio base para la card
+        precio_socio: 85300, // COMPLETAR — precio base para la card
         imagen_portada: portada17,
         imagenes: [
             hotel17,
@@ -183,10 +183,10 @@ export const HOTELES = [
                 destacada: false,
                 amenities: [], // COMPLETAR
                 tarifas: [
-                    { categoria: 'Mayor', precio_afiliado: 77500, precio_invitado: 132500, precio_particular: 194500 }, // COMPLETAR
-                    { categoria: 'Menor de 12', precio_afiliado: 53700, precio_invitado: 104200, precio_particular: 145900 }, // COMPLETAR
-                    { categoria: 'Menor de 6', precio_afiliado: 37000, precio_invitado: 92600, precio_particular: 135900 }, // COMPLETAR
-                    { categoria: 'Menor de 3', precio_afiliado: 'Sin Cargo', precio_invitado: 33100, precio_particular: 76400 }, // COMPLETAR
+                    { categoria: 'Mayor', precio_afiliado: 85300, precio_invitado: 145800, precio_particular: 157600 }, // COMPLETAR
+                    { categoria: 'Menor de 12', precio_afiliado: 59000, precio_invitado: 114600, precio_particular: 103400 }, // COMPLETAR
+                    { categoria: 'Menor de 6', precio_afiliado: 40700, precio_invitado: 101900, precio_particular: 92400 }, // COMPLETAR
+                    { categoria: 'Menor de 3', precio_afiliado: 'Sin Cargo', precio_invitado: 36400, precio_particular: 27100 }, // COMPLETAR
                 ],
             },
             {
@@ -195,10 +195,10 @@ export const HOTELES = [
                 destacada: true,
                 amenities: [], // COMPLETAR
                 tarifas: [
-                    { categoria: 'Mayor', precio_afiliado: 101800, precio_invitado: 172800, precio_particular: 251700 }, // COMPLETAR
-                    { categoria: 'Menor de 12', precio_afiliado: 76800, precio_invitado: 135900, precio_particular: 193200 }, // COMPLETAR
-                    { categoria: 'Menor de 6', precio_afiliado: 60800, precio_invitado: 99000, precio_particular: 143300 }, // COMPLETAR
-                    { categoria: 'Menor de 3', precio_afiliado: 'Sin Cargo', precio_invitado: 43000, precio_particular: 89100 }, // COMPLETAR
+                    { categoria: 'Mayor', precio_afiliado: 112000, precio_invitado: 190100, precio_particular: 220800 }, // COMPLETAR
+                    { categoria: 'Menor de 12', precio_afiliado: 84500, precio_invitado: 150000, precio_particular: 155300 }, // COMPLETAR
+                    { categoria: 'Menor de 6', precio_afiliado: 66900, precio_invitado: 108900, precio_particular: 100400 }, // COMPLETAR
+                    { categoria: 'Menor de 3', precio_afiliado: 'Sin Cargo', precio_invitado: 47300, precio_particular: 41100 }, // COMPLETAR
                 ],
             },
         ],
@@ -391,7 +391,7 @@ export const HOTELES = [
         destino: 'Mendoza',
         tipo: 'propio',
         rating: 4.5, // COMPLETAR
-        precio_socio: 62700, // COMPLETAR
+        precio_socio: 69000, // COMPLETAR
         imagen_portada: portadaEN,
         imagenes: [
             habitacionEN,
@@ -408,9 +408,9 @@ export const HOTELES = [
                 destacada: false,
                 amenities: [],
                 tarifas: [
-                    { categoria: 'Mayor', precio_afiliado: 62700, precio_invitado: 86100, precio_particular: '-' },
-                    { categoria: 'Menor de 12', precio_afiliado: 39500, precio_invitado: 55800, precio_particular: '-' },
-                    { categoria: 'Menor de 6', precio_afiliado: 19200, precio_invitado: 37400, precio_particular: '-' },
+                    { categoria: 'Mayor', precio_afiliado: 69000, precio_invitado: 94700, precio_particular: '-' },
+                    { categoria: 'Menor de 12', precio_afiliado: 43400, precio_invitado: 61400, precio_particular: '-' },
+                    { categoria: 'Menor de 6', precio_afiliado: 21100, precio_invitado: 41100, precio_particular: '-' },
                     { categoria: 'Menor de 3', precio_afiliado: 'Sin Cargo', precio_invitado: 'Sin Cargo', precio_particular: '-' },
                 ],
             },

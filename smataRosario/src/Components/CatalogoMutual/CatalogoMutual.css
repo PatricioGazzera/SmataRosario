@@ -465,7 +465,7 @@
     width: 240px;
     flex-shrink: 0;
     background: #0f1a0f;
-    min-height: calc(100vh - 420px);
+    min-height: calc(100vh - 620px);
     padding: 1.5rem 1rem;
     display: flex;
     flex-direction: column;

@@ -153,7 +153,7 @@ export default function CatalogoMutual() {
                             Nuevo producto
                         </button>
 
-                        <div className="cm-admin-panel-divider" />
+                        {/* <div className="cm-admin-panel-divider" />
 
                         <p className="cm-admin-panel-label">Acciones por producto</p>
                         <ul className="cm-admin-panel-list">
@@ -183,6 +183,7 @@ export default function CatalogoMutual() {
                                 <li className="cm-admin-panel-empty">No hay productos cargados.</li>
                             )}
                         </ul>
+                        */}
                     </aside>
                 )}
 

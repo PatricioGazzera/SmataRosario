@@ -100,7 +100,7 @@ const areas = [
         telefono: '341 6124513',
         whatsapp: '5493416124513',
         whatsappLabel: 'WhatsApp Discapacidad',
-        email: 'auditoriametal1@smatarosario.com.ar',
+        email: 'auditoriametal2@smatarosario.com.ar',
     },
     {
         id: 'aportes',

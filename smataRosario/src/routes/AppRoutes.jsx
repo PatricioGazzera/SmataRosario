@@ -50,8 +50,8 @@ export default function AppRoutes() {
             <Route path='/turismo' element={<Hotels/>}/>
             <Route path='/turismo/:id' element={<HotelDetails/>}/>
             <Route path='/sobre-smata' element={<AboutUs />}/>
-            <Route path='/catalogo-mutual' element={<CatalogoMutual />}/>
-            <Route path='/catalogo-mutual/:id' element={<CatalogoMutualDetails />}/>
+           {/*<Route path='/catalogo-mutual' element={<CatalogoMutual />}/>
+            <Route path='/catalogo-mutual/:id' element={<CatalogoMutualDetails />}/> */}
 
             {/* LOGIN ADMIN */}
             <Route path='/admin/login' element={<AdminLogin />}/>

@@ -210,7 +210,7 @@ export default function Mutual() {
       </a>
     </div>
 
-    <div className="benefits-cta">
+{/*   <div className="benefits-cta">
       <div className="benefits-cta-text">
         <h2 className="benefits-cta-title">Catálogo Mutual</h2>
         <p className="benefits-cta-desc">
@@ -223,6 +223,7 @@ export default function Mutual() {
         Ver catálogo →
       </a>
     </div>
+    */} 
   </div>
 </section>
 
